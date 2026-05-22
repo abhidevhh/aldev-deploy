@@ -27,7 +27,7 @@ import {
 	images,
 } from '#app/images.tsx'
 import { type RootLoaderType } from '#app/root.tsx'
-import { getBlogRecommendations } from '#app/utils/blog.server.ts'
+import { getBlogRecommendations } from '#app/utils/blog.server'
 import {
 	getAbhiEpisodePath,
 	getFeaturedEpisode,
@@ -43,8 +43,8 @@ import {
 } from '#app/utils/misc.ts'
 import { ChatsEpisodeUIStateProvider } from '#app/utils/providers.tsx'
 import { getSocialMetas } from '#app/utils/seo.ts'
-import { getSeasonListItems } from '#app/utils/simplecast.server.ts'
-import { getServerTimeHeader } from '#app/utils/timing.server.ts'
+import { getSeasonListItems } from '#app/utils/simplecast.server'
+import { getServerTimeHeader } from '#app/utils/timing.server'
 import { type Route } from './+types/_layout'
 
 export async function loader({ request }: Route.LoaderArgs) {

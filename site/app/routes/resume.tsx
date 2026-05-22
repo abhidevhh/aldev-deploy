@@ -10,7 +10,7 @@ import { Grid } from '#app/components/grid.tsx'
 import { H4, Paragraph } from '#app/components/typography.tsx'
 import resumeStyles from '#app/styles/resume.css?url'
 import { externalLinks } from '#app/external-links.tsx'
-import { getResumeData, type ResumeData } from '#app/utils/resume.server.ts'
+import { getResumeData, type ResumeData } from '#app/utils/resume.server'
 import { type Route } from './+types/resume'
 
 export const meta: MetaFunction = () => [

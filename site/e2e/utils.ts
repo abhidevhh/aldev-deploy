@@ -8,7 +8,7 @@ import {
 	PrismaClient,
 	type User,
 } from '#app/utils/prisma-generated.server/client.ts'
-import { getSession } from '../app/utils/session.server.ts'
+import { getSession } from '../app/utils/session.server'
 import { createUser } from '../prisma/seed-utils.ts'
 
 type MSWData = {

@@ -1,5 +1,5 @@
 import { redirect } from 'react-router'
-import { getSeasonListItems } from '#app/utils/simplecast.server.ts'
+import { getSeasonListItems } from '#app/utils/simplecast.server'
 import { type Route } from './+types/index'
 
 export async function loader({ request }: Route.LoaderArgs) {

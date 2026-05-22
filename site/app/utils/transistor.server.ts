@@ -14,17 +14,17 @@ import {
 	isAbortError,
 	throwIfAborted,
 	waitForDelay,
-} from './abort-utils.server.ts'
-import { cache, cachified, shouldForceFresh } from './cache.server.ts'
+} from './abort-utils.server'
+import { cache, cachified, shouldForceFresh } from './cache.server'
 import {
 	getAbhiCallEpisodeArtworkAvatar,
 	getAbhiCallEpisodeArtworkUrl,
 } from './abhi-call-artwork.ts'
 import { getEpisodePath } from './abhi-call.ts'
-import { getEnv } from './env.server.ts'
-import { stripHtml } from './markdown.server.ts'
-import { type Timings } from './timing.server.ts'
-import { getDirectAvatarForUser } from './user-info.server.ts'
+import { getEnv } from './env.server'
+import { stripHtml } from './markdown.server'
+import { type Timings } from './timing.server'
+import { getDirectAvatarForUser } from './user-info.server'
 
 function getErrorCode(error: unknown) {
 	if (!error || typeof error !== 'object') return ''

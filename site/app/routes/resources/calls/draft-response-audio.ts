@@ -1,6 +1,6 @@
-import { createDraftAudioResponse } from '#app/utils/draft-audio-response.server.ts'
-import { prisma } from '#app/utils/prisma.server.ts'
-import { requireAdminUser } from '#app/utils/session.server.ts'
+import { createDraftAudioResponse } from '#app/utils/draft-audio-response.server'
+import { prisma } from '#app/utils/prisma.server'
+import { requireAdminUser } from '#app/utils/session.server'
 import { type Route } from './+types/draft-response-audio'
 
 export async function loader({ request }: Route.LoaderArgs) {

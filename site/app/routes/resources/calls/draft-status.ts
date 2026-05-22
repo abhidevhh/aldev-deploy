@@ -1,6 +1,6 @@
 import { data as json } from 'react-router'
-import { prisma } from '#app/utils/prisma.server.ts'
-import { requireAdminUser } from '#app/utils/session.server.ts'
+import { prisma } from '#app/utils/prisma.server'
+import { requireAdminUser } from '#app/utils/session.server'
 import { type Route } from './+types/draft-status'
 
 /**

@@ -2,7 +2,7 @@ import {
 	handleAbhiCallAudioProcessorEvent,
 	parseAbhiCallAudioProcessorEvent,
 	verifyAbhiCallAudioProcessorCallbackSignature,
-} from '#app/utils/abhi-call-audio-processor-callback.server.ts'
+} from '#app/utils/abhi-call-audio-processor-callback.server'
 
 const callbackTimestampHeader = 'x-abhi-call-audio-timestamp'
 const callbackSignatureHeader = 'x-abhi-call-audio-signature'

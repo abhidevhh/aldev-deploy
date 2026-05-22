@@ -1,9 +1,9 @@
-import { getEnv } from '../app/utils/env.server.ts'
-import { getInstanceInfo } from '../app/utils/litefs-js.server.ts'
+import { getEnv } from '../app/utils/env.server'
+import { getInstanceInfo } from '../app/utils/litefs-js.server'
 import {
 	deleteExpiredSessions,
 	deleteExpiredVerifications,
-} from '../app/utils/prisma.server.ts'
+} from '../app/utils/prisma.server'
 
 type CleanupController = {
 	stop: () => Promise<void>

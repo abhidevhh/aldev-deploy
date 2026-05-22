@@ -1,8 +1,8 @@
 import {
 	getWorkersAiRunUrl,
 	unwrapWorkersAiText,
-} from './cloudflare-ai-utils.server.ts'
-import { getEnv } from './env.server.ts'
+} from './cloudflare-ai-utils.server'
+import { getEnv } from './env.server'
 
 type AbhiCallEpisodeMetadata = {
 	title: string

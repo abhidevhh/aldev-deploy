@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Link } from 'react-router'
-import { type Testimonial } from '#app/utils/testimonials.server.ts'
+import { type Testimonial } from '#app/utils/testimonials.server'
 import { ArrowButton } from '../arrow-button.tsx'
 import { H2 } from '../typography.tsx'
 import { TestimonialCard } from './testimonial-card.tsx'

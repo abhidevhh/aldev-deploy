@@ -1,5 +1,5 @@
 import { createCookieSessionStorage } from 'react-router'
-import { getEnv } from './env.server.ts'
+import { getEnv } from './env.server'
 const authFlowExpirationTime = 1000 * 60 * 30
 
 const loginInfoStorage = createCookieSessionStorage({

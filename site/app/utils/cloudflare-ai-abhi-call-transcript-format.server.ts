@@ -1,8 +1,8 @@
 import {
 	getWorkersAiRunUrl,
 	unwrapWorkersAiText,
-} from './cloudflare-ai-utils.server.ts'
-import { getEnv } from './env.server.ts'
+} from './cloudflare-ai-utils.server'
+import { getEnv } from './env.server'
 
 function clampNumber(value: number, min: number, max: number) {
 	return Math.min(max, Math.max(min, value))

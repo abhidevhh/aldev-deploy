@@ -15,9 +15,9 @@ import {
 	getBlogRecommendations,
 	getReaderCount,
 	getTotalPostReads,
-} from '#app/utils/blog.server.ts'
+} from '#app/utils/blog.server'
 import { getRankingLeader } from '#app/utils/blog.ts'
-import { getBlogMdxListItems } from '#app/utils/mdx.server.ts'
+import { getBlogMdxListItems } from '#app/utils/mdx.server'
 import {
 	formatNumber,
 	getOptionalTeam,
@@ -25,8 +25,8 @@ import {
 	teams,
 	useCapturedRouteError,
 } from '#app/utils/misc-react.tsx'
-import { getUser } from '#app/utils/session.server.ts'
-import { getServerTimeHeader } from '#app/utils/timing.server.ts'
+import { getUser } from '#app/utils/session.server'
+import { getServerTimeHeader } from '#app/utils/timing.server'
 import { type Route } from './+types/index'
 
 export async function loader({ request }: Route.LoaderArgs) {

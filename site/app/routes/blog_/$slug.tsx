@@ -26,9 +26,9 @@ import {
 	getBlogReadRankings,
 	getBlogRecommendations,
 	getTotalPostReads,
-} from '#app/utils/blog.server.ts'
+} from '#app/utils/blog.server'
 import { getRankingLeader } from '#app/utils/blog.ts'
-import { getBlogMdxListItems, getMdxPage } from '#app/utils/mdx.server.ts'
+import { getBlogMdxListItems, getMdxPage } from '#app/utils/mdx.server'
 import {
 	getBannerAltProp,
 	getBannerTitleProp,
@@ -41,11 +41,11 @@ import {
 	reuseUsefulLoaderHeaders,
 } from '#app/utils/misc.ts'
 import { type NotFoundMatch } from '#app/utils/not-found-matches.ts'
-import { getNotFoundSuggestions } from '#app/utils/not-found-suggestions.server.ts'
-import { prisma } from '#app/utils/prisma.server.ts'
-import { getUser } from '#app/utils/session.server.ts'
+import { getNotFoundSuggestions } from '#app/utils/not-found-suggestions.server'
+import { prisma } from '#app/utils/prisma.server'
+import { getUser } from '#app/utils/session.server'
 import { teamEmoji, useTeam } from '#app/utils/team-provider.tsx'
-import { getServerTimeHeader } from '#app/utils/timing.server.ts'
+import { getServerTimeHeader } from '#app/utils/timing.server'
 import { useRootData } from '#app/utils/use-root-data.ts'
 import { markAsRead } from '../action/mark-as-read.tsx'
 import { type Route } from './+types/$slug'

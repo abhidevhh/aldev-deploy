@@ -13,7 +13,7 @@ vi.mock('@epic-web/cachified', () => ({
 	verboseReporter: vi.fn(() => undefined),
 }))
 
-vi.mock('../cache.server.ts', () => ({
+vi.mock('../cache.server', () => ({
 	cache: {
 		name: 'test-cache',
 		get: vi.fn(),
@@ -23,13 +23,13 @@ vi.mock('../cache.server.ts', () => ({
 	shouldForceFresh: vi.fn(async () => false),
 }))
 
-vi.mock('../github.server.ts', () => ({
+vi.mock('../github.server', () => ({
 	downloadFile: vi.fn(async () => ''),
 }))
 
-import { getGitHubContentPath } from '../github-content-paths.server.ts'
-import { getPeople } from '../credits.server.ts'
-import { downloadFile } from '../github.server.ts'
+import { getGitHubContentPath } from '../github-content-paths.server'
+import { getPeople } from '../credits.server'
+import { downloadFile } from '../github.server'
 
 test('getPeople normalizes stale cached people with missing id values', async () => {
 	const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {})

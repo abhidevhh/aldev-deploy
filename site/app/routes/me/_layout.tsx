@@ -24,7 +24,7 @@ import { getGenericSocialImage, images } from '#app/images.tsx'
 import { type RootLoaderType } from '#app/root.tsx'
 import { FavoriteToggle } from '#app/routes/resources/favorite.tsx'
 import { type KCDHandle } from '#app/types.ts'
-import { handleFormSubmission } from '#app/utils/actions.server.ts'
+import { handleFormSubmission } from '#app/utils/actions.server'
 import { getEpisodePath } from '#app/utils/abhi-call.ts'
 import { getAbhiEpisodePath } from '#app/utils/chats-with-abhi.ts'
 import {
@@ -32,7 +32,7 @@ import {
 	parseEpisodeFavoriteContentId,
 	type FavoriteContentType,
 } from '#app/utils/favorites.ts'
-import { getBlogMdxListItems } from '#app/utils/mdx.server.ts'
+import { getBlogMdxListItems } from '#app/utils/mdx.server'
 import {
 	getDiscordAuthorizeURL,
 	getDisplayUrl,
@@ -47,23 +47,23 @@ import {
 	TEAM_SKIING_MAP,
 	TEAM_SNOWBOARD_MAP,
 } from '#app/utils/onboarding.ts'
-import { prisma } from '#app/utils/prisma.server.ts'
+import { prisma } from '#app/utils/prisma.server'
 import { getSocialMetas } from '#app/utils/seo.ts'
 import {
 	deleteOtherSessions,
 	getSession,
 	requireUser,
-} from '#app/utils/session.server.ts'
-import { getSeasonListItems } from '#app/utils/simplecast.server.ts'
-import { getTalksAndTags } from '#app/utils/talks.server.ts'
-import { getServerTimeHeader } from '#app/utils/timing.server.ts'
-import { getEpisodes } from '#app/utils/transistor.server.ts'
+} from '#app/utils/session.server'
+import { getSeasonListItems } from '#app/utils/simplecast.server'
+import { getTalksAndTags } from '#app/utils/talks.server'
+import { getServerTimeHeader } from '#app/utils/timing.server'
+import { getEpisodes } from '#app/utils/transistor.server'
 import { useRootData } from '#app/utils/use-root-data.ts'
 import {
 	deleteKitCache,
 	deleteDiscordCache,
 	gravatarExistsForEmail,
-} from '#app/utils/user-info.server.ts'
+} from '#app/utils/user-info.server'
 import { type Route } from './+types/_layout'
 
 export const handle: KCDHandle = {

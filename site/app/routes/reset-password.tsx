@@ -6,23 +6,23 @@ import { Grid } from '#app/components/grid.tsx'
 import { HeaderSection } from '#app/components/sections/header-section.tsx'
 import { Spacer } from '#app/components/spacer.tsx'
 import { type KCDHandle } from '#app/types.ts'
-import { getClientSession } from '#app/utils/client.server.ts'
-import { ensurePrimary } from '#app/utils/litefs-js.server.ts'
-import { getLoginInfoSession } from '#app/utils/login.server.ts'
-import { createAndSendPasswordResetVerificationEmail } from '#app/utils/password-reset.server.ts'
+import { getClientSession } from '#app/utils/client.server'
+import { ensurePrimary } from '#app/utils/litefs-js.server'
+import { getLoginInfoSession } from '#app/utils/login.server'
+import { createAndSendPasswordResetVerificationEmail } from '#app/utils/password-reset.server'
 import {
 	getPasswordStrengthError,
 	getPasswordHash,
-} from '#app/utils/password.server.ts'
+} from '#app/utils/password.server'
 import {
 	migrateHomeworkCompletionsToUser,
 	prisma,
-} from '#app/utils/prisma.server.ts'
-import { getSession, getUser } from '#app/utils/session.server.ts'
+} from '#app/utils/prisma.server'
+import { getSession, getUser } from '#app/utils/session.server'
 import {
 	consumeVerification,
 	consumeVerificationForTarget,
-} from '#app/utils/verification.server.ts'
+} from '#app/utils/verification.server'
 import { type Route } from './+types/reset-password'
 
 export const handle: KCDHandle = {

@@ -12,8 +12,8 @@ import {
 	reuseUsefulLoaderHeaders,
 	useDoubleCheck,
 } from '#app/utils/misc-react.tsx'
-import { prisma } from '#app/utils/prisma.server.ts'
-import { requireUser } from '#app/utils/session.server.ts'
+import { prisma } from '#app/utils/prisma.server'
+import { requireUser } from '#app/utils/session.server'
 import { type Route } from './+types/$callId'
 
 export const handle: KCDHandle = {
@@ -53,7 +53,7 @@ export async function action({ params, request }: Route.ActionArgs) {
 	].filter((k): k is string => typeof k === 'string' && k.length > 0)
 	if (keysToDelete.length) {
 		const { deleteAudioObject } =
-			await import('#app/utils/abhi-call-audio-storage.server.ts')
+			await import('#app/utils/abhi-call-audio-storage.server')
 		await Promise.all(
 			keysToDelete.map(async (key) =>
 				deleteAudioObject({ key }).catch(() => {}),

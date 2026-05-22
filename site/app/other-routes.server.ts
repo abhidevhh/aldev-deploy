@@ -1,5 +1,5 @@
 import { type EntryContext } from 'react-router'
-import { getSitemapXml } from './utils/sitemap.server.ts'
+import { getSitemapXml } from './utils/sitemap.server'
 
 type Handler = (
 	request: Request,

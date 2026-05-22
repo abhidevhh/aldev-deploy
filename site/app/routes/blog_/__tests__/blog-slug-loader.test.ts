@@ -6,14 +6,14 @@ const blogServerMocks = vi.hoisted(() => ({
 	getTotalPostReads: vi.fn(),
 }))
 
-vi.mock('#app/utils/blog.server.ts', () => blogServerMocks)
+vi.mock('#app/utils/blog.server', () => blogServerMocks)
 
 const mdxServerMocks = vi.hoisted(() => ({
 	getMdxPage: vi.fn(),
 	getBlogMdxListItems: vi.fn(),
 }))
 
-vi.mock('#app/utils/mdx.server.ts', () => mdxServerMocks)
+vi.mock('#app/utils/mdx.server', () => mdxServerMocks)
 
 const sessionServerMocks = vi.hoisted(() => ({
 	getUser: vi.fn(),
@@ -21,9 +21,9 @@ const sessionServerMocks = vi.hoisted(() => ({
 
 // The route module imports server DB/session helpers; mock them to avoid
 // requiring DATABASE_URL and an actual SQLite DB in unit tests.
-vi.mock('#app/utils/session.server.ts', () => sessionServerMocks)
+vi.mock('#app/utils/session.server', () => sessionServerMocks)
 
-vi.mock('#app/utils/prisma.server.ts', () => ({
+vi.mock('#app/utils/prisma.server', () => ({
 	prisma: {
 		favorite: {
 			findUnique: vi.fn().mockResolvedValue(null),

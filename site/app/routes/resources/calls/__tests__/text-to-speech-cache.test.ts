@@ -22,13 +22,13 @@ const synthesizeSpeechWithWorkersAi = vi.fn(
 	},
 )
 
-vi.mock('#app/utils/cloudflare-ai-text-to-speech.server.ts', () => {
+vi.mock('#app/utils/cloudflare-ai-text-to-speech.server', () => {
 	return {
 		synthesizeSpeechWithWorkersAi,
 	}
 })
 
-vi.mock('#app/utils/session.server.ts', () => {
+vi.mock('#app/utils/session.server', () => {
 	return {
 		getUser: async () => ({ id: 'user_1' }),
 	}
@@ -43,7 +43,7 @@ const rateLimit = vi.fn(() => {
 	}
 })
 
-vi.mock('#app/utils/rate-limit.server.ts', () => {
+vi.mock('#app/utils/rate-limit.server', () => {
 	return { rateLimit }
 })
 

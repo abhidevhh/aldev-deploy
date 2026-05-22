@@ -1,5 +1,5 @@
 import { expect, test, vi } from 'vitest'
-import { requestAbhiCallEpisodeAudioGeneration } from '../abhi-call-audio-processor.server.ts'
+import { requestAbhiCallEpisodeAudioGeneration } from '../abhi-call-audio-processor.server'
 
 test('requestAbhiCallEpisodeAudioGeneration enqueues cloudflare queue message', async () => {
 	vi.clearAllMocks()

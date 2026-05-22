@@ -4,8 +4,8 @@ type WhisperTranscriptionResponse = {
 }
 
 import { Buffer } from 'node:buffer'
-import { getWorkersAiRunUrl } from './cloudflare-ai-utils.server.ts'
-import { getEnv } from './env.server.ts'
+import { getWorkersAiRunUrl } from './cloudflare-ai-utils.server'
+import { getEnv } from './env.server'
 
 export async function transcribeMp3WithWorkersAi({
 	mp3,

@@ -9,12 +9,12 @@ import { HeaderSection } from '#app/components/sections/header-section.tsx'
 import { Spacer } from '#app/components/spacer.tsx'
 import { H2, H6, Paragraph } from '#app/components/typography.tsx'
 import { getImgProps, images } from '#app/images.tsx'
-import { tagKCDSiteSubscriber } from '#app/kit/kit.server.ts'
+import { tagKCDSiteSubscriber } from '#app/kit/kit.server'
 import { type KCDHandle, type Team } from '#app/types.ts'
 import { shuffle } from '#app/utils/cjs/lodash.ts'
-import { getClientSession } from '#app/utils/client.server.ts'
-import { ensurePrimary } from '#app/utils/litefs-js.server.ts'
-import { getLoginInfoSession } from '#app/utils/login.server.ts'
+import { getClientSession } from '#app/utils/client.server'
+import { ensurePrimary } from '#app/utils/litefs-js.server'
+import { getLoginInfoSession } from '#app/utils/login.server'
 import {
 	getDomainUrl,
 	getErrorStack,
@@ -30,19 +30,19 @@ import {
 import {
 	getPasswordHash,
 	getPasswordStrengthError,
-} from '#app/utils/password.server.ts'
+} from '#app/utils/password.server'
 import {
 	migrateHomeworkCompletionsToUser,
 	prisma,
-} from '#app/utils/prisma.server.ts'
-import { sendSignupVerificationEmail } from '#app/utils/send-email.server.ts'
-import { getSession, getUser } from '#app/utils/session.server.ts'
+} from '#app/utils/prisma.server'
+import { sendSignupVerificationEmail } from '#app/utils/send-email.server'
+import { getSession, getUser } from '#app/utils/session.server'
 import { useTeam } from '#app/utils/team-provider.tsx'
 import {
 	consumeVerification,
 	consumeVerificationForTarget,
 	createVerification,
-} from '#app/utils/verification.server.ts'
+} from '#app/utils/verification.server'
 import { type Route } from './+types/signup'
 
 export const handle: KCDHandle = {

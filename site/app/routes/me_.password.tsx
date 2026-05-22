@@ -5,14 +5,14 @@ import { Grid } from '#app/components/grid.tsx'
 import { HeaderSection } from '#app/components/sections/header-section.tsx'
 import { Spacer } from '#app/components/spacer.tsx'
 import { type KCDHandle } from '#app/types.ts'
-import { ensurePrimary } from '#app/utils/litefs-js.server.ts'
+import { ensurePrimary } from '#app/utils/litefs-js.server'
 import {
 	getPasswordHash,
 	getPasswordStrengthError,
 	verifyPassword,
-} from '#app/utils/password.server.ts'
-import { prisma } from '#app/utils/prisma.server.ts'
-import { getSession, requireUser } from '#app/utils/session.server.ts'
+} from '#app/utils/password.server'
+import { prisma } from '#app/utils/prisma.server'
+import { getSession, requireUser } from '#app/utils/session.server'
 import { type Route } from './+types/me_.password'
 
 export const handle: KCDHandle = {

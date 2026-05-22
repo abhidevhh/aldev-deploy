@@ -21,18 +21,18 @@ import {
 	getAllCacheKeys,
 	lruCache,
 	searchCacheKeys,
-} from '#app/utils/cache.server.ts'
+} from '#app/utils/cache.server'
 import {
 	ensureInstance,
 	getAllInstances,
 	getInstanceInfo,
-} from '#app/utils/litefs-js.server.ts'
+} from '#app/utils/litefs-js.server'
 import {
 	useDebounce,
 	useDoubleCheck,
 	useCapturedRouteError,
 } from '#app/utils/misc-react.tsx'
-import { requireAdminUser } from '#app/utils/session.server.ts'
+import { requireAdminUser } from '#app/utils/session.server'
 import { type Route } from './+types/cache.admin'
 
 const deleteAllMatchingIntent = 'delete-all-matching-cache-values'

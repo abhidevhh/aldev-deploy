@@ -1,5 +1,5 @@
-import { getWorkersAiRunUrl } from './cloudflare-ai-utils.server.ts'
-import { getEnv } from './env.server.ts'
+import { getWorkersAiRunUrl } from './cloudflare-ai-utils.server'
+import { getEnv } from './env.server'
 
 type WorkersAiTextToSpeechResponse = {
 	// Some models return base64 audio within JSON.

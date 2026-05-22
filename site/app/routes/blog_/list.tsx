@@ -5,8 +5,8 @@ import { HeroSection } from '#app/components/sections/hero-section.tsx'
 import { Spacer } from '#app/components/spacer.tsx'
 import { H3 } from '#app/components/typography.tsx'
 import { images } from '#app/images.tsx'
-import { markdownToHtmlUnwrapped } from '#app/utils/markdown.server.ts'
-import { getBlogMdxListItems } from '#app/utils/mdx.server.ts'
+import { markdownToHtmlUnwrapped } from '#app/utils/markdown.server'
+import { getBlogMdxListItems } from '#app/utils/mdx.server'
 import { type Route } from './+types/list'
 
 export async function loader({ request }: Route.LoaderArgs) {

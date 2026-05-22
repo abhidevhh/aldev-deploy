@@ -1,15 +1,15 @@
 import { buildImageUrl } from 'cloudinary-build-url'
 import { type GitHubFile, type MdxPage } from '#app/types.ts'
-import { compileMdx } from '#app/utils/compile-mdx.server.ts'
-import { getGitHubContentPath } from '#app/utils/github-content-paths.server.ts'
+import { compileMdx } from '#app/utils/compile-mdx.server'
+import { getGitHubContentPath } from '#app/utils/github-content-paths.server'
 import {
 	downloadDirList,
 	downloadMdxFileOrDirectory,
-} from '#app/utils/github.server.ts'
+} from '#app/utils/github.server'
 import { formatDate, typedBoolean } from '#app/utils/misc.ts'
-import { cache, cachified } from './cache.server.ts'
-import { markdownToHtmlUnwrapped, stripHtml } from './markdown.server.ts'
-import { type Timings } from './timing.server.ts'
+import { cache, cachified } from './cache.server'
+import { markdownToHtmlUnwrapped, stripHtml } from './markdown.server'
+import { type Timings } from './timing.server'
 
 type CachifiedOptions = {
 	forceFresh?: boolean | string

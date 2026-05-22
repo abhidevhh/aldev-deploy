@@ -1,8 +1,8 @@
 import { createHmac, timingSafeEqual } from 'node:crypto'
 import { z } from 'zod'
-import { startAbhiCallEpisodeDraftProcessing } from '#app/utils/abhi-call-episode-draft.server.ts'
-import { getEnv } from '#app/utils/env.server.ts'
-import { prisma } from '#app/utils/prisma.server.ts'
+import { startAbhiCallEpisodeDraftProcessing } from '#app/utils/abhi-call-episode-draft.server'
+import { getEnv } from '#app/utils/env.server'
+import { prisma } from '#app/utils/prisma.server'
 
 const audioGenerationStartedEventSchema = z.object({
 	type: z.literal('audio_generation_started'),

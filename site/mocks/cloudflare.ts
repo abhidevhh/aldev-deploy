@@ -17,8 +17,8 @@ import {
 	putEpisodeDraftAudioFromBuffer,
 	putEpisodeDraftCallerSegmentAudioFromBuffer,
 	putEpisodeDraftResponseSegmentAudioFromBuffer,
-} from '#app/utils/abhi-call-audio-storage.server.ts'
-import { handleAbhiCallAudioProcessorEvent } from '#app/utils/abhi-call-audio-processor-callback.server.ts'
+} from '#app/utils/abhi-call-audio-storage.server'
+import { handleAbhiCallAudioProcessorEvent } from '#app/utils/abhi-call-audio-processor-callback.server'
 import { mockTransistorEpisodes } from './transistor.ts'
 import { requiredHeader } from './utils.ts'
 

@@ -1,17 +1,17 @@
 import path from 'path'
 import { data as json, redirect } from 'react-router'
-import { cache } from '#app/utils/cache.server.ts'
-import { getPeople } from '#app/utils/credits.server.ts'
-import { getEnv } from '#app/utils/env.server.ts'
-import { ensurePrimary } from '#app/utils/litefs-js.server.ts'
+import { cache } from '#app/utils/cache.server'
+import { getPeople } from '#app/utils/credits.server'
+import { getEnv } from '#app/utils/env.server'
+import { ensurePrimary } from '#app/utils/litefs-js.server'
 import {
 	getBlogMdxListItems,
 	getMdxDirList,
 	getMdxPage,
-} from '#app/utils/mdx.server.ts'
-import { getResumeData } from '#app/utils/resume.server.ts'
-import { getTalksAndTags } from '#app/utils/talks.server.ts'
-import { getTestimonials } from '#app/utils/testimonials.server.ts'
+} from '#app/utils/mdx.server'
+import { getResumeData } from '#app/utils/resume.server'
+import { getTalksAndTags } from '#app/utils/talks.server'
+import { getTestimonials } from '#app/utils/testimonials.server'
 import { type Route } from './+types/refresh-cache'
 
 type Body =

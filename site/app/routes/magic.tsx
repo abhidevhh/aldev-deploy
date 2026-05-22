@@ -1,7 +1,7 @@
 import { redirect } from 'react-router'
 import { type KCDHandle } from '#app/types.ts'
 
-import { getLoginInfoSession } from '#app/utils/login.server.ts'
+import { getLoginInfoSession } from '#app/utils/login.server'
 import { type Route } from './+types/magic'
 export const handle: KCDHandle = {
 	getSitemapEntries: () => null,

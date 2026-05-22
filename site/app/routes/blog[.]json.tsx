@@ -1,4 +1,4 @@
-import { getPostJson } from '#app/utils/blog.server.ts'
+import { getPostJson } from '#app/utils/blog.server'
 import { type Route } from './+types/blog[.]json'
 
 export async function loader({ request }: Route.LoaderArgs) {

@@ -1,11 +1,11 @@
 import { data as json, redirect } from 'react-router'
 import { serverOnly$ } from 'vite-env-only/macros'
-import { cache } from '#app/utils/cache.server.ts'
-import { getEnv } from '#app/utils/env.server.ts'
+import { cache } from '#app/utils/cache.server'
+import { getEnv } from '#app/utils/env.server'
 import {
 	getInstanceInfo,
 	getInternalInstanceDomain,
-} from '#app/utils/litefs-js.server.ts'
+} from '#app/utils/litefs-js.server'
 import { type Route } from './+types/cache.sqlite'
 
 export async function action({ request }: Route.ActionArgs) {

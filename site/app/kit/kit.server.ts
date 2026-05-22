@@ -1,4 +1,4 @@
-import { getEnv } from '../utils/env.server.ts'
+import { getEnv } from '../utils/env.server'
 
 function getKitAuth() {
 	const env = getEnv()

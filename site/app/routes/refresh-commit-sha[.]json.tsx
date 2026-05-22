@@ -1,5 +1,5 @@
 import { data as json } from 'react-router'
-import { cache } from '#app/utils/cache.server.ts'
+import { cache } from '#app/utils/cache.server'
 import {
 	isRefreshShaInfo,
 	commitShaKey as refreshCacheCommitShaKey,

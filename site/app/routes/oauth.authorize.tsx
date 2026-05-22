@@ -1,7 +1,7 @@
 import { data as json, redirect, Form } from 'react-router'
 import { Button } from '#app/components/button.tsx'
-import { getEnv } from '#app/utils/env.server.ts'
-import { requireUser } from '#app/utils/session.server.ts'
+import { getEnv } from '#app/utils/env.server'
+import { requireUser } from '#app/utils/session.server'
 import { type Route } from './+types/oauth.authorize'
 
 export async function loader({ request }: Route.LoaderArgs) {

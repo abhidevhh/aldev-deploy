@@ -3,16 +3,16 @@ import {
 	type CountableSlugify,
 } from '@sindresorhus/slugify'
 import * as YAML from 'yaml'
-import { cache, cachified } from '#app/utils/cache.server.ts'
-import { downloadFile } from '#app/utils/github.server.ts'
-import { getGitHubContentPath } from '#app/utils/github-content-paths.server.ts'
+import { cache, cachified } from '#app/utils/cache.server'
+import { downloadFile } from '#app/utils/github.server'
+import { getGitHubContentPath } from '#app/utils/github-content-paths.server'
 import {
 	markdownToHtml,
 	markdownToHtmlUnwrapped,
 	stripHtml,
-} from '#app/utils/markdown.server.ts'
+} from '#app/utils/markdown.server'
 import { formatDate, typedBoolean } from '#app/utils/misc.ts'
-import { type Timings } from './timing.server.ts'
+import { type Timings } from './timing.server'
 
 type RawTalk = {
 	title?: string

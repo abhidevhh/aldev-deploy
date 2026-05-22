@@ -1,4 +1,4 @@
-import { getEnv } from '#app/utils/env.server.ts'
+import { getEnv } from '#app/utils/env.server'
 
 export type CloudflareVectorizeDeleteResponse = {
 	success?: boolean

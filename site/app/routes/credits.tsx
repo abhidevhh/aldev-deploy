@@ -32,7 +32,7 @@ import {
 } from '#app/images.tsx'
 import { type RootLoaderType } from '#app/root.tsx'
 import { shuffle } from '#app/utils/cjs/lodash.ts'
-import { getPeople } from '#app/utils/credits.server.ts'
+import { getPeople } from '#app/utils/credits.server'
 import { externalLinks } from '#app/external-links.tsx'
 import {
 	getDisplayUrl,

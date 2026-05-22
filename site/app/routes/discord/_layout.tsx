@@ -44,8 +44,8 @@ import {
 	useCapturedRouteError,
 } from '#app/utils/misc-react.tsx'
 import { getSocialMetas } from '#app/utils/seo.ts'
-import { getTestimonials } from '#app/utils/testimonials.server.ts'
-import { getServerTimeHeader } from '#app/utils/timing.server.ts'
+import { getTestimonials } from '#app/utils/testimonials.server'
+import { getServerTimeHeader } from '#app/utils/timing.server'
 import { useRootData } from '#app/utils/use-root-data.ts'
 import { type Route } from './+types/_layout'
 

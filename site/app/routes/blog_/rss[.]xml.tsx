@@ -1,4 +1,4 @@
-import { getBlogMdxListItems } from '#app/utils/mdx.server.ts'
+import { getBlogMdxListItems } from '#app/utils/mdx.server'
 import { formatDate, getDomainUrl } from '#app/utils/misc.ts'
 import { type Route } from './+types/rss[.]xml'
 

@@ -1,12 +1,12 @@
 import { invariantResponse } from '@epic-web/invariant'
 import { data as json } from 'react-router'
-import { lruCache } from '#app/utils/cache.server.ts'
+import { lruCache } from '#app/utils/cache.server'
 import {
 	ensureInstance,
 	getAllInstances,
 	getInstanceInfo,
-} from '#app/utils/litefs-js.server.ts'
-import { requireAdminUser } from '#app/utils/session.server.ts'
+} from '#app/utils/litefs-js.server'
+import { requireAdminUser } from '#app/utils/session.server'
 import { type Route } from './+types/cache.lru.$cacheKey'
 
 export async function loader({ request, params }: Route.LoaderArgs) {

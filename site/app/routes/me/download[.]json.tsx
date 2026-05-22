@@ -1,7 +1,7 @@
 import { data as json } from 'react-router'
-import { getAllUserData } from '#app/utils/prisma.server.ts'
-import { requireUser } from '#app/utils/session.server.ts'
-import { getUserInfo } from '#app/utils/user-info.server.ts'
+import { getAllUserData } from '#app/utils/prisma.server'
+import { requireUser } from '#app/utils/session.server'
+import { getUserInfo } from '#app/utils/user-info.server'
 import { type Route } from './+types/download[.]json'
 
 export async function loader({ request }: Route.LoaderArgs) {

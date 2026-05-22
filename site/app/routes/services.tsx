@@ -6,7 +6,7 @@ import { getGenericSocialImage, images } from '#app/images.tsx'
 import { type RootLoaderType } from '#app/root.tsx'
 import { getDisplayUrl, getUrl } from '#app/utils/misc.ts'
 import { getSocialMetas } from '#app/utils/seo.ts'
-import { getServerTimeHeader } from '#app/utils/timing.server.ts'
+import { getServerTimeHeader } from '#app/utils/timing.server'
 import { type Route } from './+types/services'
 
 export const meta: MetaFunction<typeof loader, { root: RootLoaderType }> = ({

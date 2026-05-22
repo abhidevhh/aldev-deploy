@@ -5,9 +5,9 @@ import {
 	getAudioStream,
 	headAudioObject,
 	parseHttpByteRangeHeader,
-} from '#app/utils/abhi-call-audio-storage.server.ts'
-import { prisma } from '#app/utils/prisma.server.ts'
-import { requireUser } from '#app/utils/session.server.ts'
+} from '#app/utils/abhi-call-audio-storage.server'
+import { prisma } from '#app/utils/prisma.server'
+import { requireUser } from '#app/utils/session.server'
 import { type Route } from './+types/call-audio'
 
 export async function loader({ request }: Route.LoaderArgs) {

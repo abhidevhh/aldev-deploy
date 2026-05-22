@@ -18,7 +18,7 @@ import remarkSlug from 'remark-slug'
 import type * as U from 'unified'
 import { visit } from 'unist-util-visit'
 import { type GitHubFile } from '#app/types.ts'
-import * as x from './x.server.ts'
+import * as x from './x.server'
 
 // Minimal local types so we don't need to depend on `mdast-util-mdx-jsx` directly.
 type MdxJsxAttribute = {

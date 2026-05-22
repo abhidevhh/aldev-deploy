@@ -11,25 +11,25 @@ async function loadDraftModule() {
 	const findUnique = vi.fn()
 	const updateMany = vi.fn()
 
-	vi.doMock('#app/utils/abhi-call-audio-storage.server.ts', () => ({
+	vi.doMock('#app/utils/abhi-call-audio-storage.server', () => ({
 		getAudioBuffer,
 	}))
 	vi.doMock('#app/utils/abhi-call-transcript-template.ts', () => ({
 		assembleAbhiCallTranscript,
 	}))
-	vi.doMock('#app/utils/cloudflare-ai-abhi-call-metadata.server.ts', () => ({
+	vi.doMock('#app/utils/cloudflare-ai-abhi-call-metadata.server', () => ({
 		generateAbhiCallEpisodeMetadataWithWorkersAi,
 	}))
 	vi.doMock(
-		'#app/utils/cloudflare-ai-abhi-call-transcript-format.server.ts',
+		'#app/utils/cloudflare-ai-abhi-call-transcript-format.server',
 		() => ({
 			formatAbhiCallTranscriptWithWorkersAi,
 		}),
 	)
-	vi.doMock('#app/utils/cloudflare-ai-transcription.server.ts', () => ({
+	vi.doMock('#app/utils/cloudflare-ai-transcription.server', () => ({
 		transcribeMp3WithWorkersAi,
 	}))
-	vi.doMock('#app/utils/prisma.server.ts', () => ({
+	vi.doMock('#app/utils/prisma.server', () => ({
 		prisma: {
 			abhiCallEpisodeDraft: {
 				findUnique,
@@ -38,7 +38,7 @@ async function loadDraftModule() {
 		},
 	}))
 
-const mod = await import('../abhi-call-episode-draft.server.ts')
+const mod = await import('../abhi-call-episode-draft.server')
 
 	return {
 		getAudioBuffer,

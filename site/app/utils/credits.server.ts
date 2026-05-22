@@ -1,9 +1,9 @@
 import { cachified, verboseReporter } from '@epic-web/cachified'
 import slugify from '@sindresorhus/slugify'
 import * as YAML from 'yaml'
-import { cache, shouldForceFresh } from './cache.server.ts'
-import { downloadFile } from './github.server.ts'
-import { getGitHubContentPath } from './github-content-paths.server.ts'
+import { cache, shouldForceFresh } from './cache.server'
+import { downloadFile } from './github.server'
+import { getGitHubContentPath } from './github-content-paths.server'
 import { getErrorMessage, typedBoolean } from './misc.ts'
 
 export type Person = {

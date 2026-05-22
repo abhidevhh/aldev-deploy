@@ -5,17 +5,17 @@ async function loadCallbackModule() {
 	vi.resetModules()
 	const updateMany = vi.fn()
 	const startAbhiCallEpisodeDraftProcessing = vi.fn()
-	vi.doMock('#app/utils/prisma.server.ts', () => ({
+	vi.doMock('#app/utils/prisma.server', () => ({
 		prisma: {
 			callKentEpisodeDraft: {
 				updateMany,
 			},
 		},
 	}))
-	vi.doMock('#app/utils/abhi-call-episode-draft.server.ts', () => ({
+	vi.doMock('#app/utils/abhi-call-episode-draft.server', () => ({
 		startAbhiCallEpisodeDraftProcessing,
 	}))
-	const mod = await import('../abhi-call-audio-processor-callback.server.ts')
+	const mod = await import('../abhi-call-audio-processor-callback.server')
 	return {
 		updateMany,
 		startAbhiCallEpisodeDraftProcessing,

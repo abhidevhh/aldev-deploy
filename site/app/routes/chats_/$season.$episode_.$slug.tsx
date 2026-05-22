@@ -59,17 +59,17 @@ import {
 	typedBoolean,
 	useCapturedRouteError,
 } from '#app/utils/misc-react.tsx'
-import { getClientSession } from '#app/utils/client.server.ts'
+import { getClientSession } from '#app/utils/client.server'
 import {
 	getEpisodeHomeworkCompletions,
 	prisma,
-} from '#app/utils/prisma.server.ts'
+} from '#app/utils/prisma.server'
 import { getSocialMetas } from '#app/utils/seo.ts'
 import { type SerializeFrom } from '#app/utils/serialize-from.ts'
-import { getUser } from '#app/utils/session.server.ts'
-import { getSeasons } from '#app/utils/simplecast.server.ts'
+import { getUser } from '#app/utils/session.server'
+import { getSeasons } from '#app/utils/simplecast.server'
 import { Themed } from '#app/utils/theme.tsx'
-import { getServerTimeHeader } from '#app/utils/timing.server.ts'
+import { getServerTimeHeader } from '#app/utils/timing.server'
 import { useRootData } from '#app/utils/use-root-data.ts'
 import { type Route } from './+types/$season.$episode_.$slug'
 

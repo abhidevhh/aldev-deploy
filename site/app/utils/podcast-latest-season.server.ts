@@ -1,7 +1,7 @@
 import { z } from 'zod'
-import { isAbortError, throwIfAborted } from './abort-utils.server.ts'
-import { cache, cachified } from './cache.server.ts'
-import { type Timings } from './timing.server.ts'
+import { isAbortError, throwIfAborted } from './abort-utils.server'
+import { cache, cachified } from './cache.server'
+import { type Timings } from './timing.server'
 
 const latestPodcastSeasonLinksSchema = z.object({
 	chats: z.object({
@@ -30,7 +30,7 @@ async function getLatestChatsSeasonNumber({
 	try {
 		throwIfAborted(signal)
 		// Dynamic import so missing podcast env vars don't crash the whole app.
-		const { getSeasonListItems } = await import('./simplecast.server.ts')
+		const { getSeasonListItems } = await import('./simplecast.server')
 		const seasons = await getSeasonListItems({ request, timings, signal })
 		const latestSeasonNumber = seasons.reduce(
 			(max, s) => Math.max(max, s.seasonNumber ?? 0),
@@ -56,7 +56,7 @@ async function getLatestCallsSeasonNumber({
 	try {
 		throwIfAborted(signal)
 		// Dynamic import so missing podcast env vars don't crash the whole app.
-		const { getEpisodes } = await import('./transistor.server.ts')
+		const { getEpisodes } = await import('./transistor.server')
 		const episodes = await getEpisodes({ request, timings, signal })
 		const latestSeasonNumber = episodes.reduce(
 			(max, e) => Math.max(max, e.seasonNumber ?? 0),

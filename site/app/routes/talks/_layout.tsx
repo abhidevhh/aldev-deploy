@@ -34,7 +34,7 @@ import {
 import { externalLinks } from '#app/external-links.tsx'
 import { getSocialMetas } from '#app/utils/seo.ts'
 import { type SerializeFrom } from '#app/utils/serialize-from.ts'
-import { getTalksAndTags } from '#app/utils/talks.server.ts'
+import { getTalksAndTags } from '#app/utils/talks.server'
 import { useOptionalUser } from '#app/utils/use-root-data.ts'
 import { type Route } from './+types/_layout'
 

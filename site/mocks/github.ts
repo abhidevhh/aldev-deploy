@@ -10,7 +10,7 @@ import {
 import {
 	GITHUB_CONTENT_PATH,
 	toLocalContentPath,
-} from '#app/utils/github-content-paths.server.ts'
+} from '#app/utils/github-content-paths.server'
 
 const __dirname = nodePath.dirname(fileURLToPath(import.meta.url))
 

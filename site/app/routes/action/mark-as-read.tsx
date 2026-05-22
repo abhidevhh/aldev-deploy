@@ -4,11 +4,11 @@ import {
 	getBlogReadRankings,
 	notifyOfOverallTeamLeaderChange,
 	notifyOfTeamLeaderChangeOnPost,
-} from '#app/utils/blog.server.ts'
+} from '#app/utils/blog.server'
 import { getRankingLeader } from '#app/utils/blog.ts'
-import { getClientSession } from '#app/utils/client.server.ts'
-import { addPostRead } from '#app/utils/prisma.server.ts'
-import { getSession } from '#app/utils/session.server.ts'
+import { getClientSession } from '#app/utils/client.server'
+import { addPostRead } from '#app/utils/prisma.server'
+import { getSession } from '#app/utils/session.server'
 import { type Route } from './+types/mark-as-read'
 
 export async function action({ request }: Route.ActionArgs) {

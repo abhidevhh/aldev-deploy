@@ -9,7 +9,7 @@ import { Grid } from '#app/components/grid.tsx'
 import { H2, H6 } from '#app/components/typography.tsx'
 import { getImageBuilder, getImgProps } from '#app/images.tsx'
 import { type KCDHandle } from '#app/types.ts'
-import { getBlogRecommendations } from '#app/utils/blog.server.ts'
+import { getBlogRecommendations } from '#app/utils/blog.server'
 import { getMdxPage, getMdxPagesInDirectory } from '#app/utils/mdx.server'
 import {
 	getBannerAltProp,
@@ -19,12 +19,12 @@ import {
 } from '#app/utils/mdx.tsx'
 import { requireValidSlug, reuseUsefulLoaderHeaders } from '#app/utils/misc.ts'
 import { type NotFoundMatch } from '#app/utils/not-found-matches.ts'
-import { getNotFoundSuggestions } from '#app/utils/not-found-suggestions.server.ts'
-import { getServerTimeHeader } from '#app/utils/timing.server.ts'
+import { getNotFoundSuggestions } from '#app/utils/not-found-suggestions.server'
+import { getServerTimeHeader } from '#app/utils/timing.server'
 import { type Route } from './+types/$slug'
 
 const getPathedRoutes = serverOnly$(async () => {
-	const { pathedRoutes } = await import('#app/other-routes.server.ts')
+	const { pathedRoutes } = await import('#app/other-routes.server')
 	return pathedRoutes
 })
 

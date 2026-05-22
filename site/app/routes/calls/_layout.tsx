@@ -26,7 +26,7 @@ import {
 } from '#app/images.tsx'
 import { type RootLoaderType } from '#app/root.tsx'
 import { type AbhiCallSeason, type KCDHandle } from '#app/types.ts'
-import { getBlogRecommendations } from '#app/utils/blog.server.ts'
+import { getBlogRecommendations } from '#app/utils/blog.server'
 import { groupBy } from '#app/utils/cjs/lodash.ts'
 import {
 	getDisplayUrl,
@@ -40,8 +40,8 @@ import {
 } from '#app/utils/providers.tsx'
 import { getSocialMetas } from '#app/utils/seo.ts'
 import { type SerializeFrom } from '#app/utils/serialize-from.ts'
-import { getServerTimeHeader } from '#app/utils/timing.server.ts'
-import { getEpisodes } from '#app/utils/transistor.server.ts'
+import { getServerTimeHeader } from '#app/utils/timing.server'
+import { getEpisodes } from '#app/utils/transistor.server'
 import { type Route } from './+types/_layout'
 
 export const handle: KCDHandle & { id: string } = {

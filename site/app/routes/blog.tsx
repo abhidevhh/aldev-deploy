@@ -43,9 +43,9 @@ import {
 	getReaderCount,
 	getSlugReadsByUser,
 	getTotalPostReads,
-} from '#app/utils/blog.server.ts'
+} from '#app/utils/blog.server'
 import { filterPosts, getRankingLeader } from '#app/utils/blog.ts'
-import { getBlogMdxListItems } from '#app/utils/mdx.server.ts'
+import { getBlogMdxListItems } from '#app/utils/mdx.server'
 import { getBannerAltProp } from '#app/utils/mdx.tsx'
 import {
 	formatAbbreviatedNumber,
@@ -60,7 +60,7 @@ import {
 import { getSocialMetas } from '#app/utils/seo.ts'
 import { type SerializeFrom } from '#app/utils/serialize-from.ts'
 import { useTeam } from '#app/utils/team-provider.tsx'
-import { getServerTimeHeader } from '#app/utils/timing.server.ts'
+import { getServerTimeHeader } from '#app/utils/timing.server'
 import { useRootData } from '#app/utils/use-root-data.ts'
 import { type Route } from './+types/blog'
 

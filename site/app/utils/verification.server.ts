@@ -1,7 +1,7 @@
 import crypto from 'node:crypto'
 import bcrypt from 'bcrypt'
-import { ensurePrimary } from '#app/utils/litefs-js.server.ts'
-import { prisma } from '#app/utils/prisma.server.ts'
+import { ensurePrimary } from '#app/utils/litefs-js.server'
+import { prisma } from '#app/utils/prisma.server'
 
 const VERIFICATION_CODE_DIGITS = 6
 const VERIFICATION_CODE_MAX_AGE_MS = 1000 * 60 * 10

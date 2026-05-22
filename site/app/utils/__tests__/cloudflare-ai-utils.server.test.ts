@@ -1,6 +1,6 @@
 import { expect, test } from 'vitest'
 import { setEnv } from '#tests/env-disposable.ts'
-import { getWorkersAiRunUrl } from '../cloudflare-ai-utils.server.ts'
+import { getWorkersAiRunUrl } from '../cloudflare-ai-utils.server'
 
 test('getWorkersAiRunUrl routes embeddinggemma requests through CLOUDFLARE_AI_EMBEDDING_GATEWAY_ID', () => {
 	using _ignoredEnv = setEnv({

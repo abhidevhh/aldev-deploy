@@ -4,7 +4,7 @@ import {
 	getAudioBuffer,
 	getAudioStream,
 	parseHttpByteRangeHeader,
-} from '#app/utils/abhi-call-audio-storage.server.ts'
+} from '#app/utils/abhi-call-audio-storage.server'
 
 type DraftAudioResponseOptions = {
 	request: Request

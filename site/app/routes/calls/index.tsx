@@ -1,5 +1,5 @@
 import { redirect } from 'react-router'
-import { getEpisodes } from '#app/utils/transistor.server.ts'
+import { getEpisodes } from '#app/utils/transistor.server'
 import { type Route } from './+types/index'
 import { getEpisodesBySeason } from './_layout.tsx'
 

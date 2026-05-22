@@ -27,7 +27,7 @@ describe('mdx not-found caching', () => {
 			vi.resetModules()
 			// `cache.server.ts` imports `getUser` from `session.server.ts`, which pulls
 			// in Prisma + lots of env requirements. This test doesn't need that.
-			vi.doMock('../session.server.ts', () => {
+			vi.doMock('../session.server', () => {
 				return { getUser: async () => null }
 			})
 			// `cache.server.ts` imports `updatePrimaryCacheValue` from this route module,
@@ -38,10 +38,10 @@ describe('mdx not-found caching', () => {
 			})
 			// Avoid importing `mdx-bundler` (and therefore `esbuild`) in jsdom tests.
 			// For this test we only care about the "missing page -> null" path.
-			vi.doMock('#app/utils/compile-mdx.server.ts', () => {
+			vi.doMock('#app/utils/compile-mdx.server', () => {
 				return { compileMdx: async () => null }
 			})
-			vi.doMock('#app/utils/github.server.ts', () => ({
+			vi.doMock('#app/utils/github.server', () => ({
 				downloadDirList: async () => [],
 				downloadMdxFileOrDirectory: async () => ({
 					entry: 'services/site/content/blog/definitely-does-not-exist',
@@ -49,8 +49,8 @@ describe('mdx not-found caching', () => {
 				}),
 			}))
 
-			const { getMdxPage } = await import('../mdx.server.ts')
-			const { cache } = await import('../cache.server.ts')
+			const { getMdxPage } = await import('../mdx.server')
+			const { cache } = await import('../cache.server')
 
 			const slug = `definitely-does-not-exist-${randomUUID()}`
 			const page = await getMdxPage({ contentDir: 'blog', slug }, {})
@@ -71,10 +71,10 @@ describe('mdx not-found caching', () => {
 		} finally {
 			// Prevent mock/module state leaking if more tests are added later.
 			vi.restoreAllMocks()
-			vi.unmock('../session.server.ts')
+			vi.unmock('../session.server')
 			vi.unmock('#app/routes/resources/cache.sqlite.ts')
-			vi.unmock('#app/utils/compile-mdx.server.ts')
-			vi.unmock('#app/utils/github.server.ts')
+			vi.unmock('#app/utils/compile-mdx.server')
+			vi.unmock('#app/utils/github.server')
 			vi.resetModules()
 
 			for (const [key, value] of Object.entries(originalEnv)) {

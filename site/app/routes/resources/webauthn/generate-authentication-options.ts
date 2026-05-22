@@ -1,6 +1,6 @@
 import { generateAuthenticationOptions } from '@simplewebauthn/server'
 import { data as json } from 'react-router'
-import { passkeyCookie, getWebAuthnConfig } from '#app/utils/webauthn.server.ts'
+import { passkeyCookie, getWebAuthnConfig } from '#app/utils/webauthn.server'
 import { type Route } from './+types/generate-authentication-options'
 
 export async function action({ request }: Route.ActionArgs) {

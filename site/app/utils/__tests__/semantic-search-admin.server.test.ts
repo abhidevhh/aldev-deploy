@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest'
-import { getSemanticSearchAdminStore } from '../semantic-search-admin.server.ts'
+import { getSemanticSearchAdminStore } from '../semantic-search-admin.server'
 
 // Tests load `.env` first (override=false), so keep this test self-contained in
 // case the local `.env` has placeholder values like `MOCK_R2_ENDPOINT`.

@@ -37,7 +37,7 @@ const {
 	}
 })
 
-vi.mock('#app/utils/cache.server.ts', () => ({
+vi.mock('#app/utils/cache.server', () => ({
 	cache: {
 		name: 'test-cache',
 		get: () => null,
@@ -56,16 +56,16 @@ vi.mock('#app/utils/cache.server.ts', () => ({
 	},
 }))
 
-vi.mock('#app/utils/search-worker-client.server.ts', () => ({
+vi.mock('#app/utils/search-worker-client.server', () => ({
 	getSearchWorkerHealth: getSearchWorkerHealthMock,
 	querySearchWorkerResults: querySearchWorkerResultsMock,
 }))
 
-vi.mock('#app/utils/semantic-search-presentation.server.ts', () => ({
+vi.mock('#app/utils/semantic-search-presentation.server', () => ({
 	getSemanticSearchPresentation: getSemanticSearchPresentationMock,
 }))
 
-import { searchKCD } from '../search.server.ts'
+import { searchKCD } from '../search.server'
 
 test('searchKCD normalizes queries before calling the worker', async () => {
 	querySearchWorkerResultsMock.mockReset()

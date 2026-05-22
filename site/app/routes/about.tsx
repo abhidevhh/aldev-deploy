@@ -32,7 +32,7 @@ import {
 	images,
 } from '#app/images.tsx'
 import { type RootLoaderType } from '#app/root.tsx'
-import { getBlogRecommendations } from '#app/utils/blog.server.ts'
+import { getBlogRecommendations } from '#app/utils/blog.server'
 import { shuffle } from '#app/utils/cjs/lodash.ts'
 import {
 	getDisplayUrl,
@@ -40,8 +40,8 @@ import {
 	reuseUsefulLoaderHeaders,
 } from '#app/utils/misc.ts'
 import { getSocialMetas } from '#app/utils/seo.ts'
-import { getTalksAndTags } from '#app/utils/talks.server.ts'
-import { getServerTimeHeader } from '#app/utils/timing.server.ts'
+import { getTalksAndTags } from '#app/utils/talks.server'
+import { getServerTimeHeader } from '#app/utils/timing.server'
 import { useRootData } from '#app/utils/use-root-data.ts'
 import { type Route } from './+types/about'
 

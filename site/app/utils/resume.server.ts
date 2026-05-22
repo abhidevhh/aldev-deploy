@@ -1,9 +1,9 @@
 import * as YAML from 'yaml'
 import { z } from 'zod'
-import { cache, cachified } from '#app/utils/cache.server.ts'
-import { downloadFile } from '#app/utils/github.server.ts'
-import { getGitHubContentPath } from '#app/utils/github-content-paths.server.ts'
-import { type Timings } from '#app/utils/timing.server.ts'
+import { cache, cachified } from '#app/utils/cache.server'
+import { downloadFile } from '#app/utils/github.server'
+import { getGitHubContentPath } from '#app/utils/github-content-paths.server'
+import { type Timings } from '#app/utils/timing.server'
 
 const resumeLinkSchema = z.object({
 	label: z.string(),

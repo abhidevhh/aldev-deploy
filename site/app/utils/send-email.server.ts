@@ -1,6 +1,6 @@
 import { getRandomFlyingAbhiBuddy } from '#app/images.tsx'
-import { getEnv } from '#app/utils/env.server.ts'
-import { markdownToHtmlDocument } from './markdown.server.ts'
+import { getEnv } from '#app/utils/env.server'
+import { markdownToHtmlDocument } from './markdown.server'
 import { getOptionalTeam } from './misc.ts'
 
 const {

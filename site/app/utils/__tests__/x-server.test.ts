@@ -2,9 +2,9 @@ import { http, HttpResponse } from 'msw'
 import { describe, expect, test, vi } from 'vitest'
 import { mswServer } from '#tests/msw-server.ts'
 import { type Tweet } from '../twitter/types/index.ts'
-import { getTweetEmbedHTML } from '../x.server.ts'
+import { getTweetEmbedHTML } from '../x.server'
 
-vi.mock('../cache.server.ts', () => ({
+vi.mock('../cache.server', () => ({
 	cache: {
 		name: 'test-cache',
 		get: () => null,

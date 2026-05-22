@@ -1,6 +1,6 @@
 import { expect, test, vi } from 'vitest'
 
-vi.mock('#app/utils/abhi-call-audio-processor-callback.server.ts', () => ({
+vi.mock('#app/utils/abhi-call-audio-processor-callback.server', () => ({
 	handleAbhiCallAudioProcessorEvent: vi.fn(),
 	parseAbhiCallAudioProcessorEvent: vi.fn(),
 	verifyAbhiCallAudioProcessorCallbackSignature: vi.fn(),
@@ -10,7 +10,7 @@ import {
 	handleAbhiCallAudioProcessorEvent,
 	parseAbhiCallAudioProcessorEvent,
 	verifyAbhiCallAudioProcessorCallbackSignature,
-} from '#app/utils/abhi-call-audio-processor-callback.server.ts'
+} from '#app/utils/abhi-call-audio-processor-callback.server'
 import { action } from '../episode-audio-callback.ts'
 
 test('episode-audio-callback rejects unsigned cloudflare callback', async () => {

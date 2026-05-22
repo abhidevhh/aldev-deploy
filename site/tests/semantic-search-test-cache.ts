@@ -17,7 +17,7 @@ const testCache = {
 
 const cachifiedSpy = vi.fn()
 
-vi.mock('#app/utils/cache.server.ts', async () => {
+vi.mock('#app/utils/cache.server', async () => {
 	const { cachified } = await import('@epic-web/cachified')
 	return {
 		cache: testCache,

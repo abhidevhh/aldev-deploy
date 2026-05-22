@@ -9,14 +9,14 @@ import {
 	type CachifiedOptions,
 	totalTtl,
 } from '@epic-web/cachified'
-import { siteCacheReporter } from '#app/utils/cache-reporter.server.ts'
+import { siteCacheReporter } from '#app/utils/cache-reporter.server'
 import { remember } from '@epic-web/remember'
 import { LRUCache } from 'lru-cache'
 import { updatePrimaryCacheValue } from '#app/routes/resources/cache.sqlite.ts'
-import { getEnv } from '#app/utils/env.server.ts'
+import { getEnv } from '#app/utils/env.server'
 import { getInstanceInfo, getInstanceInfoSync } from './litefs-js.server.js'
-import { getUser } from './session.server.ts'
-import { time, type Timings } from './timing.server.ts'
+import { getUser } from './session.server'
+import { time, type Timings } from './timing.server'
 
 const cacheDb = remember('cacheDb', createDatabase)
 

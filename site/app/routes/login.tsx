@@ -28,9 +28,9 @@ import { Paragraph } from '#app/components/typography.tsx'
 import { getGenericSocialImage, images } from '#app/images.tsx'
 import { type RootLoaderType } from '#app/root.tsx'
 import { type KCDHandle } from '#app/types.ts'
-import { getClientSession } from '#app/utils/client.server.ts'
-import { ensurePrimary } from '#app/utils/litefs-js.server.ts'
-import { getLoginInfoSession } from '#app/utils/login.server.ts'
+import { getClientSession } from '#app/utils/client.server'
+import { ensurePrimary } from '#app/utils/litefs-js.server'
+import { getLoginInfoSession } from '#app/utils/login.server'
 import {
 	getDisplayUrl,
 	getOrigin,
@@ -40,13 +40,13 @@ import {
 import {
 	DUMMY_PASSWORD_HASH,
 	verifyPassword,
-} from '#app/utils/password.server.ts'
+} from '#app/utils/password.server'
 import {
 	migrateHomeworkCompletionsToUser,
 	prisma,
-} from '#app/utils/prisma.server.ts'
+} from '#app/utils/prisma.server'
 import { getSocialMetas } from '#app/utils/seo.ts'
-import { getSession, getUser } from '#app/utils/session.server.ts'
+import { getSession, getUser } from '#app/utils/session.server'
 import { type Route } from './+types/login'
 
 export const handle: KCDHandle = {

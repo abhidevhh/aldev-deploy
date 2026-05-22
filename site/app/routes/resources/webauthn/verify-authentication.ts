@@ -4,10 +4,10 @@ import {
 } from '@simplewebauthn/server'
 import { data as json } from 'react-router'
 import { z } from 'zod'
-import { getLoginInfoSession } from '#app/utils/login.server.ts'
-import { prisma } from '#app/utils/prisma.server.ts'
-import { getSession } from '#app/utils/session.server.ts'
-import { getWebAuthnConfig, passkeyCookie } from '#app/utils/webauthn.server.ts'
+import { getLoginInfoSession } from '#app/utils/login.server'
+import { prisma } from '#app/utils/prisma.server'
+import { getSession } from '#app/utils/session.server'
+import { getWebAuthnConfig, passkeyCookie } from '#app/utils/webauthn.server'
 import { type Route } from './+types/verify-authentication'
 
 const AuthenticationResponseSchema = z.object({

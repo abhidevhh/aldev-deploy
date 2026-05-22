@@ -14,18 +14,18 @@ import { visit } from 'unist-util-visit'
 import { z } from 'zod'
 import { type CWKEpisode, type CWKSeason } from '#app/types.ts'
 import { omit, sortBy } from '#app/utils/cjs/lodash.ts'
-import { isAbortError, throwIfAborted } from './abort-utils.server.ts'
-import { cache, cachified } from './cache.server.ts'
-import { getEnv } from './env.server.ts'
-import { fetchJsonWithRetryAfter } from './fetch-json-with-retry-after.server.ts'
-import { stripHtml } from './markdown.server.ts'
+import { isAbortError, throwIfAborted } from './abort-utils.server'
+import { cache, cachified } from './cache.server'
+import { getEnv } from './env.server'
+import { fetchJsonWithRetryAfter } from './fetch-json-with-retry-after.server'
+import { stripHtml } from './markdown.server'
 import { typedBoolean } from './misc.ts'
 import {
 	simplecastEpisodeSchema,
 	simplecastEpisodesListResponseSchema,
 	simplecastSeasonsResponseSchema,
-} from './simplecast-api-schema.server.ts'
-import { type Timings } from './timing.server.ts'
+} from './simplecast-api-schema.server'
+import { type Timings } from './timing.server'
 import {
 	findFirstYouTubeVideoIdInText,
 	getYouTubeVideoId,

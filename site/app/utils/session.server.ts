@@ -1,15 +1,15 @@
 import { createCookieSessionStorage, redirect } from 'react-router'
 import { z } from 'zod'
-import { ensurePrimary } from '#app/utils/litefs-js.server.ts'
+import { ensurePrimary } from '#app/utils/litefs-js.server'
 import { type User } from '#app/utils/prisma-generated.server/client.ts'
-import { getEnv } from './env.server.ts'
+import { getEnv } from './env.server'
 import {
 	createSession,
 	getUserFromSessionId,
 	prisma,
 	sessionExpirationTime,
-} from './prisma.server.ts'
-import { time, type Timings } from './timing.server.ts'
+} from './prisma.server'
+import { time, type Timings } from './timing.server'
 
 const sessionIdKey = '__session_id__'
 

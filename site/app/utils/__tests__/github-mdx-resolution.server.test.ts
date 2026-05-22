@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest'
-import { GITHUB_CONTENT_PATH } from '../github-content-paths.server.ts'
-import { downloadMdxFileOrDirectory } from '../github.server.ts'
+import { GITHUB_CONTENT_PATH } from '../github-content-paths.server'
+import { downloadMdxFileOrDirectory } from '../github.server'
 
 describe('github mdx resolution', () => {
 	test('does not prefix-match directory names for missing slugs', async () => {

@@ -23,8 +23,8 @@ import {
 } from '#app/utils/misc.ts'
 import { externalLinks } from '#app/external-links.tsx'
 import { getSocialMetas } from '#app/utils/seo.ts'
-import { getTestimonials } from '#app/utils/testimonials.server.ts'
-import { getServerTimeHeader } from '#app/utils/timing.server.ts'
+import { getTestimonials } from '#app/utils/testimonials.server'
+import { getServerTimeHeader } from '#app/utils/timing.server'
 import { type Route } from './+types/testimonials'
 
 export const meta: MetaFunction<typeof loader, { root: RootLoaderType }> = ({

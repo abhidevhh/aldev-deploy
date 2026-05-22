@@ -3,7 +3,7 @@ import {
 	simplecastEpisodeSchema,
 	simplecastEpisodesListResponseSchema,
 	simplecastSeasonsResponseSchema,
-} from '../simplecast-api-schema.server.ts'
+} from '../simplecast-api-schema.server'
 
 test('simplecastSeasonsResponseSchema parses collection items we use', () => {
 	const parsed = simplecastSeasonsResponseSchema.parse({

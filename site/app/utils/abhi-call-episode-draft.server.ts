@@ -1,11 +1,11 @@
-import { getAudioBuffer } from '#app/utils/abhi-call-audio-storage.server.ts'
-import { normalizeCallerTranscriptForEpisode } from '#app/utils/abhi-call-caller-transcript.server.ts'
+import { getAudioBuffer } from '#app/utils/abhi-call-audio-storage.server'
+import { normalizeCallerTranscriptForEpisode } from '#app/utils/abhi-call-caller-transcript.server'
 import { assembleAbhiCallTranscript } from '#app/utils/abhi-call-transcript-template.ts'
-import { generateAbhiCallEpisodeMetadataWithWorkersAi } from '#app/utils/cloudflare-ai-abhi-call-metadata.server.ts'
-import { formatAbhiCallTranscriptWithWorkersAi } from '#app/utils/cloudflare-ai-abhi-call-transcript-format.server.ts'
-import { transcribeMp3WithWorkersAi } from '#app/utils/cloudflare-ai-transcription.server.ts'
+import { generateAbhiCallEpisodeMetadataWithWorkersAi } from '#app/utils/cloudflare-ai-abhi-call-metadata.server'
+import { formatAbhiCallTranscriptWithWorkersAi } from '#app/utils/cloudflare-ai-abhi-call-transcript-format.server'
+import { transcribeMp3WithWorkersAi } from '#app/utils/cloudflare-ai-transcription.server'
 import { getErrorMessage } from '#app/utils/misc.ts'
-import { prisma } from '#app/utils/prisma.server.ts'
+import { prisma } from '#app/utils/prisma.server'
 
 export async function startAbhiCallEpisodeDraftProcessing(draftId: string) {
 	// Fire-and-forget background work; errors are recorded on the draft row.

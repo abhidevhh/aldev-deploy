@@ -5,7 +5,7 @@ import { PassThrough } from 'stream'
 import v8 from 'v8'
 import { createReadableStreamFromReadable } from '@react-router/node'
 import { formatDate } from '#app/utils/misc.ts'
-import { requireAdminUser } from '#app/utils/session.server.ts'
+import { requireAdminUser } from '#app/utils/session.server'
 import { type Route } from './+types/heapsnapshot'
 
 export async function loader({ request }: Route.LoaderArgs) {

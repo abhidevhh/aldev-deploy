@@ -21,8 +21,8 @@ import {
 	useCapturedRouteError,
 } from '#app/utils/misc-react.tsx'
 import { useChatsEpisodeUIState } from '#app/utils/providers.tsx'
-import { getSeasonListItems } from '#app/utils/simplecast.server.ts'
-import { getServerTimeHeader } from '#app/utils/timing.server.ts'
+import { getSeasonListItems } from '#app/utils/simplecast.server'
+import { getServerTimeHeader } from '#app/utils/timing.server'
 import { type Route } from './+types/$season'
 
 export const handle: KCDHandle = {

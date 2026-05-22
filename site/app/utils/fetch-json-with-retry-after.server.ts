@@ -3,8 +3,8 @@ import {
 	throwIfAborted,
 	waitForDelay,
 	type Sleep,
-} from './abort-utils.server.ts'
-import { fetchWithTimeout } from './fetch-with-timeout.server.ts'
+} from './abort-utils.server'
+import { fetchWithTimeout } from './fetch-with-timeout.server'
 
 type RetryDelayReason = 'retry-after' | 'rate-limit-reset' | 'default'
 

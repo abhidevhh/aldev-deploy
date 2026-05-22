@@ -24,9 +24,9 @@ import {
 	useDoubleCheck,
 	useCapturedRouteError,
 } from '#app/utils/misc-react.tsx'
-import { prisma } from '#app/utils/prisma.server.ts'
+import { prisma } from '#app/utils/prisma.server'
 import { type SerializeFrom } from '#app/utils/serialize-from.ts'
-import { requireAdminUser } from '#app/utils/session.server.ts'
+import { requireAdminUser } from '#app/utils/session.server'
 import { type Route } from './+types/me_.admin'
 
 export const handle: KCDHandle = {

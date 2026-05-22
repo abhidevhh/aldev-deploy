@@ -6,7 +6,7 @@ import {
 	PutObjectCommand,
 	S3Client,
 } from '@aws-sdk/client-s3'
-import { getEnv } from '#app/utils/env.server.ts'
+import { getEnv } from '#app/utils/env.server'
 
 type PutAudioResult = {
 	key: string

@@ -14,7 +14,7 @@ import { IconLink } from '#app/components/icon-link.tsx'
 import { XIcon } from '#app/components/icons.tsx'
 import { Paragraph, H3 } from '#app/components/typography.tsx'
 import { FavoriteToggle } from '#app/routes/resources/favorite.tsx'
-import { getEnv } from '#app/utils/env.server.ts'
+import { getEnv } from '#app/utils/env.server'
 import { useRootData } from '#app/utils/use-root-data.ts'
 import { type Route } from './+types/youtube'
 

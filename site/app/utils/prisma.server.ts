@@ -3,11 +3,11 @@ import { PrismaBetterSqlite3 } from '@prisma/adapter-better-sqlite3'
 import chalk from 'chalk'
 import pProps from 'p-props'
 import { type Session } from '#app/types.ts'
-import { getEnv } from '#app/utils/env.server.ts'
+import { getEnv } from '#app/utils/env.server'
 import { getEpisodeHomeworkContentId } from '#app/utils/favorites.ts'
-import { ensurePrimary } from '#app/utils/litefs-js.server.ts'
+import { ensurePrimary } from '#app/utils/litefs-js.server'
 import { Prisma, PrismaClient } from './prisma-generated.server/client.ts'
-import { time, type Timings } from './timing.server.ts'
+import { time, type Timings } from './timing.server'
 
 const logThreshold = 500
 

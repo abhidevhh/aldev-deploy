@@ -24,8 +24,8 @@ import { type ServerBuild } from 'react-router'
 import serverTiming from 'server-timing'
 import sourceMapSupport from 'source-map-support'
 import { type WebSocketServer } from 'ws'
-import { getEnv } from '../app/utils/env.server.ts'
-import { getInstanceInfo } from '../app/utils/litefs-js.server.ts'
+import { getEnv } from '../app/utils/env.server'
+import { getInstanceInfo } from '../app/utils/litefs-js.server'
 
 sourceMapSupport.install()
 

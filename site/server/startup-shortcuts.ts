@@ -3,7 +3,7 @@ import * as readline from 'node:readline'
 import { type Key } from 'node:readline'
 import * as tty from 'node:tty'
 import { execa } from 'execa'
-import { getEnv } from '../app/utils/env.server.ts'
+import { getEnv } from '../app/utils/env.server'
 
 type ShortcutHandlers = {
 	openApp: () => void | Promise<void>

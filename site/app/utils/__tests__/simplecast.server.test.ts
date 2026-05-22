@@ -1,6 +1,6 @@
 import { expect, test, vi } from 'vitest'
 
-vi.mock('../cache.server.ts', () => ({
+vi.mock('../cache.server', () => ({
 	cache: {},
 	cachified: async ({
 		getFreshValue,
@@ -12,7 +12,7 @@ vi.mock('../cache.server.ts', () => ({
 import {
 	parseDescriptionMarkdown,
 	parseSummaryMarkdown,
-} from '../simplecast.server.ts'
+} from '../simplecast.server'
 import { getYouTubeVideoId } from '../youtube-utils.ts'
 
 test('parseSummaryMarkdown extracts youtube video metadata section', async () => {

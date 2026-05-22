@@ -18,10 +18,10 @@ const prismaServerMocks = vi.hoisted(() => ({
 	setEpisodeHomeworkCompletion: vi.fn(),
 }))
 
-vi.mock('#app/utils/session.server.ts', () => sessionServerMocks)
-vi.mock('#app/utils/client.server.ts', () => clientServerMocks)
-vi.mock('#app/utils/litefs-js.server.ts', () => litefsServerMocks)
-vi.mock('#app/utils/prisma.server.ts', () => prismaServerMocks)
+vi.mock('#app/utils/session.server', () => sessionServerMocks)
+vi.mock('#app/utils/client.server', () => clientServerMocks)
+vi.mock('#app/utils/litefs-js.server', () => litefsServerMocks)
+vi.mock('#app/utils/prisma.server', () => prismaServerMocks)
 
 import { action, loader } from '../homework-completion.tsx'
 

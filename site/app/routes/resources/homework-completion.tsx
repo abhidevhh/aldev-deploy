@@ -130,10 +130,10 @@ async function getHomeworkCompletionServerServices() {
 		{ getClientSession },
 		{ setEpisodeHomeworkCompletion, getEpisodeHomeworkCompletions },
 	] = await Promise.all([
-		import('#app/utils/litefs-js.server.ts'),
-		import('#app/utils/session.server.ts'),
-		import('#app/utils/client.server.ts'),
-		import('#app/utils/prisma.server.ts'),
+		import('#app/utils/litefs-js.server'),
+		import('#app/utils/session.server'),
+		import('#app/utils/client.server'),
+		import('#app/utils/prisma.server'),
 	])
 	return {
 		ensurePrimary,

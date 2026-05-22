@@ -10,19 +10,19 @@ import { ArrowLink } from '#app/components/arrow-button.tsx'
 import { ErrorPanel } from '#app/components/form-elements.tsx'
 import { PartyIcon, RefreshIcon } from '#app/components/icons.tsx'
 import { externalLinks } from '#app/external-links.tsx'
-import { tagKCDSiteSubscriber } from '#app/kit/kit.server.ts'
+import { tagKCDSiteSubscriber } from '#app/kit/kit.server'
 import { type KCDHandle } from '#app/types.ts'
-import { connectDiscord } from '#app/utils/discord.server.ts'
-import { ensurePrimary } from '#app/utils/litefs-js.server.ts'
+import { connectDiscord } from '#app/utils/discord.server'
+import { ensurePrimary } from '#app/utils/litefs-js.server'
 import {
 	getDiscordAuthorizeURL,
 	getDomainUrl,
 	getErrorMessage,
 	isResponse,
 } from '#app/utils/misc.ts'
-import { requireUser } from '#app/utils/session.server.ts'
+import { requireUser } from '#app/utils/session.server'
 import { useRootData } from '#app/utils/use-root-data.ts'
-import { deleteDiscordCache } from '#app/utils/user-info.server.ts'
+import { deleteDiscordCache } from '#app/utils/user-info.server'
 import { type Route } from './+types/callback'
 
 export const handle: KCDHandle = {

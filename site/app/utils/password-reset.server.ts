@@ -1,8 +1,8 @@
-import { ensurePrimary } from './litefs-js.server.ts'
+import { ensurePrimary } from './litefs-js.server'
 import { getDomainUrl, isResponse } from './misc.ts'
-import { prisma } from './prisma.server.ts'
-import { sendPasswordResetEmail } from './send-email.server.ts'
-import { createVerification } from './verification.server.ts'
+import { prisma } from './prisma.server'
+import { sendPasswordResetEmail } from './send-email.server'
+import { createVerification } from './verification.server'
 
 /**
  * Creates a PASSWORD_RESET verification and sends the email.

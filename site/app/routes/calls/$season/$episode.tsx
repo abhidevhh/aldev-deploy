@@ -2,8 +2,8 @@ import { redirect, type HeadersFunction } from 'react-router'
 import { type KCDHandle } from '#app/types.ts'
 import { getEpisodeFromParams, getEpisodePath } from '#app/utils/abhi-call.ts'
 import { reuseUsefulLoaderHeaders } from '#app/utils/misc.ts'
-import { getServerTimeHeader } from '#app/utils/timing.server.ts'
-import { getEpisodes } from '#app/utils/transistor.server.ts'
+import { getServerTimeHeader } from '#app/utils/timing.server'
+import { getEpisodes } from '#app/utils/transistor.server'
 import { type Route } from './+types/$episode'
 
 export const handle: KCDHandle = {

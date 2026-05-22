@@ -3,13 +3,13 @@ import { Buffer } from 'node:buffer'
 import { Readable } from 'node:stream'
 import { expect, test, vi } from 'vitest'
 
-vi.mock('#app/utils/abhi-call-audio-storage.server.ts', () => ({
+vi.mock('#app/utils/abhi-call-audio-storage.server', () => ({
 	getAudioBuffer: vi.fn(),
 	getAudioStream: vi.fn(),
 	parseHttpByteRangeHeader: vi.fn(),
 }))
 
-vi.mock('#app/utils/prisma.server.ts', () => ({
+vi.mock('#app/utils/prisma.server', () => ({
 	prisma: {
 		abhiCallEpisodeDraft: {
 			findUnique: vi.fn(),
@@ -17,15 +17,15 @@ vi.mock('#app/utils/prisma.server.ts', () => ({
 	},
 }))
 
-vi.mock('#app/utils/session.server.ts', () => ({
+vi.mock('#app/utils/session.server', () => ({
 	requireAdminUser: vi.fn(),
 }))
 
 import {
 	getAudioBuffer,
 	getAudioStream,
-} from '#app/utils/abhi-call-audio-storage.server.ts'
-import { prisma } from '#app/utils/prisma.server.ts'
+} from '#app/utils/abhi-call-audio-storage.server'
+import { prisma } from '#app/utils/prisma.server'
 import { loader } from '../draft-response-audio.ts'
 
 test('draft-response-audio streams saved response audio for admins', async () => {

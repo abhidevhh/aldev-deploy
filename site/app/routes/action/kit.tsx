@@ -4,7 +4,7 @@ import { Grid } from '#app/components/grid.tsx'
 import { HeroSection } from '#app/components/sections/hero-section.tsx'
 import { Spacer } from '#app/components/spacer.tsx'
 import { Paragraph } from '#app/components/typography.tsx'
-import { handleKitFormSubmission } from '#app/kit/remix.server.ts'
+import { handleKitFormSubmission } from '#app/kit/remix.server'
 import { type Route } from './+types/kit'
 
 export async function action({ request }: Route.ActionArgs) {

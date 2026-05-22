@@ -1,6 +1,6 @@
 import crypto from 'node:crypto'
 import bcrypt from 'bcrypt'
-import { fetchWithTimeout } from './fetch-with-timeout.server.ts'
+import { fetchWithTimeout } from './fetch-with-timeout.server'
 
 const BCRYPT_COST = 10
 // Precomputed bcrypt hash for timing-equal password comparisons.

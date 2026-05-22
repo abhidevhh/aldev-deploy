@@ -1,8 +1,8 @@
-import { getAudioBuffer } from '#app/utils/abhi-call-audio-storage.server.ts'
-import { formatAbhiCallTranscriptWithWorkersAi } from '#app/utils/cloudflare-ai-abhi-call-transcript-format.server.ts'
-import { transcribeMp3WithWorkersAi } from '#app/utils/cloudflare-ai-transcription.server.ts'
+import { getAudioBuffer } from '#app/utils/abhi-call-audio-storage.server'
+import { formatAbhiCallTranscriptWithWorkersAi } from '#app/utils/cloudflare-ai-abhi-call-transcript-format.server'
+import { transcribeMp3WithWorkersAi } from '#app/utils/cloudflare-ai-transcription.server'
 import { getErrorMessage } from '#app/utils/misc.ts'
-import { prisma } from '#app/utils/prisma.server.ts'
+import { prisma } from '#app/utils/prisma.server'
 
 function escapeRegExp(value: string) {
 	return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')

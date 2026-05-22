@@ -5,7 +5,7 @@ import {
 	getAudioStream,
 	headAudioObject,
 	putCallAudioFromBuffer,
-} from '../abhi-call-audio-storage.server.ts'
+} from '../abhi-call-audio-storage.server'
 
 process.env.R2_BUCKET = 'mock-r2-bucket'
 process.env.R2_ENDPOINT = 'https://mock.r2.cloudflarestorage.com'

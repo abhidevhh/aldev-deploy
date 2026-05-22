@@ -4,7 +4,7 @@ import { mswServer } from '#tests/msw-server.ts'
 import {
 	fetchJsonWithRetryAfter,
 	getRetryDelayMsFromResponse,
-} from '../fetch-json-with-retry-after.server.ts'
+} from '../fetch-json-with-retry-after.server'
 
 let requestCount = 0
 let always429Count = 0

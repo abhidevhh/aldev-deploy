@@ -19,7 +19,7 @@ import {
 } from 'react-router'
 import { useSpinDelay } from 'spin-delay'
 import { type KCDHandle } from '#app/types.ts'
-import { getInstanceInfo } from '#app/utils/litefs-js.server.ts'
+import { getInstanceInfo } from '#app/utils/litefs-js.server'
 import {
 	useCapturedRouteError,
 	getDisplayUrl,
@@ -51,26 +51,26 @@ import proseStyles from './styles/prose.css?url'
 import tailwindStyles from './styles/tailwind.css?url'
 import vendorStyles from './styles/vendors.css?url'
 import { ClientHintCheck, getHints } from './utils/client-hints.tsx'
-import { getClientSession } from './utils/client.server.ts'
-import { getPublicEnv } from './utils/env.server.ts'
-import { getLoginInfoSession } from './utils/login.server.ts'
+import { getClientSession } from './utils/client.server'
+import { getPublicEnv } from './utils/env.server'
+import { getLoginInfoSession } from './utils/login.server'
 import { useNonce } from './utils/nonce-provider.ts'
-import { getLatestPodcastSeasonLinks } from './utils/podcast-latest-season.server.ts'
+import { getLatestPodcastSeasonLinks } from './utils/podcast-latest-season.server'
 import {
 	isSeason7ChatsPath,
 	SEASON_7_PROMOTIFICATION_NAME,
 } from './utils/season-7-promotification.ts'
 import { getSocialMetas } from './utils/seo.ts'
-import { getSession } from './utils/session.server.ts'
+import { getSession } from './utils/session.server'
 import { TeamProvider, useTeam } from './utils/team-provider.tsx'
-import { getTheme } from './utils/theme.server.ts'
+import { getTheme } from './utils/theme.server'
 import { useTheme } from './utils/theme.tsx'
 import {
 	getServerTimeHeader,
 	time,
 	withTimeout,
-} from './utils/timing.server.ts'
-import { getUserInfo } from './utils/user-info.server.ts'
+} from './utils/timing.server'
+import { getUserInfo } from './utils/user-info.server'
 
 export const handle: KCDHandle & { id: string } = {
 	id: 'root',
