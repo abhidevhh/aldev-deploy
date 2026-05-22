@@ -1,0 +1,103 @@
+import {
+	type UNSAFE_DataWithResponseInit as DataWithResponseInit,
+	data as json,
+} from 'react-router'
+import { type NonNullProperties } from '#app/types.ts'
+import { getErrorMessage, getNonNull } from './misc.ts'
+
+type TypedResponse<T> = DataWithResponseInit<T> | Response
+
+type ErrorMessage = string
+type NoError = null
+type FormValue = string | null
+
+async function handleFormSubmission<
+	ActionData extends {
+		status: 'success' | 'error'
+		fields: { [field: string]: FormValue }
+		errors: { [field: string]: ErrorMessage | NoError }
+	},
+>({
+	form,
+	request,
+	validators,
+	// @ts-expect-error ts(2322) 🤷‍♂️
+	actionData = { fields: {}, errors: {} },
+	handleFormValues,
+}: {
+	validators: {
+		[Key in keyof ActionData['errors']]: (
+			formValue: FormValue,
+			fields: ActionData['fields'],
+		) => Promise<ErrorMessage | NoError> | ErrorMessage | NoError
+	}
+	actionData?: ActionData
+	handleFormValues: (
+		formValues: NonNullProperties<ActionData['fields']>,
+	) => TypedResponse<ActionData> | Promise<TypedResponse<ActionData>>
+} & (
+	| {
+			form: URLSearchParams
+			request?: never
+	  }
+	| {
+			form?: never
+			request: Request
+	  }
+)): Promise<TypedResponse<ActionData>> {
+	try {
+		if (!form) {
+			const contentType = request!.headers.get('content-type') ?? ''
+			if (contentType.includes('application/x-www-form-urlencoded')) {
+				const requestText = await request!.text()
+				form = new URLSearchParams(requestText)
+			} else {
+				const formData = await request!.formData()
+				form = new URLSearchParams()
+				for (const [key, value] of formData.entries()) {
+					if (typeof value === 'string') {
+						form.append(key, value)
+					}
+				}
+			}
+		}
+
+		// collect all values first because validators can reference them
+		for (const fieldName of Object.keys(validators)) {
+			const formValue = form.get(fieldName)
+			// Default the value to empty string so it doesn't have trouble with
+			// getNonNull later. This allows us to have a validator that allows
+			// for optional values.
+			actionData.fields[fieldName] = formValue ?? ''
+		}
+
+		await Promise.all(
+			Object.entries(validators).map(async ([fieldName, validator]) => {
+				const formValue = form!.get(fieldName)
+				// Default the value to empty string so it doesn't have trouble with
+				// getNonNull later. This allows us to have a validator that allows
+				// for optional values.
+				actionData.errors[fieldName] = await validator(
+					formValue,
+					actionData.fields,
+				)
+			}),
+		)
+
+		if (Object.values(actionData.errors).some((err) => err !== null)) {
+			return json({ ...actionData, status: 'error' }, 400)
+		}
+
+		const nonNullFields = getNonNull(actionData.fields)
+		// not sure why, but it wasn't happy without the type cast 🤷‍♂️
+		const response = await handleFormValues(
+			nonNullFields as NonNullProperties<ActionData['fields']>,
+		)
+		return response
+	} catch (error: unknown) {
+		actionData.errors.generalError = getErrorMessage(error)
+		return json(actionData, 500)
+	}
+}
+
+export { handleFormSubmission }

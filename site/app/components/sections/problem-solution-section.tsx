@@ -1,0 +1,255 @@
+import {
+	Tab as ReachTab,
+	TabList,
+	TabPanel,
+	TabPanels,
+	Tabs,
+	type TabProps,
+} from '@reach/tabs'
+import { differenceInYears } from 'date-fns'
+import { AnimatePresence, motion } from 'framer-motion'
+import * as React from 'react'
+import { Link } from 'react-router'
+import { getImgProps, images, type ImageBuilder } from '#app/images.tsx'
+import { type Team } from '#app/types.ts'
+import { teamTextColorClasses } from '#app/utils/misc.ts'
+import { ArrowLink } from '../arrow-button.tsx'
+import { Grid } from '../grid.tsx'
+import { ArrowIcon } from '../icons.tsx'
+import { H2, H3, Paragraph } from '../typography.tsx'
+
+function Tab({ children }: TabProps & { isSelected?: boolean }) {
+	return (
+		<ReachTab className="group hover:text-primary data-selected:text-primary inline-flex w-full items-center border-none p-0 text-left text-gray-600 opacity-60 transition hover:opacity-90 focus:bg-transparent data-selected:opacity-100 dark:text-slate-500">
+			<span>{children}</span>
+			<span className="ml-6 hidden -translate-x-5 items-center self-center leading-none opacity-0 transition group-data-selected:translate-x-0 group-data-selected:opacity-100 lg:inline-flex">
+				<ArrowIcon size={76} direction="right" className="block" />
+			</span>
+		</ReachTab>
+	)
+}
+
+function ContentPanel({
+	children,
+	active,
+	imageBuilder,
+}: {
+	children: React.ReactNode | React.ReactNode[]
+	active: boolean
+	imageBuilder: ImageBuilder
+}) {
+	return (
+		<TabPanel className="col-start-1 row-start-1 block">
+			<AnimatePresence>
+				{active ? (
+					<>
+						<motion.img
+							initial={{ x: -40, opacity: 0 }}
+							animate={{ x: 0, opacity: 1 }}
+							exit={{ x: 40, opacity: 0 }}
+							transition={{ damping: 0, duration: 0.25 }}
+							{...getImgProps(imageBuilder, {
+								className: 'mb-6 h-44 lg:mb-14',
+								widths: [180, 360, 540],
+								sizes: ['11rem'],
+							})}
+						/>
+
+						<motion.div
+							initial={{ opacity: 0 }}
+							animate={{ opacity: 1 }}
+							exit={{ opacity: 0 }}
+							transition={{ duration: 0.25 }}
+						>
+							{children}
+						</motion.div>
+					</>
+				) : null}
+			</AnimatePresence>
+		</TabPanel>
+	)
+}
+
+function ProblemSolutionSection({
+	blogPostCount,
+	totalBlogReaders,
+	totalBlogReads,
+	currentBlogLeaderTeam,
+}: {
+	blogPostCount: string
+	totalBlogReaders: string
+	totalBlogReads: string
+	currentBlogLeaderTeam: Team | undefined
+}) {
+	const [activeTabIndex, setActiveTabIndex] = React.useState(0)
+
+	return (
+		<Tabs as={Grid} featured onChange={(index) => setActiveTabIndex(index)}>
+			<div className="col-span-full lg:col-span-5">
+				<H2 className="mb-4 lg:mb-0">
+					Having a hard time keeping up with JavaScript?
+				</H2>
+			</div>
+			<div className="col-span-full lg:col-span-5 lg:col-start-7">
+				<H2 variant="secondary" as="p">
+					{`
+            Well, you're in the right place. My website is your one stop shop
+            for everything you need to build JavaScript apps.
+          `}
+				</H2>
+			</div>
+
+			<hr className="col-span-full mt-16 mb-10 border-gray-200 lg:mt-24 lg:mb-20 dark:border-gray-600" />
+
+			<div className="order-1 col-span-full col-start-1 lg:order-3 lg:col-span-5 lg:mt-52 lg:pt-2">
+				<TabList className="text-primary inline-flex flex-row space-x-8 bg-transparent text-xl leading-snug lg:flex-col lg:space-x-0 lg:text-7xl">
+					<Tab>blog</Tab>
+					<Tab>portfolio</Tab>
+					<Tab>podcasts</Tab>
+				</TabList>
+			</div>
+
+			<TabPanels className="order-4 col-span-full mt-16 grid lg:col-span-5 lg:col-start-7 lg:mt-0">
+				<ContentPanel active={activeTabIndex === 0} imageBuilder={images.skis}>
+					<H3>Educational blog</H3>
+
+					<Paragraph className="mt-8">
+						{`My `}
+						<strong>{blogPostCount}</strong>
+						{` blog posts (and counting) have been `}
+						<Link prefetch="intent" to="/teams#read-rankings">
+							read
+						</Link>
+						{` ${totalBlogReads} times by ${totalBlogReaders} people. There you'll find blogs about `}
+						<Link prefetch="intent" to="/blog?q=javascript">
+							JavaScript
+						</Link>
+						{`, `}
+						<Link prefetch="intent" to="/blog?q=typescript">
+							TypeScript
+						</Link>
+						{`, `}
+						<Link prefetch="intent" to="/blog?q=react">
+							React
+						</Link>
+						{`, `}
+						<Link prefetch="intent" to="/blog?q=testing">
+							Testing
+						</Link>
+						{`, `}
+						<Link prefetch="intent" to="/blog?q=career">
+							your career
+						</Link>
+						{`, `}
+						<Link prefetch="intent" to="/blog">
+							and more
+						</Link>
+						.
+					</Paragraph>
+					{currentBlogLeaderTeam ? (
+						<Paragraph
+							prose={false}
+							textColorClassName={teamTextColorClasses[currentBlogLeaderTeam]}
+						>
+							{`The `}
+							<Link
+								to="/teams"
+								className={`${teamTextColorClasses[currentBlogLeaderTeam]} underlined`}
+							>
+								<strong>{currentBlogLeaderTeam.toLowerCase()}</strong>
+							</Link>
+							{` team is winning.`}
+						</Paragraph>
+					) : null}
+
+					<ArrowLink to="/blog" className="mt-14">
+						Start reading the blog
+					</ArrowLink>
+				</ContentPanel>
+
+				<ContentPanel
+					active={activeTabIndex === 1}
+					imageBuilder={images.onewheel}
+				>
+					<H3>Portfolio</H3>
+
+					<Paragraph className="mt-8">
+						{`
+              I've been teaching people just like you how to build better
+              software for over ${differenceInYears(
+								Date.now(),
+								new Date(2014, 0, 0),
+							)}
+              years. Tens of thousands of people have increased their confidence
+              in shipping software with
+            `}
+						<a
+							href="https://abhidev.com"
+							className="!text-yellow-500"
+						>
+							TestingJavaScript.com
+						</a>
+						{`
+              and even more have improved the performance and maintainability
+              of their React applications from what they've learned from
+            `}
+						<a href="https://abhidev.com" className="!text-blue-500">
+							EpicReact.dev
+						</a>
+						{`. My latest efforts are pushing things to the whole stack with `}
+						<a href="https://www.epicstack.dev" className="!text-red-500">
+							EpicWeb.dev
+						</a>
+						.
+					</Paragraph>
+
+					<ArrowLink to="/courses" className="mt-14">
+						Explore the portfolio
+					</ArrowLink>
+				</ContentPanel>
+
+				<ContentPanel active={activeTabIndex === 2} imageBuilder={images.kayak}>
+					<H3>Podcast</H3>
+
+					<Paragraph className="mt-8">
+						{`
+              I really enjoy chatting with people about AI engineering and full stack systems and
+              life as a software developer. So I have several podcasts for you
+              to enjoy like
+            `}
+						<Link prefetch="intent" to="/chats">
+							Engineering with AbhiDev
+						</Link>
+						{`, `}
+						<Link prefetch="intent" to="/calls">
+							call AbhiDev
+						</Link>
+						{`, and `}
+						<a href="https://abhidev.com/podcast">
+							the EpicReact.dev podcast
+						</a>
+						.
+					</Paragraph>
+
+					<Paragraph>
+						{`
+              I've also had the pleasure to be a guest on many other podcasts
+              where I've been able to share my thoughts on webdev. You can find
+              those on my
+            `}
+						<Link prefetch="intent" to="/appearances">
+							appearances
+						</Link>
+						{` page.`}
+					</Paragraph>
+
+					<ArrowLink to="/chats" className="mt-14">
+						Start listening to my engineering talks
+					</ArrowLink>
+				</ContentPanel>
+			</TabPanels>
+		</Tabs>
+	)
+}
+
+export { ProblemSolutionSection }

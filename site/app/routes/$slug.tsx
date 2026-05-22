@@ -1,0 +1,196 @@
+import * as React from 'react'
+import { data as json, type HeadersFunction } from 'react-router'
+import { serverOnly$ } from 'vite-env-only/macros'
+import { BackLink } from '#app/components/arrow-button.tsx'
+import { BlurrableImage } from '#app/components/blurrable-image.tsx'
+import { GeneralErrorBoundary } from '#app/components/error-boundary'
+import { FourHundred, FourOhFour } from '#app/components/errors.tsx'
+import { Grid } from '#app/components/grid.tsx'
+import { H2, H6 } from '#app/components/typography.tsx'
+import { getImageBuilder, getImgProps } from '#app/images.tsx'
+import { type KCDHandle } from '#app/types.ts'
+import { getBlogRecommendations } from '#app/utils/blog.server.ts'
+import { getMdxPage, getMdxPagesInDirectory } from '#app/utils/mdx.server'
+import {
+	getBannerAltProp,
+	getBannerTitleProp,
+	mdxPageMeta,
+	useMdxComponent,
+} from '#app/utils/mdx.tsx'
+import { requireValidSlug, reuseUsefulLoaderHeaders } from '#app/utils/misc.ts'
+import { type NotFoundMatch } from '#app/utils/not-found-matches.ts'
+import { getNotFoundSuggestions } from '#app/utils/not-found-suggestions.server.ts'
+import { getServerTimeHeader } from '#app/utils/timing.server.ts'
+import { type Route } from './+types/$slug'
+
+const getPathedRoutes = serverOnly$(async () => {
+	const { pathedRoutes } = await import('#app/other-routes.server.ts')
+	return pathedRoutes
+})
+
+export const handle: KCDHandle = {
+	getSitemapEntries: serverOnly$(async (request: Request) => {
+		const pages = await getMdxPagesInDirectory('pages', { request })
+		return pages
+			.filter((page) => !page.frontmatter.draft)
+			.map((page) => {
+				return { route: `/${page.slug}`, priority: 0.6 }
+			})
+	}),
+}
+
+export async function loader({ params, request }: Route.LoaderArgs) {
+	requireValidSlug(params.slug)
+	// because this is our catch-all thing, we'll do an early return for anything
+	// that has a other route setup. The response will be handled there.
+	const pathedRoutes = await getPathedRoutes()
+	if (pathedRoutes[new URL(request.url).pathname]) {
+		throw new Response('Use other route', { status: 404 })
+	}
+
+	const timings = {}
+	const pathname = new URL(request.url).pathname
+	const page = await getMdxPage(
+		{ contentDir: 'pages', slug: params.slug },
+		{ request, timings },
+	)
+
+	if (!page) {
+		const [recommendations, suggestions] = await Promise.all([
+			getBlogRecommendations({ request, timings }),
+			getNotFoundSuggestions({ request, pathname, limit: 8 }),
+		])
+		const data: {
+			recommendations: Array<unknown>
+			possibleMatches?: Array<NotFoundMatch>
+			possibleMatchesQuery?: string
+		} = { recommendations }
+		if (suggestions) {
+			data.possibleMatches = suggestions.matches
+			data.possibleMatchesQuery = suggestions.query
+		}
+		throw json(data, {
+			status: 404,
+			headers: {
+				// Don't cache speculative 404 slugs for long.
+				'Cache-Control': 'private, max-age=60',
+				Vary: 'Cookie',
+				'Server-Timing': getServerTimeHeader(timings),
+			},
+		})
+	}
+	return json(
+		{ page },
+		{
+			status: 200,
+			headers: {
+				'Cache-Control': 'private, max-age=3600',
+				Vary: 'Cookie',
+				'Server-Timing': getServerTimeHeader(timings),
+			},
+		},
+	)
+}
+
+export const headers: HeadersFunction = reuseUsefulLoaderHeaders
+
+export const meta = mdxPageMeta
+
+export default function MdxScreen({ loaderData: data }: Route.ComponentProps) {
+	const { code, frontmatter } = data.page
+	const isDraft = Boolean(frontmatter.draft)
+	const isArchived = Boolean(frontmatter.archived)
+	const Component = useMdxComponent(code)
+
+	return (
+		<>
+			<Grid className="mt-24 mb-10 lg:mb-24">
+				<div className="col-span-full flex justify-between lg:col-span-8 lg:col-start-3">
+					<BackLink to="/">Back to home</BackLink>
+				</div>
+			</Grid>
+
+			<Grid as="header" className="mb-12">
+				<div className="col-span-full lg:col-span-8 lg:col-start-3">
+					{isDraft ? (
+						<div className="prose prose-light dark:prose-dark mb-6 max-w-full">
+							{React.createElement(
+								'callout-warning',
+								{},
+								`This blog post is a draft. Please don't share it in its current state.`,
+							)}
+						</div>
+					) : null}
+					{isArchived ? (
+						<div className="prose prose-light dark:prose-dark mb-6 max-w-full">
+							{React.createElement(
+								'callout-warning',
+								{},
+								`This blog post is archived. It's no longer maintained and may contain outdated information.`,
+							)}
+						</div>
+					) : null}
+					<H2>{frontmatter.title}</H2>
+					{frontmatter.description ? (
+						<H6 as="p" variant="secondary" className="mt-2">
+							{frontmatter.description}
+						</H6>
+					) : null}
+				</div>
+				{frontmatter.bannerCloudinaryId ? (
+					<div className="col-span-full mt-10 lg:col-span-10 lg:col-start-2 lg:mt-16">
+						<BlurrableImage
+							key={frontmatter.bannerCloudinaryId}
+							blurDataUrl={frontmatter.bannerBlurDataUrl}
+							className="md:aspect-1 aspect-[3/4] md:aspect-[3/2]"
+							img={
+								<img
+									title={getBannerTitleProp(frontmatter)}
+									{...getImgProps(
+										getImageBuilder(
+											frontmatter.bannerCloudinaryId,
+											getBannerAltProp(frontmatter),
+										),
+										{
+											className: 'rounded-lg object-cover object-center w-full',
+											widths: [280, 560, 840, 1100, 1650, 2500, 2100, 3100],
+											sizes: [
+												'(max-width:1023px) 80vw',
+												'(min-width:1024px) and (max-width:1620px) 67vw',
+												'1100px',
+											],
+											transformations: {
+												background: 'rgb:e6e9ee',
+											},
+										},
+									)}
+								/>
+							}
+						/>
+					</div>
+				) : null}
+			</Grid>
+
+			<Grid as="main" className="prose prose-light dark:prose-dark">
+				<Component />
+			</Grid>
+		</>
+	)
+}
+
+export function ErrorBoundary() {
+	return (
+		<GeneralErrorBoundary
+			statusHandlers={{
+				400: ({ error }) => <FourHundred error={error.data} />,
+				404: ({ error }) => (
+					<FourOhFour
+						articles={error.data.recommendations}
+						possibleMatches={error.data.possibleMatches}
+						possibleMatchesQuery={error.data.possibleMatchesQuery}
+					/>
+				),
+			}}
+		/>
+	)
+}

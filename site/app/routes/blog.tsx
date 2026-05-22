@@ -1,0 +1,780 @@
+import { MixedCheckbox } from '@reach/checkbox'
+import { clsx } from 'clsx'
+import * as React from 'react'
+import {
+	Link,
+	useSearchParams,
+	data as json,
+	type HeadersFunction,
+	type LinksFunction,
+	type MetaFunction,
+} from 'react-router'
+import { ArrowLink } from '#app/components/arrow-button.tsx'
+import { ArticleCard } from '#app/components/article-card.tsx'
+import { Button, ButtonLink } from '#app/components/button.tsx'
+import { ServerError } from '#app/components/errors.tsx'
+import { Grid } from '#app/components/grid.tsx'
+import {
+	ChevronDownIcon,
+	PlusIcon,
+	RssIcon,
+	SearchIcon,
+} from '#app/components/icons.tsx'
+import { FeaturedSection } from '#app/components/sections/featured-section.tsx'
+import { HeroSection } from '#app/components/sections/hero-section.tsx'
+import { Spacer } from '#app/components/spacer.tsx'
+import { Tag } from '#app/components/tag.tsx'
+import { TeamStats } from '#app/components/team-stats.tsx'
+import { H2, H3, H4, H6, Paragraph } from '#app/components/typography.tsx'
+import {
+	getImageBuilder,
+	getImgProps,
+	getSocialImageWithPreTitle,
+	images,
+} from '#app/images.tsx'
+import { externalLinks } from '#app/external-links.tsx'
+import { type RootLoaderType } from '#app/root.tsx'
+import { type KCDHandle, type Team } from '#app/types.ts'
+import {
+	getAllBlogPostReadRankings,
+	getBlogReadRankings,
+	getBlogRecommendations,
+	getBlogPostReadCounts,
+	getReaderCount,
+	getSlugReadsByUser,
+	getTotalPostReads,
+} from '#app/utils/blog.server.ts'
+import { filterPosts, getRankingLeader } from '#app/utils/blog.ts'
+import { getBlogMdxListItems } from '#app/utils/mdx.server.ts'
+import { getBannerAltProp } from '#app/utils/mdx.tsx'
+import {
+	formatAbbreviatedNumber,
+	formatNumber,
+	getDisplayUrl,
+	getUrl,
+	isTeam,
+	reuseUsefulLoaderHeaders,
+	useUpdateQueryStringValueWithoutNavigation,
+	useCapturedRouteError,
+} from '#app/utils/misc-react.tsx'
+import { getSocialMetas } from '#app/utils/seo.ts'
+import { type SerializeFrom } from '#app/utils/serialize-from.ts'
+import { useTeam } from '#app/utils/team-provider.tsx'
+import { getServerTimeHeader } from '#app/utils/timing.server.ts'
+import { useRootData } from '#app/utils/use-root-data.ts'
+import { type Route } from './+types/blog'
+
+const handleId = 'blog'
+export const handle: KCDHandle = {
+	id: handleId,
+	getSitemapEntries: () => [{ route: `/blog`, priority: 0.7 }],
+}
+
+export const links: LinksFunction = () => {
+	return [
+		{
+			rel: 'alternate',
+			type: 'application/rss+xml',
+			title: 'AbhiDev AI Blog',
+			href: '/blog/rss.xml',
+		},
+	]
+}
+
+export async function loader({ request }: Route.LoaderArgs) {
+	const timings = {}
+	const [
+		posts,
+		[recommended],
+		readRankings,
+		totalReads,
+		totalBlogReaders,
+		allPostReadRankings,
+		postReadCounts,
+		userReads,
+	] = await Promise.all([
+		getBlogMdxListItems({ request }).then((allPosts) =>
+			allPosts.filter((p) => !p.frontmatter.draft),
+		),
+		getBlogRecommendations({ request, limit: 1, timings }),
+		getBlogReadRankings({ request, timings }),
+		getTotalPostReads({ request, timings }),
+		getReaderCount({ request, timings }),
+		getAllBlogPostReadRankings({ request, timings }),
+		getBlogPostReadCounts({ request, timings }),
+		getSlugReadsByUser({ request, timings }),
+	])
+
+	const tags = new Set<string>()
+	for (const post of posts) {
+		for (const category of post.frontmatter.categories ?? []) {
+			tags.add(category)
+		}
+	}
+
+	const data = {
+		posts,
+		recommended,
+		readRankings,
+		allPostReadRankings,
+		postReadCounts,
+		totalReads: formatAbbreviatedNumber(totalReads),
+		totalBlogReaders: formatAbbreviatedNumber(totalBlogReaders),
+		userReads,
+		tags: Array.from(tags),
+		overallLeadingTeam: getRankingLeader(readRankings)?.team ?? null,
+	}
+
+	return json(data, {
+		headers: {
+			'Cache-Control': 'private, max-age=3600',
+			Vary: 'Cookie',
+			'Server-Timing': getServerTimeHeader(timings),
+		},
+	})
+}
+
+export const headers: HeadersFunction = reuseUsefulLoaderHeaders
+
+export const meta: MetaFunction<typeof loader, { root: RootLoaderType }> = ({
+	data,
+	matches,
+}) => {
+	const requestInfo = matches.find((m) => m.id === 'root')?.data.requestInfo
+	const { totalBlogReaders, posts } = data as SerializeFrom<typeof loader>
+	return getSocialMetas({
+		title: 'The AbhiDev AI Blog',
+		description: `Join ${totalBlogReaders} people who have read Kent's ${formatNumber(
+			posts.length,
+		)} articles on AI, machine learning, full stack engineering, system design, research, and developer growth.`,
+		keywords:
+			'JavaScript, TypeScript, React, Testing, Career, Software Development, AbhiDev AI Blog',
+		url: getUrl(requestInfo),
+		image: getSocialImageWithPreTitle({
+			url: getDisplayUrl(requestInfo),
+			featuredImage: images.skis.id,
+			preTitle: 'Engineering Insights and AI Research',
+			title: `Practical insights from AI systems, full stack engineering, and research projects`,
+		}),
+		ogType: 'website',
+	})
+}
+
+// should be divisible by 3 and 2 (large screen, and medium screen).
+const PAGE_SIZE = 12
+const initialIndexToShow = PAGE_SIZE
+
+const specialQueryRegex = /(?<not>!)?leader:(?<team>\w+)(\s|$)?/g
+
+type SortState = 'auto' | 'newest' | 'oldest' | 'popular'
+
+function getSortStateFromParam(value: string | null): SortState {
+	switch (value) {
+		case 'newest':
+		case 'oldest':
+		case 'popular':
+			return value
+		default:
+			return 'auto'
+	}
+}
+
+function BlogHome({ loaderData: data }: Route.ComponentProps) {
+	const { requestInfo } = useRootData()
+	const [searchParams] = useSearchParams()
+	const [userReadsState, setUserReadsState] = React.useState<
+		'read' | 'unread' | 'unset'
+	>('unset')
+	const searchInputRef = React.useRef<HTMLInputElement>(null)
+
+	const [userTeam] = useTeam()
+
+	const resultsRef = React.useRef<HTMLDivElement>(null)
+	/**
+	 * This is here to make sure that a user doesn't hit "enter" on the search
+	 * button, which focuses the input and then keyup the enter on the input
+	 * which will trigger the scroll down. We should *only* scroll when the
+	 * "enter" keypress and keyup happen on the input.
+	 */
+	const ignoreInputKeyUp = React.useRef<boolean>(false)
+	const [queryValue, setQuery] = React.useState<string>(() => {
+		return searchParams.get('q') ?? ''
+	})
+	const [sortState, setSortState] = React.useState<SortState>(() => {
+		return getSortStateFromParam(searchParams.get('sort'))
+	})
+	const query = queryValue.trim()
+	const regularQuery = query.replace(specialQueryRegex, '').trim()
+
+	useUpdateQueryStringValueWithoutNavigation('q', query)
+	useUpdateQueryStringValueWithoutNavigation(
+		'sort',
+		sortState === 'auto' || (sortState === 'newest' && regularQuery === '')
+			? ''
+			: sortState,
+	)
+
+	const { posts: allPosts, userReads, postReadCounts } = data
+
+	const getLeadingTeamForSlug = React.useCallback(
+		(slug: string) => {
+			return getRankingLeader(data.allPostReadRankings[slug])?.team
+		},
+		[data.allPostReadRankings],
+	)
+
+	const effectiveSort =
+		sortState === 'auto' ? (regularQuery ? 'relevance' : 'newest') : sortState
+
+	const matchingPosts = React.useMemo(() => {
+		const r = new RegExp(specialQueryRegex)
+		let match = r.exec(query)
+		const leaders: Array<Team> = []
+		const nonLeaders: Array<Team> = []
+		while (match) {
+			const { team, not } = match.groups ?? {}
+			const upperTeam = team?.toUpperCase()
+			if (isTeam(upperTeam)) {
+				if (not) {
+					nonLeaders.push(upperTeam)
+				} else {
+					leaders.push(upperTeam)
+				}
+			}
+			match = r.exec(query)
+		}
+
+		let filteredPosts = allPosts
+
+		filteredPosts =
+			userReadsState === 'unset'
+				? filteredPosts
+				: filteredPosts.filter((post) => {
+						const isRead = userReads.includes(post.slug)
+						if (userReadsState === 'read' && !isRead) return false
+						if (userReadsState === 'unread' && isRead) return false
+						return true
+					})
+
+		filteredPosts =
+			leaders.length || nonLeaders.length
+				? filteredPosts.filter((post) => {
+						const leader = getLeadingTeamForSlug(post.slug)
+						if (leaders.length && leader && leaders.includes(leader)) {
+							return true
+						}
+						if (
+							nonLeaders.length &&
+							(!leader || !nonLeaders.includes(leader))
+						) {
+							return true
+						}
+						return false
+					})
+				: filteredPosts
+
+		const searchedPosts = filterPosts(filteredPosts, regularQuery)
+		if (effectiveSort === 'relevance') return searchedPosts
+
+		const dateTimeCache = new Map<string, number | null>()
+		const getPostDateTime = (post: (typeof searchedPosts)[number]) => {
+			const cached = dateTimeCache.get(post.slug)
+			if (cached !== undefined) return cached
+			const time = new Date(post.frontmatter.date ?? '').getTime()
+			const value = Number.isFinite(time) ? time : null
+			dateTimeCache.set(post.slug, value)
+			return value
+		}
+
+		const compareByDate = (
+			a: (typeof searchedPosts)[number],
+			b: (typeof searchedPosts)[number],
+			direction: 'asc' | 'desc',
+		) => {
+			const aTime = getPostDateTime(a)
+			const bTime = getPostDateTime(b)
+			if (aTime === null && bTime === null) return a.slug.localeCompare(b.slug)
+			if (aTime === null) return 1
+			if (bTime === null) return -1
+			if (aTime === bTime) return a.slug.localeCompare(b.slug)
+			return direction === 'desc' ? bTime - aTime : aTime - bTime
+		}
+
+		const compareByNewest = (
+			a: (typeof searchedPosts)[number],
+			b: (typeof searchedPosts)[number],
+		) => compareByDate(a, b, 'desc')
+
+		const compareByOldest = (
+			a: (typeof searchedPosts)[number],
+			b: (typeof searchedPosts)[number],
+		) => compareByDate(a, b, 'asc')
+
+		const compareByPopular = (
+			a: (typeof searchedPosts)[number],
+			b: (typeof searchedPosts)[number],
+		) => {
+			const aReads = postReadCounts[a.slug] ?? 0
+			const bReads = postReadCounts[b.slug] ?? 0
+			if (aReads !== bReads) return bReads - aReads
+			return compareByNewest(a, b)
+		}
+
+		const postsToSort = [...searchedPosts]
+		switch (effectiveSort) {
+			case 'newest':
+				return postsToSort.sort(compareByNewest)
+			case 'oldest':
+				return postsToSort.sort(compareByOldest)
+			case 'popular':
+				return postsToSort.sort(compareByPopular)
+			default: {
+				// If TypeScript ever flags this, a new SortState value was added
+				// without a corresponding sort branch.
+				const _exhaustiveCheck: never = effectiveSort
+				void _exhaustiveCheck
+				return searchedPosts
+			}
+		}
+	}, [
+		allPosts,
+		query,
+		regularQuery,
+		effectiveSort,
+		getLeadingTeamForSlug,
+		userReadsState,
+		userReads,
+		postReadCounts,
+	])
+
+	const [indexToShow, setIndexToShow] = React.useState(initialIndexToShow)
+	// when the query changes, we want to reset the index
+	React.useEffect(() => {
+		setIndexToShow(initialIndexToShow)
+	}, [query, effectiveSort, userReadsState])
+
+	// this bit is very similar to what's on the blogs page.
+	// Next time we need to do work in here, let's make an abstraction for them
+
+	function toggleTag(tag: string) {
+		setQuery((q) => {
+			// create a regexp so that we can replace multiple occurrences (`react node react`)
+			const expression = new RegExp(tag, 'ig')
+
+			const newQuery = expression.test(q)
+				? q.replace(expression, '')
+				: `${q} ${tag}`
+
+			// trim and remove subsequent spaces (`react   node ` => `react node`)
+			return newQuery.replace(/\s+/g, ' ').trim()
+		})
+	}
+
+	function toggleTeam(team: string) {
+		team = team.toLowerCase()
+		let newSpecialQuery = ''
+		if (query.includes(`!leader:${team}`)) {
+			newSpecialQuery = ''
+		} else if (query.includes(`leader:${team}`)) {
+			newSpecialQuery = `!leader:${team}`
+		} else {
+			newSpecialQuery = `leader:${team}`
+		}
+		setQuery(`${newSpecialQuery} ${regularQuery}`.trim())
+	}
+
+	const isSearching = query.length > 0 || userReadsState !== 'unset'
+	const showFeatured =
+		!isSearching && Boolean(data.recommended) && effectiveSort === 'newest'
+
+	const nonSearchingPosts = showFeatured
+		? matchingPosts.filter((p) => p.slug !== data.recommended?.slug)
+		: matchingPosts
+
+	const posts = isSearching
+		? matchingPosts.slice(0, indexToShow)
+		: nonSearchingPosts.slice(0, indexToShow)
+
+	const hasMorePosts = isSearching
+		? indexToShow < matchingPosts.length
+		: indexToShow < nonSearchingPosts.length
+
+	const visibleTags = isSearching
+		? new Set(
+				matchingPosts
+					.flatMap((post) => post.frontmatter.categories)
+					.filter(Boolean),
+			)
+		: new Set(data.tags)
+
+	// this is a remix bug
+
+	const recommendedPermalink = data.recommended
+		? `${requestInfo.origin}/blog/${data.recommended.slug}`
+		: undefined
+
+	const checkboxLabel =
+		userReadsState === 'read'
+			? 'Showing only posts you have not read'
+			: userReadsState === 'unread'
+				? `Showing only posts you have read`
+				: `Showing all posts`
+
+	const searchInputPlaceholder =
+		userReadsState === 'read'
+			? 'Search posts you have read'
+			: userReadsState === 'unread'
+				? 'Search posts you have not read'
+				: 'Search posts'
+
+	return (
+		<div
+			className={
+				data.overallLeadingTeam
+					? `set-color-team-current-${data.overallLeadingTeam.toLowerCase()}`
+					: ''
+			}
+		>
+			<HeroSection
+				title="Learn AI engineering, full stack systems, and real-world projects."
+				subtitle={
+					<>
+						<span>{`Explore technical write-ups, project breakdowns, ML research, and engineering learnings.`}</span>
+						<Link
+							reloadDocument
+							to="rss.xml"
+							className="text-secondary underlined hover:text-team-current focus:text-team-current ml-2 inline-block"
+						>
+							<RssIcon title="Get my blog as RSS" />
+						</Link>
+					</>
+				}
+				imageBuilder={images.skis}
+				action={
+					<div className="w-full">
+						<form
+							action="/blog"
+							method="GET"
+							onSubmit={(e) => e.preventDefault()}
+						>
+							<div className="relative">
+								<button
+									title={query === '' ? 'Search' : 'Clear search'}
+									type="button"
+									onClick={() => {
+										setQuery('')
+										ignoreInputKeyUp.current = true
+										searchInputRef.current?.focus()
+									}}
+									onKeyDown={() => {
+										ignoreInputKeyUp.current = true
+									}}
+									onKeyUp={() => {
+										ignoreInputKeyUp.current = false
+									}}
+									className={clsx(
+										'absolute top-0 left-6 flex h-full items-center justify-center border-none bg-transparent p-0 text-slate-500',
+										{
+											'cursor-pointer': query !== '',
+											'cursor-default': query === '',
+										},
+									)}
+								>
+									<SearchIcon />
+								</button>
+								<input
+									ref={searchInputRef}
+									type="search"
+									value={queryValue}
+									onChange={(event) =>
+										setQuery(event.currentTarget.value.toLowerCase())
+									}
+									onKeyUp={(e) => {
+										if (!ignoreInputKeyUp.current && e.key === 'Enter') {
+											resultsRef.current
+												?.querySelector('a')
+												?.focus({ preventScroll: true })
+											resultsRef.current?.scrollIntoView({ behavior: 'smooth' })
+										}
+										ignoreInputKeyUp.current = false
+									}}
+									name="q"
+									placeholder={searchInputPlaceholder}
+									className="text-primary bg-primary border-secondary focus:bg-secondary hover:border-team-current focus:border-team-current w-full appearance-none rounded-full border py-6 pr-6 pl-14 text-lg font-medium focus:outline-none md:pr-24"
+								/>
+								<div className="absolute top-0 right-6 hidden h-full w-14 items-center justify-between text-lg font-medium text-slate-500 md:flex">
+									<MixedCheckbox
+										title={checkboxLabel}
+										aria-label={checkboxLabel}
+										onChange={() => {
+											setUserReadsState((s) => {
+												if (s === 'unset') return 'unread'
+												if (s === 'unread') return 'read'
+												return 'unset'
+											})
+										}}
+										checked={
+											userReadsState === 'unset'
+												? 'mixed'
+												: userReadsState === 'read'
+										}
+									/>
+									<div className="flex-1" />
+									{matchingPosts.length}
+								</div>
+							</div>
+							<div className="mt-2 pr-6 pl-14 text-sm text-slate-500">
+								<Link
+									to={
+										query ? `/search?q=${encodeURIComponent(query)}` : '/search'
+									}
+									prefetch="intent"
+									className="underlined hover:text-team-current focus:text-team-current inline-block"
+								>
+									Search all blogs, projects, and research notes
+								</Link>
+							</div>
+						</form>
+					</div>
+				}
+			/>
+
+			<Grid className="mb-14">
+				<div className="relative col-span-full h-20">
+					<div className="absolute">
+						<TeamStats
+							totalReads={data.totalReads}
+							rankings={data.readRankings}
+							pull="left"
+							direction="down"
+							onStatClick={toggleTeam}
+						/>
+					</div>
+				</div>
+
+				<Spacer size="2xs" className="col-span-full" />
+
+				<Paragraph className="col-span-full" prose={false}>
+					{data.overallLeadingTeam ? (
+						<>
+							{`The `}
+							<strong
+								className={`text-team-current set-color-team-current-${data.overallLeadingTeam.toLowerCase()}`}
+							>
+								{data.overallLeadingTeam.toLowerCase()}
+							</strong>
+							{` team is in the lead. `}
+							{userTeam === 'UNKNOWN' ? (
+								<>
+									<Link to="/login" className="underlined">
+										Login or sign up
+									</Link>
+									{` to choose your team!`}
+								</>
+							) : userTeam === data.overallLeadingTeam ? (
+								`That's your team! Keep your lead!`
+							) : (
+								<>
+									{`Keep reading to get the `}
+									<strong
+										className={`text-team-current set-color-team-current-${userTeam.toLowerCase()}`}
+									>
+										{userTeam.toLowerCase()}
+									</strong>{' '}
+									{` team on top!`}
+								</>
+							)}
+						</>
+					) : (
+						`No team is in the lead! Read read read!`
+					)}
+				</Paragraph>
+
+				<Spacer size="xs" className="col-span-full" />
+
+				{data.tags.length > 0 ? (
+					<>
+						<H6 as="div" className="col-span-full mb-6">
+							Explore by topics
+						</H6>
+						<div className="col-span-full -mr-4 -mb-4 flex flex-wrap lg:col-span-10">
+							{data.tags.map((tag) => {
+								const selected = regularQuery.includes(tag)
+								return (
+									<Tag
+										key={tag}
+										tag={tag}
+										selected={selected}
+										onClick={() => toggleTag(tag)}
+										disabled={!visibleTags.has(tag) ? !selected : false}
+									/>
+								)
+							})}
+						</div>
+					</>
+				) : null}
+			</Grid>
+
+			{/* this is a remix bug */}
+			{}
+			<div ref={resultsRef}>
+				<Grid className={showFeatured ? 'mb-6' : 'mb-10'}>
+					<div className="col-span-full flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+						<H6 as="div" className="m-0">
+							Engineering Articles
+						</H6>
+						<label className="flex items-center gap-3 text-sm font-medium text-slate-500">
+							<span>Sort by</span>
+							<span className="relative">
+								<select
+									value={
+										regularQuery === '' && sortState === 'newest'
+											? 'auto'
+											: sortState
+									}
+									onChange={(e) =>
+										setSortState(getSortStateFromParam(e.currentTarget.value))
+									}
+									className="peer text-primary bg-primary border-secondary focus:bg-secondary hover:border-team-current focus:border-team-current appearance-none rounded-full border py-2 pr-11 pl-5 focus:outline-none"
+								>
+									<option value="auto">
+										{regularQuery ? 'Relevance' : 'Newest'}
+									</option>
+									{regularQuery ? <option value="newest">Newest</option> : null}
+									<option value="popular">Most popular</option>
+									<option value="oldest">Oldest</option>
+								</select>
+								<ChevronDownIcon
+									aria-hidden="true"
+									className="peer-hover:text-team-current peer-focus:text-team-current pointer-events-none absolute top-1/2 right-3 -translate-y-1/2 text-slate-500"
+								/>
+							</span>
+						</label>
+					</div>
+				</Grid>
+
+				{showFeatured && data.recommended ? (
+					<div className="mb-10">
+						<FeaturedSection
+							subTitle={data.recommended.readTime?.text ?? 'quick read'}
+							title={data.recommended.frontmatter.title}
+							blurDataUrl={data.recommended.frontmatter.bannerBlurDataUrl}
+							imageBuilder={
+								data.recommended.frontmatter.bannerCloudinaryId
+									? getImageBuilder(
+											data.recommended.frontmatter.bannerCloudinaryId,
+											getBannerAltProp(data.recommended.frontmatter),
+										)
+									: undefined
+							}
+							caption="Featured engineering write-up"
+							cta="Read case study"
+							slug={data.recommended.slug}
+							permalink={recommendedPermalink}
+							leadingTeam={getLeadingTeamForSlug(data.recommended.slug)}
+						/>
+					</div>
+				) : null}
+
+				<Grid className="mb-64">
+					{posts.length === 0 ? (
+						data.posts.length === 0 ? (
+							<div className="col-span-full rounded-lg border border-gray-200 p-8 dark:border-gray-600">
+								<H4 as="h2" className="mb-3">
+									No articles are available right now.
+								</H4>
+								<Paragraph className="mb-4">
+									We are likely having trouble with our GitHub integration.
+									Please try again soon, or browse the content directly on{' '}
+									<a
+										href={externalLinks.githubRepo}
+										target="_blank"
+										rel="noreferrer noopener"
+										className="text-primary underline"
+									>
+										GitHub
+									</a>
+									.
+								</Paragraph>
+								<ButtonLink variant="primary" to={externalLinks.githubRepo}>
+									Open GitHub repo
+								</ButtonLink>
+							</div>
+						) : (
+							<div className="col-span-full flex flex-col items-center">
+								<img
+									{...getImgProps(images.bustedOnewheel, {
+										className: 'mt-24 h-auto w-full max-w-lg',
+										widths: [350, 512, 1024, 1536],
+										sizes: ['(max-width: 639px) 80vw', '512px'],
+									})}
+								/>
+								<H3 as="p" variant="secondary" className="mt-24 max-w-lg">
+									{`Couldn't find anything to match your criteria. Sorry.`}
+								</H3>
+							</div>
+						)
+					) : (
+						posts.map((article) => (
+							<div key={article.slug} className="col-span-4 mb-10">
+								<ArticleCard
+									article={article}
+									leadingTeam={getLeadingTeamForSlug(article.slug)}
+								/>
+							</div>
+						))
+					)}
+				</Grid>
+
+				{hasMorePosts ? (
+					<div className="mb-64 flex w-full justify-center">
+						<Button
+							variant="secondary"
+							onClick={() => setIndexToShow((i) => i + PAGE_SIZE)}
+						>
+							<span>Load more engineering posts</span> <PlusIcon />
+						</Button>
+					</div>
+				) : null}
+			</div>
+
+			<Grid>
+				<div className="col-span-full lg:col-span-5">
+					<img
+						{...getImgProps(images.kayak, {
+							widths: [350, 512, 1024, 1536],
+							sizes: [
+								'80vw',
+								'(min-width: 1024px) 30vw',
+								'(min-width:1620px) 530px',
+							],
+						})}
+					/>
+				</div>
+
+				<div className="col-span-full mt-4 lg:col-span-6 lg:col-start-7 lg:mt-0">
+					<H2 className="mb-8">{`Prefer deep technical insights?`}</H2>
+					<H2 className="mb-16" variant="secondary" as="p">
+						{`
+              Check out my podcast Engineering with AbhiDev and learn about software
+              development, career, life, and more.
+            `}
+					</H2>
+					<ArrowLink to="/chats">{`View portfolio and research`}</ArrowLink>
+				</div>
+			</Grid>
+		</div>
+	)
+}
+
+export default BlogHome
+export function ErrorBoundary() {
+	const error = useCapturedRouteError()
+	console.error(error)
+	return <ServerError />
+}
+
+/*
+eslint
+  complexity: "off",
+*/

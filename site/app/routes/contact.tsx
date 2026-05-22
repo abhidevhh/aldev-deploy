@@ -1,0 +1,241 @@
+
+
+import {
+	data as json,
+	type HeadersFunction,
+	type MetaFunction,
+	Link,
+	useFetcher,
+} from 'react-router'
+import { Button } from '#app/components/button.tsx'
+import {
+	ButtonGroup,
+	ErrorPanel,
+	Field,
+} from '#app/components/form-elements.tsx'
+import { Grid } from '#app/components/grid.tsx'
+import {
+	HeroSection,
+	getHeroImageProps,
+} from '#app/components/sections/hero-section.tsx'
+import { H2, Paragraph } from '#app/components/typography.tsx'
+import { getGenericSocialImage, images } from '#app/images.tsx'
+import { type RootLoaderType } from '#app/root.tsx'
+import { handleFormSubmission } from '#app/utils/actions.server.ts'
+import { getDisplayUrl, getUrl } from '#app/utils/misc.ts'
+import { sendEmail } from '#app/utils/send-email.server.ts'
+import { getSocialMetas } from '#app/utils/seo.ts'
+import { requireUser } from '#app/utils/session.server.ts'
+import { useRootData } from '#app/utils/use-root-data.ts'
+import { type Route } from './+types/contact'
+
+function getErrorForSubject(subject: string | null) {
+	if (!subject) return `Subject is required`
+	if (subject.length <= 5) return `Subject is too short`
+	if (subject.length > 120) return `Subject is too long`
+	return null
+}
+
+function getErrorForBody(body: string | null) {
+	if (!body) return `Body is required`
+	if (body.length <= 40) return `Body is too short`
+	if (body.length > 1001) return `Body is too long`
+	return null
+}
+
+type ActionData = {
+	status: 'success' | 'error'
+	fields: {
+		subject?: string | null
+		body?: string | null
+	}
+	errors: {
+		generalError?: string
+		subject?: string | null
+		body?: string | null
+	}
+}
+
+export async function action({ request }: Route.ActionArgs) {
+	const user = await requireUser(request)
+	return handleFormSubmission<ActionData>({
+		request,
+		validators: {
+			subject: getErrorForSubject,
+			body: getErrorForBody,
+		},
+		handleFormValues: async (fields) => {
+			const { subject, body } = fields
+
+			const sender = `"${user.firstName}" <${user.email}>`
+
+			// this bit is included so I can have a filter that ensures
+			// messages sent from the contact form never end up in spam.
+			const noSpamMessage = '- Sent via the KCD Contact Form'
+
+			await sendEmail({
+				from: sender,
+				to: `"AbhiDev" <me@abhidev.com>`,
+				subject,
+				text: `${body}\n\n${noSpamMessage}`,
+			})
+
+			const actionData: ActionData = { fields, status: 'success', errors: {} }
+			return json(actionData)
+		},
+	})
+}
+
+export const headers: HeadersFunction = () => ({
+	'Cache-Control': 'private, max-age=3600',
+	Vary: 'Cookie',
+})
+
+export const meta: MetaFunction<{}, { root: RootLoaderType }> = ({
+	matches,
+}) => {
+	const requestInfo = matches.find((m) => m.id === 'root')?.data.requestInfo
+	return getSocialMetas({
+		title: 'Contact Abhishek Sharma',
+		description: 'Contact Abhishek Sharma for AI, ML, and Full Stack collaborations.',
+		url: getUrl(requestInfo),
+		image: getGenericSocialImage({
+			url: getDisplayUrl(requestInfo),
+			featuredImage: 'unsplash/photo-1563225409-127c18758bd5',
+			words: `Let’s collaborate on AI systems`,
+		}),
+	})
+}
+
+export default function ContactRoute() {
+	const contactFetcher = useFetcher<typeof action>()
+	const { user } = useRootData()
+	const actionData = contactFetcher.data as ActionData | undefined
+	const isDone = contactFetcher.state === 'idle' && actionData != null
+	const emailSuccessfullySent = isDone && actionData.status === 'success'
+
+	return (
+		<div>
+			<HeroSection
+				title="Let’s build something powerful together."
+				subtitle="AI systems, full stack products, and intelligent automation."
+				image={
+					<img
+						{...getHeroImageProps(images.abhiProfile, {
+							className:
+								'max-h-[50vh] rounded-bl-3xl rounded-br-[25%] rounded-tl-[25%] rounded-tr-3xl',
+						})}
+					/>
+				}
+			/>
+			<main>
+				<contactFetcher.Form
+					method="POST"
+					noValidate
+					aria-describedby="contact-form-error"
+				>
+					<Grid>
+						<div className="col-span-full mb-12 lg:col-span-8 lg:col-start-3">
+							<H2>Email me</H2>
+							<Paragraph>
+								{`
+                  I do my best to respond, but unfortunately I can't always
+                  respond to every email I receive. If you have a support
+                  request about my open source work, please open an issue
+                  on the GitHub repo instead. If you have a support need on one of
+                  my courses, please email the team (`}
+								<a href="mailto:me@AbhiDev.com">me@AbhiDev.com</a>
+								{`, `}
+								<a href="mailto:me@AbhiDev.com">
+									me@AbhiDev.com
+								</a>
+								{`, or `}
+								<a href="mailto:me@AbhiDev.com">me@AbhiDev.com</a>
+								{`) instead. I'll just forward your message to them anyway.`}
+							</Paragraph>
+							<div className="bg-secondary mt-6 rounded-lg p-4">
+								<Paragraph>
+									Have a general question? The best place is the{' '}
+									<Link to="/calls" className="underline">
+										Portfolio collaboration page
+									</Link>
+									. You can share your project idea, hiring request, or collaboration message if you don&apos;t
+									want to record yourself.
+								</Paragraph>
+							</div>
+						</div>
+
+						<div className="col-span-full lg:col-span-8 lg:col-start-3">
+							{user ? (
+								<>
+									<Field
+										name="name"
+										label="Name"
+										placeholder="Your name"
+										disabled={true}
+										defaultValue={user.firstName}
+									/>
+									<Field
+										type="email"
+										label="Email"
+										placeholder="person.doe@example.com"
+										disabled={true}
+										defaultValue={user.email}
+										name="email"
+									/>
+									<Field
+										name="subject"
+										label="Subject"
+										placeholder="AI collaboration, internship, startup idea..."
+										defaultValue={actionData?.fields.subject ?? ''}
+										error={actionData?.errors.subject}
+									/>
+									<Field
+										name="body"
+										label="Body"
+										type="textarea"
+										placeholder="Tell me what you're building and how I can help."
+										rows={8}
+										defaultValue={actionData?.fields.body ?? ''}
+										error={actionData?.errors.body}
+									/>
+									{emailSuccessfullySent ? (
+										`Message sent successfully. Looking forward to connecting 🚀`
+									) : (
+										// IDEA: show a loading state here
+										<ButtonGroup>
+											<Button
+												type="submit"
+												disabled={contactFetcher.state !== 'idle'}
+											>
+												Send message
+											</Button>
+											<Button variant="secondary" type="reset">
+												Reset form
+											</Button>
+										</ButtonGroup>
+									)}
+									{actionData?.errors.generalError ? (
+										<ErrorPanel id="contact-form-error">
+											{actionData.errors.generalError}
+										</ErrorPanel>
+									) : null}
+								</>
+							) : (
+								<div className="col-span-full mb-12 lg:col-span-8 lg:col-start-3">
+									<Paragraph>
+										Note: due to spam issues, you have to confirm your email by{' '}
+										<Link to="/login" className="underline">
+											sending your message directly here
+										</Link>{' '}
+										on my website first.
+									</Paragraph>
+								</div>
+							)}
+						</div>
+					</Grid>
+				</contactFetcher.Form>
+			</main>
+		</div>
+	)
+}

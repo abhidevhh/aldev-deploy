@@ -1,0 +1,569 @@
+:root {
+	--color-black: #000;
+	--color-white: #fff;
+	--color-blue-100: #e8f2ff;
+	--color-blue-500: #4b96ff;
+	--color-slate-500: #a9adc1;
+	--color-gray-100: #f7f7f7;
+	--color-gray-200: #e6e9ee;
+	--color-gray-300: #dde0e4;
+	--color-gray-400: #818890;
+	--color-gray-500: #535661;
+	--color-gray-600: #4b4c53;
+	--color-gray-700: #3a3d4a;
+	--color-gray-800: #2e3039;
+	--color-gray-850: #282a34;
+	--color-gray-900: #1f2028;
+	--color-green-100: #e7f9ed;
+	--color-green-500: #30c85e;
+	--color-green-600: #68d94a;
+	--color-red-500: #ff4545;
+	--color-yellow-500: #ffd644;
+
+	--color-team-unknown: #818890;
+	--color-team-blue: #36a3ff;
+	--color-team-red: #ff4545;
+	/* yellow in light mode is... hard */
+	--color-team-yellow: #846901;
+	--color-yellow-500: #846901;
+	--color-yellow-500-inverted: #ffd644;
+}
+
+.light,
+.day,
+.dark .text-inverse {
+	--color-team-unknown: var(--color-black);
+	--bg-primary: var(--color-white);
+	--bg-secondary: var(--color-gray-100);
+	--bg-alt: var(--color-gray-200);
+	--border-secondary: var(--color-gray-200);
+	--text-primary: var(--color-black);
+	--text-secondary: var(--color-gray-500);
+	color-scheme: light;
+}
+
+.dark,
+.light .text-inverse,
+.day .text-inverse {
+	--color-team-yellow: #ffd644;
+	--color-yellow-500: #ffd644;
+	--color-yellow-500-inverted: #a08600;
+	--color-team-unknown: var(--color-white);
+	--bg-primary: var(--color-gray-900);
+	--bg-secondary: var(--color-gray-800);
+	--bg-alt: var(--color-gray-700);
+	--border-secondary: var(--color-gray-600);
+	--text-primary: var(--color-white);
+	--text-secondary: var(--color-slate-500);
+	color-scheme: dark;
+}
+
+.brand,
+.brand .text-inverse {
+	--color-team-unknown: #1e293b;
+	--bg-primary: #eef7ff;
+	--bg-secondary: #dbeafe;
+	--bg-alt: #c7d9ff;
+	--border-secondary: #93c5fd;
+	--text-primary: #0f172a;
+	--text-secondary: #2563eb;
+	color-scheme: light;
+}
+
+.red,
+.red .text-inverse {
+	--color-team-unknown: #7f1d1d;
+	--bg-primary: #fef2f2;
+	--bg-secondary: #fee2e2;
+	--bg-alt: #fecaca;
+	--border-secondary: #fca5a5;
+	--text-primary: #7f1d1d;
+	--text-secondary: #9a1c1c;
+	color-scheme: light;
+}
+
+.blue,
+.blue .text-inverse {
+	--color-team-unknown: #0c4a6e;
+	--bg-primary: #eff6ff;
+	--bg-secondary: #dbeafe;
+	--bg-alt: #bfdbfe;
+	--border-secondary: #93c5fd;
+	--text-primary: #0c4a6e;
+	--text-secondary: #1d4ed8;
+	color-scheme: light;
+}
+
+.redblue,
+.redblue .text-inverse {
+	--color-team-unknown: #0e1f3d;
+	--bg-primary: #eef4ff;
+	--bg-secondary: #e8efff;
+	--bg-alt: #d7e0ff;
+	--border-secondary: #aac2ff;
+	--text-primary: #122142;
+	--text-secondary: #1d4ed8;
+	color-scheme: light;
+}
+
+html.brand body {
+	background-color: #eef7ff;
+}
+
+html.red body {
+	background-color: #fef2f2;
+}
+
+html.blue body {
+	background-color: #eff6ff;
+}
+
+html.redblue body {
+	background-color: #eef4ff;
+	background-image:
+		repeating-linear-gradient(
+			135deg,
+			rgba(255, 69, 69, 0.08) 0 1px,
+			transparent 1px 12px
+		),
+		linear-gradient(180deg, rgba(255, 87, 87, 0.08), transparent 45%),
+		linear-gradient(135deg, rgba(59, 130, 246, 0.08), transparent 50%);
+	background-attachment: fixed;
+}
+
+html.dark body,
+html.light body,
+html.day body,
+html.red body,
+html.blue body,
+html.redblue body {
+	background-color: var(--bg-primary) !important;
+	color: var(--text-primary) !important;
+}
+
+.hero-panel {
+	background-color: rgba(255, 255, 255, 0.08);
+	background-image: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.15), transparent 28%),
+		radial-gradient(circle at 80% 10%, rgba(59, 130, 246, 0.12), transparent 22%);
+}
+
+.dark .hero-panel {
+	background-image:
+		linear-gradient(140deg, rgba(15, 23, 42, 0.95), rgba(31, 41, 55, 0.95)),
+		radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.08), transparent 18%),
+		radial-gradient(circle at 80% 10%, rgba(134, 239, 172, 0.08), transparent 20%);
+}
+
+.light .hero-panel,
+.day .hero-panel {
+	background-image:
+		linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(243, 244, 246, 0.96)),
+		radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.12), transparent 18%);
+}
+
+.day .hero-panel {
+	background-image:
+		linear-gradient(180deg, rgba(255, 251, 235, 0.96), rgba(254, 242, 200, 0.95)),
+		radial-gradient(circle at 20% 20%, rgba(251, 191, 36, 0.18), transparent 18%);
+}
+
+.red .hero-panel {
+	background-image:
+		linear-gradient(180deg, rgba(254, 242, 242, 0.98), rgba(254, 226, 226, 0.95)),
+		radial-gradient(circle at 15% 20%, rgba(255, 69, 69, 0.16), transparent 20%);
+}
+
+.blue .hero-panel {
+	background-image:
+		linear-gradient(180deg, rgba(239, 246, 255, 0.98), rgba(219, 234, 254, 0.95)),
+		radial-gradient(circle at 15% 20%, rgba(59, 130, 246, 0.18), transparent 20%);
+}
+
+.brand .hero-panel {
+	background-image:
+		linear-gradient(180deg, rgba(238, 244, 255, 0.96), rgba(219, 234, 254, 0.96)),
+		radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.16), transparent 18%);
+}
+
+.redblue .hero-panel {
+	background-image:
+		linear-gradient(180deg, rgba(238, 244, 255, 0.95), rgba(241, 245, 255, 0.95)),
+		repeating-linear-gradient(
+			135deg,
+			rgba(255, 69, 69, 0.08) 0 1px,
+			transparent 1px 12px
+		),
+		radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.12), transparent 20%);
+}
+
+.section-panel {
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+.theme-panel {
+	backdrop-filter: blur(10px);
+}
+
+.hero-panel,
+.section-panel {
+	transition: background-image 0.4s ease, background-color 0.4s ease;
+}
+
+.set-color-team-current-yellow {
+	--color-team-current: var(--color-team-yellow);
+}
+
+.set-color-team-current-red {
+	--color-team-current: var(--color-team-red);
+}
+
+.set-color-team-current-blue {
+	--color-team-current: var(--color-team-blue);
+}
+
+.dark .set-color-team-current-unknown {
+	--color-team-current: var(--color-white);
+}
+
+.light .set-color-team-current-unknown {
+	--color-team-current: var(--color-black);
+}
+
+.red .set-color-team-current-unknown,
+.blue .set-color-team-current-unknown,
+.redblue .set-color-team-current-unknown {
+	--color-team-current: var(--color-team-unknown);
+}
+
+:focus:not(:focus-visible) {
+	outline: none;
+}
+
+body {
+	overflow-x: hidden;
+}
+
+* {
+	-webkit-tap-highlight-color: transparent;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+	-webkit-text-fill-color: black !important;
+	-webkit-box-shadow: 0 0 0 999px var(--color-gray-100) inset !important;
+	box-shadow: 0 0 0 999px var(--color-gray-100) inset !important;
+	background-clip: content-box !important;
+}
+
+.dark input:-webkit-autofill,
+.dark input:-webkit-autofill:hover,
+.dark input:-webkit-autofill:focus,
+.dark input:-webkit-autofill:active {
+	-webkit-text-fill-color: white !important;
+	-webkit-box-shadow: 0 0 0 999px var(--color-gray-800) inset !important;
+	box-shadow: 0 0 0 999px var(--color-gray-800) inset !important;
+	background-clip: content-box !important;
+}
+
+input:-webkit-autofill::first-line {
+	font-size: 1.125rem;
+	font-weight: 500;
+	font-family:
+		ui-sans-serif,
+		system-ui,
+		-apple-system,
+		BlinkMacSystemFont,
+		'Segoe UI',
+		Roboto,
+		'Helvetica Neue',
+		Arial,
+		'Noto Sans',
+		sans-serif,
+		'Apple Color Emoji',
+		'Segoe UI Emoji',
+		'Segoe UI Symbol',
+		'Noto Color Emoji';
+}
+
+/* I kinda feel like this should be the default... 🤷‍♂️ */
+[hidden] {
+	pointer-events: none;
+}
+
+/* These elements get removed before hydration but they can look funny before hydrating */
+dark-mode,
+light-mode {
+	display: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	:focus {
+		transition: outline-offset 0.1s ease;
+		outline-offset: 4px;
+	}
+}
+
+[data-reach-dialog-overlay].hotkeys-help-dialog-overlay[data-animation-state='open'] {
+	opacity: 1;
+	animation: hotkeys-help-dialog-overlay-in
+		var(--hotkeys-help-dialog-animation-duration) ease-out both;
+}
+
+[data-reach-dialog-overlay].hotkeys-help-dialog-overlay[data-animation-state='closed'] {
+	opacity: 0;
+	pointer-events: none;
+	animation: hotkeys-help-dialog-overlay-out
+		var(--hotkeys-help-dialog-animation-duration) ease-in both;
+}
+
+[data-reach-dialog-content].hotkeys-help-dialog-content {
+	will-change: opacity, transform;
+}
+
+[data-reach-dialog-content].hotkeys-help-dialog-content[data-animation-state='open'] {
+	opacity: 1;
+	transform: translateY(0) scale(1);
+	animation: hotkeys-help-dialog-content-in
+		var(--hotkeys-help-dialog-animation-duration) ease-out both;
+}
+
+[data-reach-dialog-content].hotkeys-help-dialog-content[data-animation-state='closed'] {
+	opacity: 0;
+	transform: translateY(10px) scale(0.98);
+	animation: hotkeys-help-dialog-content-out
+		var(--hotkeys-help-dialog-animation-duration) ease-in both;
+}
+
+@keyframes hotkeys-help-dialog-overlay-in {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes hotkeys-help-dialog-overlay-out {
+	from {
+		opacity: 1;
+	}
+
+	to {
+		opacity: 0;
+	}
+}
+
+@keyframes hotkeys-help-dialog-content-in {
+	from {
+		opacity: 0;
+		transform: translateY(10px) scale(0.98);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+	}
+}
+
+@keyframes hotkeys-help-dialog-content-out {
+	from {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+	}
+
+	to {
+		opacity: 0;
+		transform: translateY(10px) scale(0.98);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	[data-reach-dialog-overlay].hotkeys-help-dialog-overlay,
+	[data-reach-dialog-content].hotkeys-help-dialog-content {
+		animation: none !important;
+	}
+}
+
+/* Reach Tabs defaults are unlayered and can override Tailwind utilities in v4 */
+[data-reach-tab-list].bg-transparent {
+	background: transparent;
+}
+
+[data-reach-tab-list].bg-transparent [data-reach-tab]:active {
+	background: transparent;
+}
+
+[data-reach-tab-list].space-x-8 {
+	column-gap: calc(var(--spacing, 0.25rem) * 8);
+}
+
+@media (width >= 1024px) {
+	[data-reach-tab-list].lg\:space-x-0 {
+		column-gap: 0;
+	}
+
+	[data-reach-tab-list].lg\:space-x-12 {
+		column-gap: calc(var(--spacing, 0.25rem) * 12);
+	}
+}
+
+[data-reach-tab].border-none {
+	border: 0;
+}
+
+[data-reach-tab].inline-flex {
+	display: inline-flex;
+}
+
+[data-reach-tab].items-center {
+	align-items: center;
+}
+
+[data-reach-tab].p-0 {
+	padding: 0;
+}
+
+[data-reach-tab].text-left {
+	text-align: left;
+}
+
+[data-reach-tab].text-4xl {
+	font-size: var(--text-4xl, 2.5rem);
+}
+
+[data-reach-tab].leading-tight {
+	line-height: 1.25;
+}
+
+[data-reach-tab].focus\:bg-transparent:focus {
+	background: transparent;
+}
+
+[data-reach-tab].text-primary {
+	color: var(--color-black);
+}
+
+.dark [data-reach-tab].text-primary {
+	color: var(--color-white);
+}
+
+[data-reach-tab].text-gray-600 {
+	color: var(--color-gray-600);
+}
+
+.dark [data-reach-tab].dark\:text-slate-500 {
+	color: var(--color-slate-500);
+}
+
+.underlined {
+	position: relative;
+	text-decoration: none !important;
+	white-space: nowrap;
+}
+
+.underlined:focus {
+	outline: none;
+	text-decoration: none !important;
+}
+
+.underlined:after {
+	content: '';
+	height: 2px;
+	transform: scaleX(0);
+	transition: transform 0.25s ease;
+	transform-origin: left;
+	left: 0;
+	bottom: -4px;
+	width: 100%;
+	display: block;
+	position: absolute;
+}
+
+.underlined:hover:after,
+.underlined:focus:after,
+.active.underlined:after {
+	background-color: currentColor;
+	transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion) {
+	.underlined:after {
+		opacity: 0;
+		transition: opacity 0.25s ease;
+	}
+
+	.underlined:hover:after,
+	.underlined:focus:after,
+	.active.underlined:after {
+		opacity: 1;
+	}
+}
+
+/* transistor embed has rounded edges with white background 😬 */
+.dark iframe[src*='transistor'] {
+	border-radius: 8px;
+}
+
+.yt-lite {
+	border-radius: 0.5rem;
+	max-height: 90vh;
+	max-width: 90vw;
+}
+/* this is for react-lite-youtube-embed */
+/* Annoyingly the background image can be a pixel taller than the video in front of it when the video is playing */
+.lyt-activated {
+	background-image: none !important;
+}
+
+.quote-child > *:first-child:before {
+	content: '“';
+}
+.quote-child > *:last-child:after {
+	content: '”';
+}
+
+.course-card-gradient {
+	background-image: radial-gradient(
+		ellipse 80% 80% at 50% -10%,
+		hsla(220, 0%, 100%, 0.5),
+		transparent
+	);
+}
+
+.dark .course-card-gradient {
+	background-image: radial-gradient(
+		ellipse 80% 80% at 50% 0,
+		hsla(220, 0%, 80%, 0.3),
+		transparent
+	);
+	background-blend-mode: soft-light;
+}
+
+.course-card-button-gradient {
+	background-image: radial-gradient(
+		ellipse 70% 70% at 50% 50%,
+		hsla(220, 0%, 100%, 1),
+		transparent
+	);
+}
+
+.dark .course-card-button-gradient {
+	background-image: radial-gradient(
+		ellipse 60% 50% at 50% 50%,
+		hsla(220, 30%, 6%, 0.2),
+		transparent
+	);
+	background-blend-mode: overlay;
+}
+
+.dark .course-card-button-gradient:hover {
+	background-image: radial-gradient(
+		ellipse 60% 50% at 50% 50%,
+		hsla(220, 30%, 6%, 0.5),
+		transparent
+	);
+	background-blend-mode: overlay;
+}

@@ -1,0 +1,69 @@
+export const favoriteContentTypes = [
+	'blog-post',
+	'talk',
+	'abhi-call-episode',
+	'chats-with-kent-episode',
+	'youtube-video',
+] as const
+
+export type FavoriteContentType = (typeof favoriteContentTypes)[number]
+
+export const favoriteIntents = ['add', 'remove'] as const
+export type FavoriteIntent = (typeof favoriteIntents)[number]
+
+/**
+ * Canonical (string) identifier for season/episode based content.
+ * Stored without leading zeroes so we have exactly one representation.
+ */
+export function getEpisodeFavoriteContentId({
+	seasonNumber,
+	episodeNumber,
+}: {
+	seasonNumber: number
+	episodeNumber: number
+}) {
+	return `${String(seasonNumber)}:${String(episodeNumber)}`
+}
+
+export function parseEpisodeFavoriteContentId(contentId: string) {
+	const [seasonRaw, episodeRaw, ...rest] = contentId.split(':')
+	if (!seasonRaw || !episodeRaw || rest.length) return null
+	const seasonNumber = Number(seasonRaw)
+	const episodeNumber = Number(episodeRaw)
+	if (!Number.isInteger(seasonNumber) || seasonNumber < 1) return null
+	if (!Number.isInteger(episodeNumber) || episodeNumber < 1) return null
+	if (String(seasonNumber) !== seasonRaw) return null
+	if (String(episodeNumber) !== episodeRaw) return null
+	return { seasonNumber, episodeNumber }
+}
+
+/**
+ * Canonical identifier for one homework item within a Chats with Kent episode.
+ * Stored without leading zeroes so we have exactly one representation.
+ */
+export function getEpisodeHomeworkContentId({
+	seasonNumber,
+	episodeNumber,
+	itemIndex,
+}: {
+	seasonNumber: number
+	episodeNumber: number
+	itemIndex: number
+}) {
+	return `${String(seasonNumber)}:${String(episodeNumber)}:${String(itemIndex)}`
+}
+
+export function parseEpisodeHomeworkContentId(contentId: string) {
+	const [seasonRaw, episodeRaw, itemIndexRaw, ...rest] = contentId.split(':')
+	if (!seasonRaw || !episodeRaw || !itemIndexRaw || rest.length) return null
+	const seasonNumber = Number(seasonRaw)
+	const episodeNumber = Number(episodeRaw)
+	const itemIndex = Number(itemIndexRaw)
+	if (!Number.isInteger(seasonNumber) || seasonNumber < 1) return null
+	if (!Number.isInteger(episodeNumber) || episodeNumber < 1) return null
+	if (!Number.isInteger(itemIndex) || itemIndex < 0) return null
+	if (String(seasonNumber) !== seasonRaw) return null
+	if (String(episodeNumber) !== episodeRaw) return null
+	if (String(itemIndex) !== itemIndexRaw) return null
+	return { seasonNumber, episodeNumber, itemIndex }
+}

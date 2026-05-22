@@ -1,0 +1,65 @@
+import { describe, expect, test } from 'vitest'
+import {
+	deleteAudioObject,
+	getAudioBuffer,
+	getAudioStream,
+	headAudioObject,
+	putCallAudioFromBuffer,
+} from '../abhi-call-audio-storage.server.ts'
+
+process.env.R2_BUCKET = 'mock-r2-bucket'
+process.env.R2_ENDPOINT = 'https://mock.r2.cloudflarestorage.com'
+process.env.R2_ACCESS_KEY_ID = 'MOCKR2ACCESSKEYID'
+process.env.R2_SECRET_ACCESS_KEY = 'MOCKR2SECRETACCESSKEY'
+process.env.CALL_KENT_R2_BUCKET = 'mock-abhi-call-audio'
+
+describe('call kent audio storage (R2 via MSW)', () => {
+	test('round-trips audio bytes and supports range reads', async () => {
+		const callId = 'call_123'
+		const original = new Uint8Array([0, 1, 2, 3, 4, 5, 250, 251, 252, 253])
+		const contentType = 'audio/webm;codecs=opus'
+
+		const putRes = await putCallAudioFromBuffer({
+			callId,
+			audio: original,
+			contentType,
+		})
+		expect(putRes.size).toBe(original.byteLength)
+		expect(putRes.key).toContain(`abhi-call/calls/${callId}/`)
+
+		const full = await getAudioBuffer({ key: putRes.key })
+		expect(new Uint8Array(full)).toEqual(original)
+
+		const { body } = await getAudioStream({
+			key: putRes.key,
+			range: { start: 2, end: 5 },
+		})
+		const chunks: Buffer[] = []
+		for await (const chunk of body) {
+			chunks.push(Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk))
+		}
+		const ranged = new Uint8Array(Buffer.concat(chunks))
+		expect(ranged).toEqual(original.slice(2, 6))
+
+		await deleteAudioObject({ key: putRes.key })
+		await expect(getAudioBuffer({ key: putRes.key })).rejects.toThrow()
+	})
+
+	test('supports HEAD lookups for object size', async () => {
+		const callId = 'call_456'
+		const original = new Uint8Array([1, 2, 3, 4, 5, 6, 7])
+		const contentType = 'audio/webm;codecs=opus'
+
+		const putRes = await putCallAudioFromBuffer({
+			callId,
+			audio: original,
+			contentType,
+		})
+
+		const head = await headAudioObject({ key: putRes.key })
+		expect(head.size).toBe(original.byteLength)
+		expect(head.contentType).toBe(contentType)
+
+		await deleteAudioObject({ key: putRes.key })
+	})
+})
