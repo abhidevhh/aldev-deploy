@@ -1,5 +1,4 @@
 import { setupServer } from 'msw/node'
-import { mswHandlers } from './msw-handlers.ts'
 
 const server = setupServer(...mswHandlers)
 
