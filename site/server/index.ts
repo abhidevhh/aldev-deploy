@@ -448,55 +448,13 @@ getRequestHandler().then((handler) => {
 	app.all('{*splat}', handler)
 })
 
-const desiredPort = env.PORT
-const portToUse = await getPort({
-	port: portNumbers(desiredPort, desiredPort + 100),
-})
 
-console.log('033[32mSTARTING SERVER...033[0m')
 const PORT = Number(process.env.PORT || 10000)
 
 console.log("STARTING SERVER...")
 console.log("PORT =", PORT)
 
-app.listen(PORT, "0.0.0.0", () => {
+const server = app.listen(PORT, "0.0.0.0", () => {
   console.log(`✅ Server running on port ${PORT}`)
 })
 
-let wss: WebSocketServer | undefined
-if (MODE === 'development') {
-	try {
-		const { contentWatcher } =
-			await importLocalServerModule<typeof import('./content-watcher')>(
-				'./content-watcher',
-			)
-		wss = contentWatcher(server)
-	} catch (error: unknown) {
-		console.error('unable to start content watcher', error)
-	}
-}
-
-closeWithGrace(() => {
-	return Promise.all([
-		expiredDataCleanup.stop(),
-		new Promise((resolve, reject) => {
-			server.close((e) => (e ? reject(e) : resolve('ok')))
-		}),
-		new Promise((resolve, reject) => {
-			if (!wss) {
-				resolve('ok')
-				return
-			}
-			wss.close((e) => (e ? reject(e) : resolve('ok')))
-		}),
-	])
-})
-
-/*
-eslint
-  @typescript-eslint/ban-ts-comment: "off",
-  @typescript-eslint/prefer-ts-expect-error: "off",
-  @typescript-eslint/no-shadow: "off",
-  import/namespace: "off",
-  no-inner-declarations: "off",
-*/
