@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: aldev-deploy
+    env: docker
+    plan: free
+    branch: main
+    rootDir: .
+    dockerfilePath: ./Dockerfile
+    autoDeploy: true
+    buildCommand: cd site && npm install --include=dev --ignore-scripts --legacy-peer-deps && npm run build
+    startCommand: cd site && npm run dev
