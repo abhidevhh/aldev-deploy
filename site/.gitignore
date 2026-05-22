@@ -1,1 +1,6 @@
 .vercel
+
+build
+.react-router
+.vite
+node_modules
