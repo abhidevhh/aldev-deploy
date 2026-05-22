@@ -10,4 +10,3 @@ function listify(array, {
 export {
   listify as l
 };
-//# sourceMappingURL=listify-DooNzvOm.js.map

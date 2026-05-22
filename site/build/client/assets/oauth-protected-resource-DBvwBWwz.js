@@ -10,4 +10,3 @@ async function loader() {
 export {
   loader
 };
-//# sourceMappingURL=oauth-protected-resource-DBvwBWwz.js.map

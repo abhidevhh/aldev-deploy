@@ -34,4 +34,3 @@ function Tag({ tag, selected, onClick, disabled }) {
 export {
   Tag as T
 };
-//# sourceMappingURL=tag-Bs3TtQGk.js.map

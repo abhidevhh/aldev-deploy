@@ -13,4 +13,3 @@ async function loader({
 export {
   loader
 };
-//# sourceMappingURL=s._query-DY9ttKYV.js.map

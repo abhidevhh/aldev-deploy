@@ -54,4 +54,3 @@ const projects_ = UNSAFE_withComponentProps(function ProjectDetailPage() {
 export {
   projects_ as default
 };
-//# sourceMappingURL=projects.-CQE7GA70.js.map

@@ -49,4 +49,3 @@ const projects_default = UNSAFE_withComponentProps(function ProjectsPage() {
 export {
   projects_default as default
 };
-//# sourceMappingURL=projects-r0qkb082.js.map

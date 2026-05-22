@@ -68,4 +68,3 @@ async function getClientSession(request, user) {
 export {
   getClientSession
 };
-//# sourceMappingURL=client.server-CTs0DPxN.js.map

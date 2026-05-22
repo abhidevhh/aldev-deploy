@@ -16,4 +16,3 @@ function Spacer({
 export {
   Spacer as S
 };
-//# sourceMappingURL=spacer-CSktuGpg.js.map

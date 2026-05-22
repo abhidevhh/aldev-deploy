@@ -43,4 +43,3 @@ const Grid = function Grid2({
 export {
   Grid as G
 };
-//# sourceMappingURL=grid-Bsvu4qfo.js.map

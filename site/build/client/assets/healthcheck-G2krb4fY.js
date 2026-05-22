@@ -16,4 +16,3 @@ async function loader({
 export {
   loader
 };
-//# sourceMappingURL=healthcheck-G2krb4fY.js.map

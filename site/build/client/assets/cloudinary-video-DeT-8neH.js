@@ -36,4 +36,3 @@ function CloudinaryVideo({
 export {
   CloudinaryVideo as C
 };
-//# sourceMappingURL=cloudinary-video-DeT-8neH.js.map

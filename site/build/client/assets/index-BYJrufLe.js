@@ -12,4 +12,3 @@ export {
   index as default,
   headers
 };
-//# sourceMappingURL=index-BYJrufLe.js.map

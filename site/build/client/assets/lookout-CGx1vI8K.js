@@ -69,4 +69,3 @@ async function action({
 export {
   action
 };
-//# sourceMappingURL=lookout-CGx1vI8K.js.map

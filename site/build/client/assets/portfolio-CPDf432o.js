@@ -49,4 +49,3 @@ const portfolio = UNSAFE_withComponentProps(function PortfolioPage() {
 export {
   portfolio as default
 };
-//# sourceMappingURL=portfolio-CPDf432o.js.map

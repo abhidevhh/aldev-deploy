@@ -10,4 +10,3 @@ function fetchWithTimeout(url, options = {}, timeoutMs = 1e3) {
 export {
   fetchWithTimeout as f
 };
-//# sourceMappingURL=fetch-with-timeout.server-BL1zZ7UJ.js.map

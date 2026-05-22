@@ -18,4 +18,3 @@ export {
   getTheme as g,
   setTheme as s
 };
-//# sourceMappingURL=theme.server-D5mszc13.js.map

@@ -26,4 +26,3 @@ export {
   handle,
   loader
 };
-//# sourceMappingURL=magic-CIO1GJKq.js.map

@@ -28,4 +28,3 @@ function CharacterCountdown({
 export {
   CharacterCountdown as C
 };
-//# sourceMappingURL=character-countdown-D-g85829.js.map

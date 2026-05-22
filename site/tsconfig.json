@@ -5,7 +5,7 @@
     "**/*.ts",
     "**/*.tsx"
   ],
-  "extends": "../../tsconfig.base.json",
+  "extends": "../tsconfig.base.json",
   "exclude": [
     "temp-*",
     "tests",

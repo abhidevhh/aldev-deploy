@@ -24,4 +24,3 @@ const projects_$slug = UNSAFE_withComponentProps(function ProjectDetailPage() {
 export {
   projects_$slug as default
 };
-//# sourceMappingURL=projects._slug-CnkXu22g.js.map

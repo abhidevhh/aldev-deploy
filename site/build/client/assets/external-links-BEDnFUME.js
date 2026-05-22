@@ -18,4 +18,3 @@ const externalLinks = {
 export {
   externalLinks as e
 };
-//# sourceMappingURL=external-links-BEDnFUME.js.map

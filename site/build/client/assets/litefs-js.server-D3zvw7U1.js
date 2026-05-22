@@ -16,4 +16,3 @@ export {
   handleTransactionalConsistency,
   waitForUpToDateTxNumber
 };
-//# sourceMappingURL=litefs-js.server-D3zvw7U1.js.map
