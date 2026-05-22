@@ -454,88 +454,13 @@ const portToUse = await getPort({
 })
 
 console.log('033[32mSTARTING SERVER...033[0m')
-console.log('033[36mPORT =033[0m', portToUse)
-const server = app.listen(portToUse, () => {
-	const addy = server.address()
-	const portUsed =
-		desiredPort === portToUse
-			? desiredPort
-			: addy && typeof addy === 'object'
-				? addy.port
-				: 0
+const PORT = Number(process.env.PORT || 10000)
 
-	if (portUsed !== desiredPort) {
-		console.warn(
-			chalk.yellow(
-				`⚠️  Port ${desiredPort} is not available, using ${portUsed} instead.`,
-			),
-		)
-	}
-	console.log(`\n🐨  let's get rolling!`)
-	const localUrl = `http://localhost:${portUsed}`
-	let lanUrl: string | null = null
-	const localIp = ipAddress() ?? 'Unknown'
-	// Check if the address is a private ip
-	// https://en.wikipedia.org/wiki/Private_network#Private_IPv4_address_spaces
-	// https://github.com/facebook/create-react-app/blob/d960b9e38c062584ff6cfb1a70e1512509a966e7/packages/react-dev-utils/WebpackDevServerUtils.js#LL48C9-L54C10
-	if (/^10[.]|^172[.](1[6-9]|2[0-9]|3[0-1])[.]|^192[.]168[.]/.test(localIp)) {
-		lanUrl = `http://${localIp}:${portUsed}`
-	}
+console.log("STARTING SERVER...")
+console.log("PORT =", PORT)
 
-	const isInteractiveShell = Boolean(process.stdout.isTTY)
-	const shortcutsEnabled = MODE !== 'production' && isInteractiveShell
-	const restartEnabled = Boolean(process.stdin.isTTY)
-
-	let userName: string
-	try {
-		userName = os.userInfo().username
-	} catch {
-		userName = process.env.USER ?? process.env.LOGNAME ?? 'there'
-	}
-
-	const supportedKeyLines = shortcutsEnabled
-		? [
-				`  ${chalk.green('o')} - open app`,
-				`  ${chalk.cyan('c')} - copy url`,
-				restartEnabled ? `  ${chalk.magenta('r')} - restart app` : null,
-				`  ${chalk.yellow('h')} - help`,
-				`  ${chalk.red('q')} - exit (or Ctrl+C)`,
-			].filter((line): line is string => Boolean(line))
-		: []
-
-	const startupMessageLines = [`Welcome to abhidev.com, ${userName}!`]
-
-	if (shortcutsEnabled) {
-		startupMessageLines.push(
-			'Supported keys:',
-			...supportedKeyLines,
-			'It also supports hitting <enter> to add a newline to the output.',
-		)
-	}
-
-	startupMessageLines.push(
-		'',
-		[
-			`${chalk.bold('Local:')}            ${chalk.cyan(localUrl)}`,
-			lanUrl
-				? `${chalk.bold('On Your Network:')}  ${chalk.cyan(lanUrl)}`
-				: null,
-			chalk.bold('Press Ctrl+C to stop'),
-		]
-			.filter(Boolean)
-			.join('\n'),
-	)
-
-	const startupMessage = startupMessageLines.join('\n')
-
-	console.log(startupMessage)
-	if (shortcutsEnabled) {
-		registerStartupShortcuts({
-			localUrl,
-			helpMessage: startupMessage,
-			restartEnabled,
-		})
-	}
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`✅ Server running on port ${PORT}`)
 })
 
 let wss: WebSocketServer | undefined
