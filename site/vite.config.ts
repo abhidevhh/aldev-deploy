@@ -40,7 +40,7 @@ if (SENTRY_UPLOAD && MODE === 'production') {
 
 export default defineConfig(async () => {
 	return {
-  preview: {
+  server: {
     allowedHosts: ["aldev-deploy.onrender.com"],
   },
 		plugins: [
