@@ -1,5 +1,6 @@
 # base node image
 FROM node:24-bookworm-slim as base
+ARG CACHE_BUST=2
 
 # install open ssl and sqlite3 for prisma
 # ca-certificates and fuse for litefs
