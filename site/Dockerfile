@@ -70,7 +70,8 @@ RUN --mount=type=secret,id=SENTRY_AUTH_TOKEN,required=false \
       echo "Sentry sourcemap upload disabled (missing SENTRY_AUTH_TOKEN or COMMIT_SHA)"; \
     fi && \
     npx prisma@7 generate && \
-    npm run build
+    npm run build && \
+    find build/server -type f -name "*.js" -exec sed -i 's/\.server\.ts/\.server/g' {} +
 
 # build smaller image for running
 FROM base
