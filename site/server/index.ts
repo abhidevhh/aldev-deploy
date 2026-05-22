@@ -444,13 +444,17 @@ app.use((req, res, next) => {
 	next()
 })
 
-app.all('{*splat}', await getRequestHandler())
+getRequestHandler().then((handler) => {
+	app.all('{*splat}', handler)
+})
 
 const desiredPort = env.PORT
 const portToUse = await getPort({
 	port: portNumbers(desiredPort, desiredPort + 100),
 })
 
+console.log('033[32mSTARTING SERVER...033[0m')
+console.log('033[36mPORT =033[0m', portToUse)
 const server = app.listen(portToUse, () => {
 	const addy = server.address()
 	const portUsed =
