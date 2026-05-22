@@ -6,7 +6,7 @@ COPY . .
 
 WORKDIR /app/site
 
-RUN npm install --include=dev --ignore-scripts
+RUN npm install --include=dev --ignore-scripts --legacy-peer-deps
 
 EXPOSE 10000
 
