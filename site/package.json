@@ -28,7 +28,7 @@
     "prebuild": "npm run clean && echo All clean ✨",
     "build": "npm run build:router && npm run build:server",
     "build:router": "vite build",
-    "build:server": "mkdir -p build/server && cp -R server build/server/server",
+    "build:server": "react-router build",
     "build:info": "node ../../other/generate-build-info.ts",
     "dev": "vite preview --host 0.0.0.0 --port ${PORT:-3000}",
     "start": "npx tsx ./server/index.ts",
