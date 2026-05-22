@@ -8,7 +8,7 @@ import {
 	HOTKEY_GOTO_TESTIMONY,
 	HOTKEY_GOTO_TRANSPARENCY,
 	HOTKEYS_HELP_GROUPS,
-} from '../hotkeys.ts'
+} from '../hotkeys'
 
 describe('hotkeys navigation mappings', () => {
 	test('matches the expected key sequences', () => {

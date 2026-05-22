@@ -18,7 +18,7 @@ import {
 	type MetaFunction,
 } from 'react-router'
 import { useSpinDelay } from 'spin-delay'
-import { type KCDHandle } from '#app/types.ts'
+import { type KCDHandle } from '#app/types'
 import { getInstanceInfo } from '#app/utils/litefs-js.server'
 import {
 	useCapturedRouteError,
@@ -54,13 +54,13 @@ import { ClientHintCheck, getHints } from './utils/client-hints.tsx'
 import { getClientSession } from './utils/client.server'
 import { getPublicEnv } from './utils/env.server'
 import { getLoginInfoSession } from './utils/login.server'
-import { useNonce } from './utils/nonce-provider.ts'
+import { useNonce } from './utils/nonce-provider'
 import { getLatestPodcastSeasonLinks } from './utils/podcast-latest-season.server'
 import {
 	isSeason7ChatsPath,
 	SEASON_7_PROMOTIFICATION_NAME,
-} from './utils/season-7-promotification.ts'
-import { getSocialMetas } from './utils/seo.ts'
+} from './utils/season-7-promotification'
+import { getSocialMetas } from './utils/seo'
 import { getSession } from './utils/session.server'
 import { TeamProvider, useTeam } from './utils/team-provider.tsx'
 import { getTheme } from './utils/theme.server'

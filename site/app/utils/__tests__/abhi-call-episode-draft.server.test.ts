@@ -14,7 +14,7 @@ async function loadDraftModule() {
 	vi.doMock('#app/utils/abhi-call-audio-storage.server', () => ({
 		getAudioBuffer,
 	}))
-	vi.doMock('#app/utils/abhi-call-transcript-template.ts', () => ({
+	vi.doMock('#app/utils/abhi-call-transcript-template', () => ({
 		assembleAbhiCallTranscript,
 	}))
 	vi.doMock('#app/utils/cloudflare-ai-abhi-call-metadata.server', () => ({

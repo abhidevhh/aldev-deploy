@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest'
-import { normalizeNotFoundUrl } from '../not-found-matches.ts'
+import { normalizeNotFoundUrl } from '../not-found-matches'
 
 describe('normalizeNotFoundUrl', () => {
 	test('keeps internal paths as-is', () => {

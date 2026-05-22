@@ -4,7 +4,7 @@ import * as React from 'react'
 import {
 	type HotkeysHelpCombo,
 	type HotkeysHelpGroup,
-} from '#app/utils/hotkeys.ts'
+} from '#app/utils/hotkeys'
 import { CloseIcon } from './icons.tsx'
 import { H3, Paragraph } from './typography.tsx'
 

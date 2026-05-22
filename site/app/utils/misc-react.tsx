@@ -13,11 +13,11 @@ import {
 	type ErrorResponse,
 	type LinkProps,
 } from 'react-router'
-import { type OptionalTeam, type User } from '#app/types.ts'
+import { type OptionalTeam, type User } from '#app/types'
 import { images } from '../images.tsx'
-import { getOptionalTeam } from './misc.ts'
+import { getOptionalTeam } from './misc'
 
-export * from './misc.ts'
+export * from './misc'
 
 const defaultAvatarSize = 128
 

@@ -1,6 +1,6 @@
 import { verifyRegistrationResponse } from '@simplewebauthn/server'
 import { data as json } from 'react-router'
-import { getDomainUrl, getErrorMessage } from '#app/utils/misc.ts'
+import { getDomainUrl, getErrorMessage } from '#app/utils/misc'
 import { prisma } from '#app/utils/prisma.server'
 import { requireUser } from '#app/utils/session.server'
 import {

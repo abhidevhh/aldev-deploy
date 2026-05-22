@@ -1,6 +1,6 @@
 import { expect, test, vi } from 'vitest'
 import { formatAbhiCallTranscriptWithWorkersAi } from '#app/utils/cloudflare-ai-abhi-call-transcript-format.server'
-import { setEnv } from '#tests/env-disposable.ts'
+import { setEnv } from '#tests/env-disposable'
 
 test('formatAbhiCallTranscriptWithWorkersAi rejects empty transcripts', async () => {
 	await expect(

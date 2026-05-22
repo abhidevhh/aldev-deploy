@@ -33,16 +33,16 @@ import {
 } from '#app/images.tsx'
 import { type RootLoaderType } from '#app/root.tsx'
 import { getBlogRecommendations } from '#app/utils/blog.server'
-import { shuffle } from '#app/utils/cjs/lodash.ts'
+import { shuffle } from '#app/utils/cjs/lodash'
 import {
 	getDisplayUrl,
 	getUrl,
 	reuseUsefulLoaderHeaders,
-} from '#app/utils/misc.ts'
-import { getSocialMetas } from '#app/utils/seo.ts'
+} from '#app/utils/misc'
+import { getSocialMetas } from '#app/utils/seo'
 import { getTalksAndTags } from '#app/utils/talks.server'
 import { getServerTimeHeader } from '#app/utils/timing.server'
-import { useRootData } from '#app/utils/use-root-data.ts'
+import { useRootData } from '#app/utils/use-root-data'
 import { type Route } from './+types/about'
 
 export async function loader({ request }: Route.LoaderArgs) {

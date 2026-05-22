@@ -3,11 +3,11 @@ import { data as json, Link, Outlet, useParams } from 'react-router'
 import { Grid } from '#app/components/grid.tsx'
 import { Spacer } from '#app/components/spacer.tsx'
 import { H2, H6, Paragraph } from '#app/components/typography.tsx'
-import { type KCDHandle } from '#app/types.ts'
+import { type KCDHandle } from '#app/types'
 import { formatDate, getAvatarForUser } from '#app/utils/misc-react.tsx'
 import { prisma } from '#app/utils/prisma.server'
 import { requireAdminUser } from '#app/utils/session.server'
-import { useRootData } from '#app/utils/use-root-data.ts'
+import { useRootData } from '#app/utils/use-root-data'
 import { type Route } from './+types/_layout'
 
 export const handle: KCDHandle = {

@@ -1,9 +1,9 @@
-import { type TweetEditControl } from './edit.ts'
-import { type Indices, type TweetEntities } from './entities.ts'
-import { type MediaDetails } from './media.ts'
-import { type TweetPhoto } from './photo.ts'
-import { type TweetUser } from './user.ts'
-import { type TweetVideo } from './video.ts'
+import { type TweetEditControl } from './edit'
+import { type Indices, type TweetEntities } from './entities'
+import { type MediaDetails } from './media'
+import { type TweetPhoto } from './photo'
+import { type TweetUser } from './user'
+import { type TweetVideo } from './video'
 
 interface TweetBase {
 	lang: string

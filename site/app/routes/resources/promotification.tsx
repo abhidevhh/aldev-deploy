@@ -8,11 +8,11 @@ import { useFetcher, data as json } from 'react-router'
 import { useSpinDelay } from 'spin-delay'
 
 import { LinkButton } from '#app/components/button.tsx'
-import { useCountdown } from '#app/components/hooks/use-countdown.ts'
+import { useCountdown } from '#app/components/hooks/use-countdown'
 import { AlarmIcon } from '#app/components/icons.tsx'
 import { NotificationMessage } from '#app/components/notification-message.tsx'
 import { Spinner } from '#app/components/spinner.tsx'
-import { type SerializeFrom } from '#app/utils/serialize-from.ts'
+import { type SerializeFrom } from '#app/utils/serialize-from'
 import { type Route } from './+types/promotification'
 
 export const PROMO_HIDDEN_COOKIE_VALUE = 'hidden'

@@ -6,11 +6,11 @@ import { motion, useAnimation, useReducedMotion } from 'framer-motion'
 import * as React from 'react'
 import { Link, useFetcher, useLocation, useNavigate } from 'react-router'
 import { abhiBuddyProfiles } from '#app/images.tsx'
-import { HOTKEY_OPEN_SEARCH } from '#app/utils/hotkeys.ts'
+import { HOTKEY_OPEN_SEARCH } from '#app/utils/hotkeys'
 import { type OptionalTeam, useDebounce } from '#app/utils/misc-react.tsx'
 import { useTeam } from '#app/utils/team-provider.tsx'
 import { THEME_FETCHER_KEY, useOptimisticThemeMode, useTheme } from '#app/utils/theme.tsx'
-import { useOptionalUser, useRootData } from '#app/utils/use-root-data.ts'
+import { useOptionalUser, useRootData } from '#app/utils/use-root-data'
 import { useElementState } from './hooks/use-element-state.tsx'
 import {
 	CloseIcon,

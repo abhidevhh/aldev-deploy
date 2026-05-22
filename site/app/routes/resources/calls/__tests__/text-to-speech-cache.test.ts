@@ -1,6 +1,6 @@
 // @vitest-environment node
 import { expect, test, vi } from 'vitest'
-import { AI_VOICE_DISCLOSURE_PREFIX } from '#app/utils/abhi-call-text-to-speech.ts'
+import { AI_VOICE_DISCLOSURE_PREFIX } from '#app/utils/abhi-call-text-to-speech'
 
 const synthesizeSpeechWithWorkersAi = vi.fn(
 	async ({

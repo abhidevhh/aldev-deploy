@@ -11,9 +11,9 @@ import { Grid } from '#app/components/grid.tsx'
 import { TriangleIcon } from '#app/components/icons.tsx'
 import { MissingSomething } from '#app/components/kifs.tsx'
 import { H3, Paragraph } from '#app/components/typography.tsx'
-import { type KCDHandle } from '#app/types.ts'
-import { getAbhiEpisodePath } from '#app/utils/chats-with-abhi.ts'
-import { orderBy } from '#app/utils/cjs/lodash.ts'
+import { type KCDHandle } from '#app/types'
+import { getAbhiEpisodePath } from '#app/utils/chats-with-abhi'
+import { orderBy } from '#app/utils/cjs/lodash'
 import {
 	formatDate,
 	formatDuration,
@@ -21,27 +21,18 @@ import {
 	useCapturedRouteError,
 } from '#app/utils/misc-react.tsx'
 import { useChatsEpisodeUIState } from '#app/utils/providers.tsx'
-import { getSeasonListItems } from '#app/utils/simplecast.server'
 import { getServerTimeHeader } from '#app/utils/timing.server'
 import { type Route } from './+types/$season'
 
-export const handle: KCDHandle = {
-	getSitemapEntries: serverOnly$(async (request: Request) => {
-		const seasons = await getSeasonListItems({ request })
-		return seasons.map((season) => {
-			return {
-				route: `/chats/${season.seasonNumber.toString().padStart(2, '0')}`,
-				priority: 0.4,
-			}
-		})
-	}),
-}
+export const handle: KCDHandle = {}
 
 export async function loader({ params, request }: Route.LoaderArgs) {
 	if (!params.season) {
 		throw new Error('params.season is not defined')
 	}
 	const timings = {}
+	const { getSeasonListItems } = await import('#app/utils/simplecast.server')
+
 	const seasons = await getSeasonListItems({ request, timings })
 	const seasonNumber = Number(params.season)
 	const season = seasons.find((s) => s.seasonNumber === seasonNumber)

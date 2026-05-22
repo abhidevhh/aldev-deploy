@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest'
-import { getAbhiCallEpisodeArtworkUrl } from '../abhi-call-artwork.ts'
+import { getAbhiCallEpisodeArtworkUrl } from '../abhi-call-artwork'
 
 describe('getAbhiCallEpisodeArtworkUrl', () => {
 	test('double-encodes title and scales to requested output size', () => {

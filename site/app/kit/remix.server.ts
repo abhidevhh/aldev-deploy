@@ -1,8 +1,8 @@
 import { data as json } from 'react-router'
-import { getErrorMessage } from '#app/utils/misc.ts'
+import { getErrorMessage } from '#app/utils/misc'
 import { deleteKitCache } from '#app/utils/user-info.server'
 import * as ck from './kit.server'
-import { type ActionData, type Errors, type Fields } from './types.ts'
+import { type ActionData, type Errors, type Fields } from './types'
 
 function getErrorForFirstName(name: string | null) {
 	if (!name) return `Name is required`

@@ -2,7 +2,7 @@
 
 import { getKitSubscriber } from '#app/kit/kit.server.js'
 import { getEnv } from './env.server'
-import { getErrorMessage } from './misc.ts'
+import { getErrorMessage } from './misc'
 import { prisma } from './prisma.server'
 
 const VERIFIER_API_KEY = getEnv().VERIFIER_API_KEY

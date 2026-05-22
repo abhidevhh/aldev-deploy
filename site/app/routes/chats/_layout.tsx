@@ -31,7 +31,7 @@ import { getBlogRecommendations } from '#app/utils/blog.server'
 import {
 	getAbhiEpisodePath,
 	getFeaturedEpisode,
-} from '#app/utils/chats-with-abhi.ts'
+} from '#app/utils/chats-with-abhi'
 import {
 	formatDate,
 	formatDuration,
@@ -40,9 +40,9 @@ import {
 	getUrl,
 	listify,
 	reuseUsefulLoaderHeaders,
-} from '#app/utils/misc.ts'
+} from '#app/utils/misc'
 import { ChatsEpisodeUIStateProvider } from '#app/utils/providers.tsx'
-import { getSocialMetas } from '#app/utils/seo.ts'
+import { getSocialMetas } from '#app/utils/seo'
 import { getSeasonListItems } from '#app/utils/simplecast.server'
 import { getServerTimeHeader } from '#app/utils/timing.server'
 import { type Route } from './+types/_layout'

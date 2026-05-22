@@ -1,5 +1,5 @@
 import { redirect } from 'react-router'
-import { type KCDHandle } from '#app/types.ts'
+import { type KCDHandle } from '#app/types'
 
 import { getLoginInfoSession } from '#app/utils/login.server'
 import { type Route } from './+types/magic'

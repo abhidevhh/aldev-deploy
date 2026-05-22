@@ -25,15 +25,15 @@ describe('mdx not-found caching', () => {
 			process.env.FLY_MACHINE_ID = 'test'
 
 			vi.resetModules()
-			// `cache.server.ts` imports `getUser` from `session.server.ts`, which pulls
+			// `cache.server` imports `getUser` from `session.server`, which pulls
 			// in Prisma + lots of env requirements. This test doesn't need that.
 			vi.doMock('../session.server', () => {
 				return { getUser: async () => null }
 			})
-			// `cache.server.ts` imports `updatePrimaryCacheValue` from this route module,
+			// `cache.server` imports `updatePrimaryCacheValue` from this route module,
 			// which uses the `vite-env-only` macro. That macro is not processed in the
 			// Vitest environment, so we stub the module for this unit test.
-			vi.doMock('#app/routes/resources/cache.sqlite.ts', () => {
+			vi.doMock('#app/routes/resources/cache.sqlite', () => {
 				return { updatePrimaryCacheValue: undefined }
 			})
 			// Avoid importing `mdx-bundler` (and therefore `esbuild`) in jsdom tests.
@@ -72,7 +72,7 @@ describe('mdx not-found caching', () => {
 			// Prevent mock/module state leaking if more tests are added later.
 			vi.restoreAllMocks()
 			vi.unmock('../session.server')
-			vi.unmock('#app/routes/resources/cache.sqlite.ts')
+			vi.unmock('#app/routes/resources/cache.sqlite')
 			vi.unmock('#app/utils/compile-mdx.server')
 			vi.unmock('#app/utils/github.server')
 			vi.resetModules()

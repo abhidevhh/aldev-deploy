@@ -1,5 +1,5 @@
 import { matchSorter, rankings as matchSorterRankings } from 'match-sorter'
-import { type MdxListItem } from '#app/types.ts'
+import { type MdxListItem } from '#app/types'
 import { type ReadRankings } from './blog.server'
 
 function getRankingLeader(rankings?: ReadRankings) {

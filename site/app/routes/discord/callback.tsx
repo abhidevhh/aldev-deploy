@@ -11,7 +11,7 @@ import { ErrorPanel } from '#app/components/form-elements.tsx'
 import { PartyIcon, RefreshIcon } from '#app/components/icons.tsx'
 import { externalLinks } from '#app/external-links.tsx'
 import { tagKCDSiteSubscriber } from '#app/kit/kit.server'
-import { type KCDHandle } from '#app/types.ts'
+import { type KCDHandle } from '#app/types'
 import { connectDiscord } from '#app/utils/discord.server'
 import { ensurePrimary } from '#app/utils/litefs-js.server'
 import {
@@ -19,9 +19,9 @@ import {
 	getDomainUrl,
 	getErrorMessage,
 	isResponse,
-} from '#app/utils/misc.ts'
+} from '#app/utils/misc'
 import { requireUser } from '#app/utils/session.server'
-import { useRootData } from '#app/utils/use-root-data.ts'
+import { useRootData } from '#app/utils/use-root-data'
 import { deleteDiscordCache } from '#app/utils/user-info.server'
 import { type Route } from './+types/callback'
 

@@ -43,10 +43,10 @@ import {
 	reuseUsefulLoaderHeaders,
 	useCapturedRouteError,
 } from '#app/utils/misc-react.tsx'
-import { getSocialMetas } from '#app/utils/seo.ts'
+import { getSocialMetas } from '#app/utils/seo'
 import { getTestimonials } from '#app/utils/testimonials.server'
 import { getServerTimeHeader } from '#app/utils/timing.server'
-import { useRootData } from '#app/utils/use-root-data.ts'
+import { useRootData } from '#app/utils/use-root-data'
 import { type Route } from './+types/_layout'
 
 export async function loader({ request }: Route.LoaderArgs) {

@@ -11,16 +11,16 @@ import {
 } from '#app/images.tsx'
 import { KitForm } from '#app/kit/form.tsx'
 import { type RootLoaderType } from '#app/root.tsx'
-import { type MdxPage } from '#app/types.ts'
+import { type MdxPage } from '#app/types'
 import {
 	AnchorOrLink,
 	getDisplayUrl,
 	getUrl,
 	typedBoolean,
 } from '#app/utils/misc-react.tsx'
-import { getSocialMetas } from './seo.ts'
+import { getSocialMetas } from './seo'
 import { Themed } from './theme.tsx'
-import { useOptionalUser } from './use-root-data.ts'
+import { useOptionalUser } from './use-root-data'
 
 function getBannerAltProp(frontmatter: MdxPage['frontmatter']) {
 	return (

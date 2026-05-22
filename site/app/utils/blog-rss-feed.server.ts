@@ -1,5 +1,5 @@
 import { getBlogMdxListItems } from './mdx.server'
-import { formatDate, getDomainUrl } from './misc.ts'
+import { formatDate, getDomainUrl } from './misc'
 
 async function getRssFeedXml(request: Request) {
 	const posts = await getBlogMdxListItems({ request })

@@ -2,8 +2,8 @@ import {
 	type UNSAFE_DataWithResponseInit as DataWithResponseInit,
 	data as json,
 } from 'react-router'
-import { type NonNullProperties } from '#app/types.ts'
-import { getErrorMessage, getNonNull } from './misc.ts'
+import { type NonNullProperties } from '#app/types'
+import { getErrorMessage, getNonNull } from './misc'
 
 type TypedResponse<T> = DataWithResponseInit<T> | Response
 

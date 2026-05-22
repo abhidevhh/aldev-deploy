@@ -4,7 +4,7 @@ import { expect, test } from 'vitest'
 import {
 	isSeason7ChatsPath,
 	SEASON_7_PROMOTIFICATION_NAME,
-} from '../season-7-promotification.ts'
+} from '../season-7-promotification'
 import {
 	PROMO_HIDDEN_COOKIE_VALUE,
 	createPromoHiddenSetCookieHeader,

@@ -23,15 +23,15 @@ import { H2, H3, H6, Paragraph } from '#app/components/typography.tsx'
 import { getGenericSocialImage, images } from '#app/images.tsx'
 import { type RootLoaderType } from '#app/root.tsx'
 import { FavoriteToggle } from '#app/routes/resources/favorite.tsx'
-import { type KCDHandle } from '#app/types.ts'
+import { type KCDHandle } from '#app/types'
 import { handleFormSubmission } from '#app/utils/actions.server'
-import { getEpisodePath } from '#app/utils/abhi-call.ts'
-import { getAbhiEpisodePath } from '#app/utils/chats-with-abhi.ts'
+import { getEpisodePath } from '#app/utils/abhi-call'
+import { getAbhiEpisodePath } from '#app/utils/chats-with-abhi'
 import {
 	getEpisodeFavoriteContentId,
 	parseEpisodeFavoriteContentId,
 	type FavoriteContentType,
-} from '#app/utils/favorites.ts'
+} from '#app/utils/favorites'
 import { getBlogMdxListItems } from '#app/utils/mdx.server'
 import {
 	getDiscordAuthorizeURL,
@@ -41,14 +41,14 @@ import {
 	getTeam,
 	getUrl,
 	reuseUsefulLoaderHeaders,
-} from '#app/utils/misc.ts'
+} from '#app/utils/misc'
 import {
 	TEAM_ONEWHEELING_MAP,
 	TEAM_SKIING_MAP,
 	TEAM_SNOWBOARD_MAP,
-} from '#app/utils/onboarding.ts'
+} from '#app/utils/onboarding'
 import { prisma } from '#app/utils/prisma.server'
-import { getSocialMetas } from '#app/utils/seo.ts'
+import { getSocialMetas } from '#app/utils/seo'
 import {
 	deleteOtherSessions,
 	getSession,
@@ -58,7 +58,7 @@ import { getSeasonListItems } from '#app/utils/simplecast.server'
 import { getTalksAndTags } from '#app/utils/talks.server'
 import { getServerTimeHeader } from '#app/utils/timing.server'
 import { getEpisodes } from '#app/utils/transistor.server'
-import { useRootData } from '#app/utils/use-root-data.ts'
+import { useRootData } from '#app/utils/use-root-data'
 import {
 	deleteKitCache,
 	deleteDiscordCache,

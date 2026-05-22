@@ -8,9 +8,9 @@ import {
 	abhiCallFieldConstraints,
 	getErrorForNotes,
 	getErrorForTitle,
-} from '#app/utils/abhi-call.ts'
-import { getStringFormValue } from '#app/utils/misc.ts'
-import { useRootData } from '#app/utils/use-root-data.ts'
+} from '#app/utils/abhi-call'
+import { getStringFormValue } from '#app/utils/misc'
+import { useRootData } from '#app/utils/use-root-data'
 
 export const recordingFormActionPath = '/resources/calls/save'
 

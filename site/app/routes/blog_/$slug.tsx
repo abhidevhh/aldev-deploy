@@ -7,7 +7,6 @@ import {
 	redirect,
 	useParams,
 } from 'react-router'
-import { serverOnly$ } from 'vite-env-only/macros'
 import { ArrowLink, BackLink } from '#app/components/arrow-button.tsx'
 import { BlurrableImage } from '#app/components/blurrable-image.tsx'
 import { CourseCard } from '#app/components/course-card.tsx'
@@ -21,14 +20,13 @@ import { H2, H4, H6, Paragraph } from '#app/components/typography.tsx'
 import { externalLinks } from '#app/external-links.tsx'
 import { getImageBuilder, getImgProps, images } from '#app/images.tsx'
 import { FavoriteToggle } from '#app/routes/resources/favorite.tsx'
-import { type KCDHandle, type MdxListItem } from '#app/types.ts'
+import { type KCDHandle, type MdxListItem } from '#app/types'
 import {
 	getBlogReadRankings,
 	getBlogRecommendations,
 	getTotalPostReads,
 } from '#app/utils/blog.server'
-import { getRankingLeader } from '#app/utils/blog.ts'
-import { getBlogMdxListItems, getMdxPage } from '#app/utils/mdx.server'
+import { getRankingLeader } from '#app/utils/blog'
 import {
 	getBannerAltProp,
 	getBannerTitleProp,
@@ -39,28 +37,20 @@ import {
 	formatNumber,
 	requireValidSlug,
 	reuseUsefulLoaderHeaders,
-} from '#app/utils/misc.ts'
-import { type NotFoundMatch } from '#app/utils/not-found-matches.ts'
+} from '#app/utils/misc'
+import { type NotFoundMatch } from '#app/utils/not-found-matches'
 import { getNotFoundSuggestions } from '#app/utils/not-found-suggestions.server'
 import { prisma } from '#app/utils/prisma.server'
 import { getUser } from '#app/utils/session.server'
 import { teamEmoji, useTeam } from '#app/utils/team-provider.tsx'
 import { getServerTimeHeader } from '#app/utils/timing.server'
-import { useRootData } from '#app/utils/use-root-data.ts'
+import { useRootData } from '#app/utils/use-root-data'
 import { markAsRead } from '../action/mark-as-read.tsx'
 import { type Route } from './+types/$slug'
 
 const handleId = 'blog-post'
 export const handle: KCDHandle = {
 	id: handleId,
-	getSitemapEntries: serverOnly$(async (request: Request) => {
-		const pages = await getBlogMdxListItems({ request })
-		return pages
-			.filter((page) => !page.frontmatter.draft)
-			.map((page) => {
-				return { route: `/blog/${page.slug}`, priority: 0.7 }
-			})
-	}),
 }
 
 type CatchData = {
@@ -78,6 +68,9 @@ export async function loader({ request, params }: Route.LoaderArgs) {
 		throw redirect(`/blog/${canonicalSlug}`, { status: 301 })
 	}
 	const timings = {}
+
+	const { getMdxPage } = await import('#app/utils/mdx.server')
+
 	const page = await getMdxPage(
 		{ contentDir: 'blog', slug: params.slug },
 		{ request, timings },

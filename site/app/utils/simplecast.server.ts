@@ -12,14 +12,14 @@ import { unified } from 'unified'
 import type * as U from 'unist'
 import { visit } from 'unist-util-visit'
 import { z } from 'zod'
-import { type CWKEpisode, type CWKSeason } from '#app/types.ts'
-import { omit, sortBy } from '#app/utils/cjs/lodash.ts'
+import { type CWKEpisode, type CWKSeason } from '#app/types'
+import { omit, sortBy } from '#app/utils/cjs/lodash'
 import { isAbortError, throwIfAborted } from './abort-utils.server'
 import { cache, cachified } from './cache.server'
 import { getEnv } from './env.server'
 import { fetchJsonWithRetryAfter } from './fetch-json-with-retry-after.server'
 import { stripHtml } from './markdown.server'
-import { typedBoolean } from './misc.ts'
+import { typedBoolean } from './misc'
 import {
 	simplecastEpisodeSchema,
 	simplecastEpisodesListResponseSchema,
@@ -29,7 +29,7 @@ import { type Timings } from './timing.server'
 import {
 	findFirstYouTubeVideoIdInText,
 	getYouTubeVideoId,
-} from './youtube-utils.ts'
+} from './youtube-utils'
 
 function getSimplecastConfig() {
 	const env = getEnv()

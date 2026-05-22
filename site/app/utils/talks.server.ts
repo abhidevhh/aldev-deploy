@@ -11,7 +11,7 @@ import {
 	markdownToHtmlUnwrapped,
 	stripHtml,
 } from '#app/utils/markdown.server'
-import { formatDate, typedBoolean } from '#app/utils/misc.ts'
+import { formatDate, typedBoolean } from '#app/utils/misc'
 import { type Timings } from './timing.server'
 
 type RawTalk = {

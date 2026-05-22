@@ -1,4 +1,4 @@
-import { type User } from '#app/types.ts'
+import { type User } from '#app/types'
 import { getImageBuilder, images } from '../images.tsx'
 import * as k from '../kit/kit.server'
 import { cache, cachified } from './cache.server'

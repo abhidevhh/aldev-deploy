@@ -16,7 +16,7 @@ vi.mock('react-router', async () => {
 	}
 })
 
-vi.mock('#app/utils/use-root-data.ts', () => ({
+vi.mock('#app/utils/use-root-data', () => ({
 	useRootData: () => mockUseRootData(),
 }))
 

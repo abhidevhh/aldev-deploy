@@ -10,8 +10,8 @@ import { Spacer } from '#app/components/spacer.tsx'
 import { H2, H6, Paragraph } from '#app/components/typography.tsx'
 import { getImgProps, images } from '#app/images.tsx'
 import { tagKCDSiteSubscriber } from '#app/kit/kit.server'
-import { type KCDHandle, type Team } from '#app/types.ts'
-import { shuffle } from '#app/utils/cjs/lodash.ts'
+import { type KCDHandle, type Team } from '#app/types'
+import { shuffle } from '#app/utils/cjs/lodash'
 import { getClientSession } from '#app/utils/client.server'
 import { ensurePrimary } from '#app/utils/litefs-js.server'
 import { getLoginInfoSession } from '#app/utils/login.server'
@@ -21,12 +21,12 @@ import {
 	isResponse,
 	isTeam,
 	teams,
-} from '#app/utils/misc.ts'
+} from '#app/utils/misc'
 import {
 	TEAM_ONEWHEELING_MAP,
 	TEAM_SKIING_MAP,
 	TEAM_SNOWBOARD_MAP,
-} from '#app/utils/onboarding.ts'
+} from '#app/utils/onboarding'
 import {
 	getPasswordHash,
 	getPasswordStrengthError,

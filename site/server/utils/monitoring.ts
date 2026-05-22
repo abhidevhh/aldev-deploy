@@ -4,11 +4,11 @@ import { getEnv } from '../../app/utils/env.server'
 
 const localServerUtilsExtension = import.meta.url.includes('/server-build/')
 	? '.js'
-	: '.ts'
+	: ''
 
 const { isModernBrowserByUA } = (await import(
 	`./browser-support${localServerUtilsExtension}`
-)) as typeof import('./browser-support.ts')
+)) as typeof import('./browser-support')
 
 export function init() {
 	const env = getEnv()

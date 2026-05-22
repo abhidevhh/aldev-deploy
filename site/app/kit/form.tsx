@@ -3,8 +3,8 @@ import { useFetcher } from 'react-router'
 import { ArrowButton } from '#app/components/arrow-button.tsx'
 import { Field } from '#app/components/form-elements.tsx'
 import { CheckIcon } from '#app/components/icons.tsx'
-import { useRootData } from '#app/utils/use-root-data.ts'
-import { type ActionData } from './types.ts'
+import { useRootData } from '#app/utils/use-root-data'
+import { type ActionData } from './types'
 
 function KitForm({
 	formId,

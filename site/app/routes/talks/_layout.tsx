@@ -32,10 +32,10 @@ import {
 	useUpdateQueryStringValueWithoutNavigation,
 } from '#app/utils/misc-react.tsx'
 import { externalLinks } from '#app/external-links.tsx'
-import { getSocialMetas } from '#app/utils/seo.ts'
-import { type SerializeFrom } from '#app/utils/serialize-from.ts'
+import { getSocialMetas } from '#app/utils/seo'
+import { type SerializeFrom } from '#app/utils/serialize-from'
 import { getTalksAndTags } from '#app/utils/talks.server'
-import { useOptionalUser } from '#app/utils/use-root-data.ts'
+import { useOptionalUser } from '#app/utils/use-root-data'
 import { type Route } from './+types/_layout'
 
 export const meta: MetaFunction<typeof loader, { root: RootLoaderType }> = ({

@@ -1,3 +1,3 @@
-export * from './get-oembed.ts'
-export * from './get-tweet.ts'
-export * from './types/index.ts'
+export * from './get-oembed'
+export * from './get-tweet'
+export * from './types/index'

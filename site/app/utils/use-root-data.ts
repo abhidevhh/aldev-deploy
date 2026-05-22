@@ -3,7 +3,7 @@
 
 import { handle, type RootLoaderType } from '../root.tsx'
 import { useMatchLoaderData } from './providers.tsx'
-import { type SerializeFrom } from './serialize-from.ts'
+import { type SerializeFrom } from './serialize-from'
 
 export const useRootData = () =>
 	useMatchLoaderData<SerializeFrom<RootLoaderType>>(handle.id)

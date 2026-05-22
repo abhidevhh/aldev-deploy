@@ -1,5 +1,5 @@
 import { images } from '#app/images.tsx'
-import { getOptionalTeam, toBase64 } from './misc.ts'
+import { getOptionalTeam, toBase64 } from './misc'
 
 export type AbhiCallEpisodeArtworkAvatar =
 	| { kind: 'fetch'; url: string }

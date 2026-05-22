@@ -1,6 +1,6 @@
-import { type Team, type User } from '#app/types.ts'
+import { type Team, type User } from '#app/types'
 import { getEnv } from './env.server'
-import { getTeam } from './misc.ts'
+import { getTeam } from './misc'
 import { prisma } from './prisma.server'
 
 function getDiscordConfig() {

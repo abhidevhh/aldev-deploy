@@ -17,7 +17,7 @@ import gfm from 'remark-gfm'
 import remarkSlug from 'remark-slug'
 import type * as U from 'unified'
 import { visit } from 'unist-util-visit'
-import { type GitHubFile } from '#app/types.ts'
+import { type GitHubFile } from '#app/types'
 import * as x from './x.server'
 
 // Minimal local types so we don't need to depend on `mdast-util-mdx-jsx` directly.

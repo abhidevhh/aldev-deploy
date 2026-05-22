@@ -2,7 +2,7 @@ import { expect, test } from 'vitest'
 import {
 	AI_VOICE_DISCLOSURE_PREFIX,
 	formatAbhiCallTextToSpeechNotes,
-} from '../abhi-call-text-to-speech.ts'
+} from '../abhi-call-text-to-speech'
 
 test('formats typed-question notes with AI disclosure prefix', () => {
 	const notes = formatAbhiCallTextToSpeechNotes('  Hello from a typed call.  ')

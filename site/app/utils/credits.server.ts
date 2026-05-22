@@ -4,7 +4,7 @@ import * as YAML from 'yaml'
 import { cache, shouldForceFresh } from './cache.server'
 import { downloadFile } from './github.server'
 import { getGitHubContentPath } from './github-content-paths.server'
-import { getErrorMessage, typedBoolean } from './misc.ts'
+import { getErrorMessage, typedBoolean } from './misc'
 
 export type Person = {
 	id: string

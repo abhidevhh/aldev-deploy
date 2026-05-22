@@ -5,7 +5,7 @@ import { useFetcher } from 'react-router'
 
 import { z } from 'zod'
 import { useHints } from './client-hints.tsx'
-import { useRequestInfo } from './request-info.ts'
+import { useRequestInfo } from './request-info'
 
 enum Theme {
 	DARK = 'dark',

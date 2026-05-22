@@ -1,6 +1,6 @@
 import { clsx } from 'clsx'
 import { getImgProps, type ImageBuilder } from '#app/images.tsx'
-import { type Team } from '#app/types.ts'
+import { type Team } from '#app/types'
 import { ArrowLink } from '../arrow-button.tsx'
 import { BlurrableImage } from '../blurrable-image.tsx'
 import { ClipboardCopyButton } from '../clipboard-copy-button.tsx'

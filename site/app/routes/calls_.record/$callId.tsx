@@ -7,7 +7,7 @@ import {
 } from 'react-router'
 import { Button } from '#app/components/button.tsx'
 import { Paragraph } from '#app/components/typography.tsx'
-import { type KCDHandle } from '#app/types.ts'
+import { type KCDHandle } from '#app/types'
 import {
 	reuseUsefulLoaderHeaders,
 	useDoubleCheck,

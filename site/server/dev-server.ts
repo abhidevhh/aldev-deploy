@@ -57,7 +57,7 @@ if (process.env.NODE_ENV === 'production') {
 } else {
 	// React Router dev rewrites `.react-router/types` on startup, which causes an
 	// outer `node --watch` wrapper to restart forever in CI/headless runs.
-	const command = 'npx tsx ./index.ts'
+	const command = 'npx tsx ./index'
 	let childProcess: ReturnType<typeof execa> | null = null
 	let restarting = false
 	let lastLocalUrl = `http://localhost:${process.env.PORT || 3000}`

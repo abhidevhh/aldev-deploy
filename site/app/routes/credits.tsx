@@ -31,7 +31,7 @@ import {
 	images,
 } from '#app/images.tsx'
 import { type RootLoaderType } from '#app/root.tsx'
-import { shuffle } from '#app/utils/cjs/lodash.ts'
+import { shuffle } from '#app/utils/cjs/lodash'
 import { getPeople } from '#app/utils/credits.server'
 import { externalLinks } from '#app/external-links.tsx'
 import {
@@ -39,9 +39,9 @@ import {
 	getOrigin,
 	getUrl,
 	reuseUsefulLoaderHeaders,
-} from '#app/utils/misc.ts'
-import { getSocialMetas } from '#app/utils/seo.ts'
-import { type SerializeFrom } from '#app/utils/serialize-from.ts'
+} from '#app/utils/misc'
+import { getSocialMetas } from '#app/utils/seo'
+import { type SerializeFrom } from '#app/utils/serialize-from'
 import { type Route } from './+types/credits'
 
 export async function loader({ request }: Route.LoaderArgs) {

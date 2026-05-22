@@ -1,10 +1,10 @@
 import { getAudioBuffer } from '#app/utils/abhi-call-audio-storage.server'
 import { normalizeCallerTranscriptForEpisode } from '#app/utils/abhi-call-caller-transcript.server'
-import { assembleAbhiCallTranscript } from '#app/utils/abhi-call-transcript-template.ts'
+import { assembleAbhiCallTranscript } from '#app/utils/abhi-call-transcript-template'
 import { generateAbhiCallEpisodeMetadataWithWorkersAi } from '#app/utils/cloudflare-ai-abhi-call-metadata.server'
 import { formatAbhiCallTranscriptWithWorkersAi } from '#app/utils/cloudflare-ai-abhi-call-transcript-format.server'
 import { transcribeMp3WithWorkersAi } from '#app/utils/cloudflare-ai-transcription.server'
-import { getErrorMessage } from '#app/utils/misc.ts'
+import { getErrorMessage } from '#app/utils/misc'
 import { prisma } from '#app/utils/prisma.server'
 
 export async function startAbhiCallEpisodeDraftProcessing(draftId: string) {

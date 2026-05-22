@@ -1,5 +1,5 @@
 import { clsx } from 'clsx'
-import { type MdxListItem } from '#app/types.ts'
+import { type MdxListItem } from '#app/types'
 import { ArticleCard } from '../article-card.tsx'
 import { Grid } from '../grid.tsx'
 import { Spacer } from '../spacer.tsx'

@@ -8,17 +8,16 @@ import { FourHundred, FourOhFour } from '#app/components/errors.tsx'
 import { Grid } from '#app/components/grid.tsx'
 import { H2, H6 } from '#app/components/typography.tsx'
 import { getImageBuilder, getImgProps } from '#app/images.tsx'
-import { type KCDHandle } from '#app/types.ts'
+import { type KCDHandle } from '#app/types'
 import { getBlogRecommendations } from '#app/utils/blog.server'
-import { getMdxPage, getMdxPagesInDirectory } from '#app/utils/mdx.server'
 import {
 	getBannerAltProp,
 	getBannerTitleProp,
 	mdxPageMeta,
 	useMdxComponent,
 } from '#app/utils/mdx.tsx'
-import { requireValidSlug, reuseUsefulLoaderHeaders } from '#app/utils/misc.ts'
-import { type NotFoundMatch } from '#app/utils/not-found-matches.ts'
+import { requireValidSlug, reuseUsefulLoaderHeaders } from '#app/utils/misc'
+import { type NotFoundMatch } from '#app/utils/not-found-matches'
 import { getNotFoundSuggestions } from '#app/utils/not-found-suggestions.server'
 import { getServerTimeHeader } from '#app/utils/timing.server'
 import { type Route } from './+types/$slug'
@@ -28,16 +27,7 @@ const getPathedRoutes = serverOnly$(async () => {
 	return pathedRoutes
 })
 
-export const handle: KCDHandle = {
-	getSitemapEntries: serverOnly$(async (request: Request) => {
-		const pages = await getMdxPagesInDirectory('pages', { request })
-		return pages
-			.filter((page) => !page.frontmatter.draft)
-			.map((page) => {
-				return { route: `/${page.slug}`, priority: 0.6 }
-			})
-	}),
-}
+export const handle: KCDHandle = {}
 
 export async function loader({ params, request }: Route.LoaderArgs) {
 	requireValidSlug(params.slug)
@@ -50,6 +40,8 @@ export async function loader({ params, request }: Route.LoaderArgs) {
 
 	const timings = {}
 	const pathname = new URL(request.url).pathname
+	const { getMdxPage } = await import('#app/utils/mdx.server')
+
 	const page = await getMdxPage(
 		{ contentDir: 'pages', slug: params.slug },
 		{ request, timings },

@@ -20,9 +20,9 @@ import {
 	getDisplayUrl,
 	getUrl,
 	reuseUsefulLoaderHeaders,
-} from '#app/utils/misc.ts'
+} from '#app/utils/misc'
 import { externalLinks } from '#app/external-links.tsx'
-import { getSocialMetas } from '#app/utils/seo.ts'
+import { getSocialMetas } from '#app/utils/seo'
 import { getTestimonials } from '#app/utils/testimonials.server'
 import { getServerTimeHeader } from '#app/utils/timing.server'
 import { type Route } from './+types/testimonials'

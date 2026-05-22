@@ -1,5 +1,5 @@
 import { redirect, type HeadersFunction } from 'react-router'
-import { reuseUsefulLoaderHeaders } from '#app/utils/misc.ts'
+import { reuseUsefulLoaderHeaders } from '#app/utils/misc'
 import { getSeasons } from '#app/utils/simplecast.server'
 import { getServerTimeHeader } from '#app/utils/timing.server'
 import { type Route } from './+types/$season_.$episode'

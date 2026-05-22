@@ -25,21 +25,21 @@ import {
 	images,
 } from '#app/images.tsx'
 import { type RootLoaderType } from '#app/root.tsx'
-import { type AbhiCallSeason, type KCDHandle } from '#app/types.ts'
+import { type AbhiCallSeason, type KCDHandle } from '#app/types'
 import { getBlogRecommendations } from '#app/utils/blog.server'
-import { groupBy } from '#app/utils/cjs/lodash.ts'
+import { groupBy } from '#app/utils/cjs/lodash'
 import {
 	getDisplayUrl,
 	getOrigin,
 	getUrl,
 	reuseUsefulLoaderHeaders,
-} from '#app/utils/misc.ts'
+} from '#app/utils/misc'
 import {
 	CallsEpisodeUIStateProvider,
 	useMatchLoaderData,
 } from '#app/utils/providers.tsx'
-import { getSocialMetas } from '#app/utils/seo.ts'
-import { type SerializeFrom } from '#app/utils/serialize-from.ts'
+import { getSocialMetas } from '#app/utils/seo'
+import { type SerializeFrom } from '#app/utils/serialize-from'
 import { getServerTimeHeader } from '#app/utils/timing.server'
 import { getEpisodes } from '#app/utils/transistor.server'
 import { type Route } from './+types/_layout'

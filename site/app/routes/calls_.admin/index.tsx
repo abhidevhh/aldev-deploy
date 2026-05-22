@@ -1,6 +1,6 @@
 import { MicrophoneIcon } from '#app/components/icons.tsx'
 import { H4, Paragraph } from '#app/components/typography.tsx'
-import { type KCDHandle } from '#app/types.ts'
+import { type KCDHandle } from '#app/types'
 
 export const handle: KCDHandle = {
 	getSitemapEntries: () => null,

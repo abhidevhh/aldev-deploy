@@ -19,9 +19,9 @@ import {
 	favoriteIntents,
 	parseEpisodeFavoriteContentId,
 	type FavoriteContentType,
-} from '#app/utils/favorites.ts'
-import { reuseUsefulLoaderHeaders } from '#app/utils/misc.ts'
-import { useOptionalUser } from '#app/utils/use-root-data.ts'
+} from '#app/utils/favorites'
+import { reuseUsefulLoaderHeaders } from '#app/utils/misc'
+import { useOptionalUser } from '#app/utils/use-root-data'
 import { type Route } from './+types/favorite'
 
 const favoriteResourceRoute = '/resources/favorite'

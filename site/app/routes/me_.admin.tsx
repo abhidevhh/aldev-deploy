@@ -12,7 +12,7 @@ import {
 	SearchIcon,
 } from '#app/components/icons.tsx'
 import { H1, H2, H3 } from '#app/components/typography.tsx'
-import { type KCDHandle } from '#app/types.ts'
+import { type KCDHandle } from '#app/types'
 import {
 	formatDate,
 	formatNumber,
@@ -25,7 +25,7 @@ import {
 	useCapturedRouteError,
 } from '#app/utils/misc-react.tsx'
 import { prisma } from '#app/utils/prisma.server'
-import { type SerializeFrom } from '#app/utils/serialize-from.ts'
+import { type SerializeFrom } from '#app/utils/serialize-from'
 import { requireAdminUser } from '#app/utils/session.server'
 import { type Route } from './+types/me_.admin'
 

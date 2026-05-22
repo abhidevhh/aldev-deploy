@@ -22,65 +22,65 @@ const schemaBase = z.object({
 
 	ALLOWED_ACTION_ORIGINS: z.string().trim().optional(),
 
-	FLY_APP_NAME: nonEmptyString,
-	FLY_REGION: nonEmptyString,
-	FLY_MACHINE_ID: nonEmptyString,
-	LITEFS_DIR: nonEmptyString,
+	FLY_APP_NAME: z.string().optional(),
+	FLY_REGION: z.string().optional(),
+	FLY_MACHINE_ID: z.string().optional(),
+	LITEFS_DIR: z.string().optional(),
 
 	// Used by LiteFS + tooling. Optional because it can be derived from
 	// `DATABASE_URL` when using SQLite `file:` URLs.
 	DATABASE_PATH: z.string().trim().optional(),
-	DATABASE_URL: nonEmptyString,
-	CACHE_DATABASE_PATH: nonEmptyString,
+	DATABASE_URL: z.string().optional(),
+	CACHE_DATABASE_PATH: z.string().optional(),
 
-	BOT_GITHUB_TOKEN: nonEmptyString,
-	CALL_KENT_PODCAST_ID: nonEmptyString,
-	CHATS_WITH_KENT_PODCAST_ID: nonEmptyString,
-	KIT_API_KEY: nonEmptyString,
-	KIT_API_SECRET: nonEmptyString,
-	DISCORD_ADMIN_USER_ID: nonEmptyString,
-	DISCORD_BLUE_CHANNEL: nonEmptyString,
-	DISCORD_BLUE_ROLE: nonEmptyString,
-	DISCORD_BOT_TOKEN: nonEmptyString,
-	DISCORD_CALL_KENT_CHANNEL: nonEmptyString,
-	DISCORD_CLIENT_ID: nonEmptyString,
-	DISCORD_CLIENT_SECRET: nonEmptyString,
-	DISCORD_GUILD_ID: nonEmptyString,
-	DISCORD_LEADERBOARD_CHANNEL: nonEmptyString,
-	DISCORD_MEMBER_ROLE: nonEmptyString,
-	DISCORD_PRIVATE_BOT_CHANNEL: nonEmptyString,
-	DISCORD_RED_CHANNEL: nonEmptyString,
-	DISCORD_RED_ROLE: nonEmptyString,
-	DISCORD_SCOPES: nonEmptyString,
-	DISCORD_YELLOW_CHANNEL: nonEmptyString,
-	DISCORD_YELLOW_ROLE: nonEmptyString,
-	INTERNAL_COMMAND_TOKEN: nonEmptyString,
-	MAGIC_LINK_SECRET: nonEmptyString,
-	MAILGUN_DOMAIN: nonEmptyString,
-	MAILGUN_SENDING_KEY: nonEmptyString,
-	REFRESH_CACHE_SECRET: nonEmptyString,
+	BOT_GITHUB_TOKEN: z.string().optional(),
+	CALL_KENT_PODCAST_ID: z.string().optional(),
+	CHATS_WITH_KENT_PODCAST_ID: z.string().optional(),
+	KIT_API_KEY: z.string().optional(),
+	KIT_API_SECRET: z.string().optional(),
+	DISCORD_ADMIN_USER_ID: z.string().optional(),
+	DISCORD_BLUE_CHANNEL: z.string().optional(),
+	DISCORD_BLUE_ROLE: z.string().optional(),
+	DISCORD_BOT_TOKEN: z.string().optional(),
+	DISCORD_CALL_KENT_CHANNEL: z.string().optional(),
+	DISCORD_CLIENT_ID: z.string().optional(),
+	DISCORD_CLIENT_SECRET: z.string().optional(),
+	DISCORD_GUILD_ID: z.string().optional(),
+	DISCORD_LEADERBOARD_CHANNEL: z.string().optional(),
+	DISCORD_MEMBER_ROLE: z.string().optional(),
+	DISCORD_PRIVATE_BOT_CHANNEL: z.string().optional(),
+	DISCORD_RED_CHANNEL: z.string().optional(),
+	DISCORD_RED_ROLE: z.string().optional(),
+	DISCORD_SCOPES: z.string().optional(),
+	DISCORD_YELLOW_CHANNEL: z.string().optional(),
+	DISCORD_YELLOW_ROLE: z.string().optional(),
+	INTERNAL_COMMAND_TOKEN: z.string().optional(),
+	MAGIC_LINK_SECRET: z.string().optional(),
+	MAILGUN_DOMAIN: z.string().optional(),
+	MAILGUN_SENDING_KEY: z.string().optional(),
+	REFRESH_CACHE_SECRET: z.string().optional(),
 	SENTRY_AUTH_TOKEN: z.string().trim().optional(),
 	// Sentry is optional; validate required combos in `superRefine`.
 	SENTRY_DSN: z.string().trim().optional(),
 	SENTRY_ORG: z.string().trim().optional(),
 	SENTRY_PROJECT: z.string().trim().optional(),
 	SENTRY_PROJECT_ID: z.string().trim().optional(),
-	SESSION_SECRET: nonEmptyString,
-	SIMPLECAST_KEY: nonEmptyString,
-	TRANSISTOR_API_SECRET: nonEmptyString,
-	TWITTER_BEARER_TOKEN: nonEmptyString,
-	VERIFIER_API_KEY: nonEmptyString,
-	CF_INTERNAL_SECRET: nonEmptyString,
+	SESSION_SECRET: z.string().optional(),
+	SIMPLECAST_KEY: z.string().optional(),
+	TRANSISTOR_API_SECRET: z.string().optional(),
+	TWITTER_BEARER_TOKEN: z.string().optional(),
+	VERIFIER_API_KEY: z.string().optional(),
+	CF_INTERNAL_SECRET: z.string().optional(),
 
 	// Unified search service via Cloudflare Worker.
 	SEARCH_WORKER_URL: absoluteHttpUrlString,
-	SEARCH_WORKER_TOKEN: nonEmptyString,
+	SEARCH_WORKER_TOKEN: z.string().optional(),
 
 	// Semantic search + AI features via Cloudflare Workers AI + Vectorize (+ AI Gateway).
-	CLOUDFLARE_ACCOUNT_ID: nonEmptyString,
-	CLOUDFLARE_API_TOKEN: nonEmptyString,
+	CLOUDFLARE_ACCOUNT_ID: z.string().optional(),
+	CLOUDFLARE_API_TOKEN: z.string().optional(),
 	/** AI Gateway "id" is the gateway name you create in Cloudflare. */
-	CLOUDFLARE_AI_GATEWAY_ID: nonEmptyString,
+	CLOUDFLARE_AI_GATEWAY_ID: z.string().optional(),
 	/**
 	 * Optional embedding AI Gateway id.
 	 * Used by semantic-search embeddings (runtime queries + indexing jobs).
@@ -90,8 +90,8 @@ const schemaBase = z.object({
 	/**
 	 * AI Gateway authenticated gateway token (used as `cf-aig-authorization`).
 	 */
-	CLOUDFLARE_AI_GATEWAY_AUTH_TOKEN: nonEmptyString,
-	CLOUDFLARE_VECTORIZE_INDEX: nonEmptyString,
+	CLOUDFLARE_AI_GATEWAY_AUTH_TOKEN: z.string().optional(),
+	CLOUDFLARE_VECTORIZE_INDEX: z.string().optional(),
 	CLOUDFLARE_AI_EMBEDDING_MODEL: z
 		.string()
 		.trim()
@@ -116,18 +116,18 @@ const schemaBase = z.object({
 	CLOUDFLARE_AI_CALL_KENT_TRANSCRIPT_FORMAT_MODEL: z.string().trim().optional(),
 
 	// Semantic search admin tooling (R2 manifests + ignore list).
-	R2_BUCKET: nonEmptyString,
+	R2_BUCKET: z.string().optional(),
 	// Optional: derived from CLOUDFLARE_ACCOUNT_ID when omitted.
 	R2_ENDPOINT: z.string().trim().optional(),
-	R2_ACCESS_KEY_ID: nonEmptyString,
-	R2_SECRET_ACCESS_KEY: nonEmptyString,
+	R2_ACCESS_KEY_ID: z.string().optional(),
+	R2_SECRET_ACCESS_KEY: z.string().optional(),
 	// Call Kent audio storage bucket.
-	CALL_KENT_R2_BUCKET: nonEmptyString,
+	CALL_KENT_R2_BUCKET: z.string().optional(),
 	// Cloudflare Queue config for offloaded FFmpeg jobs.
-	CALL_KENT_AUDIO_CF_QUEUE_ID: nonEmptyString,
+	CALL_KENT_AUDIO_CF_QUEUE_ID: z.string().optional(),
 	CALL_KENT_AUDIO_CF_API_BASE_URL: z.string().trim().optional(),
 	// HMAC secret used by the FFmpeg processor callback route.
-	CALL_KENT_AUDIO_PROCESSOR_CALLBACK_SECRET: nonEmptyString,
+	CALL_KENT_AUDIO_PROCESSOR_CALLBACK_SECRET: z.string().optional(),
 	SEMANTIC_SEARCH_IGNORE_LIST_KEY: z
 		.string()
 		.trim()
@@ -330,7 +330,7 @@ export function init() {
 }
 
 /**
- * This is used in both `entry.server.ts` and `root.tsx` to ensure that
+ * This is used in both `entry.server` and `root.tsx` to ensure that
  * the environment variables are set and globally available before the app is
  * started.
  *

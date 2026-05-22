@@ -1,4 +1,4 @@
-import { type AbhiCallEpisode } from '#app/types.ts'
+import { type AbhiCallEpisode } from '#app/types'
 
 const callKentFieldConstraints = {
 	title: { minLength: 5, maxLength: 80 },

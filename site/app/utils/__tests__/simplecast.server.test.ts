@@ -13,7 +13,7 @@ import {
 	parseDescriptionMarkdown,
 	parseSummaryMarkdown,
 } from '../simplecast.server'
-import { getYouTubeVideoId } from '../youtube-utils.ts'
+import { getYouTubeVideoId } from '../youtube-utils'
 
 test('parseSummaryMarkdown extracts youtube video metadata section', async () => {
 	const result = await parseSummaryMarkdown(

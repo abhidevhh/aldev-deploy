@@ -11,7 +11,7 @@ import {
 	parseAbhiCallAudioProcessorEvent,
 	verifyAbhiCallAudioProcessorCallbackSignature,
 } from '#app/utils/abhi-call-audio-processor-callback.server'
-import { action } from '../episode-audio-callback.ts'
+import { action } from '../episode-audio-callback'
 
 test('episode-audio-callback rejects unsigned cloudflare callback', async () => {
 	vi.clearAllMocks()

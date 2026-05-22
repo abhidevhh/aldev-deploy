@@ -11,12 +11,12 @@ import {
 } from '#app/utils/abhi-call-audio-storage.server'
 import { startAbhiCallCallerTranscriptProcessing } from '#app/utils/abhi-call-caller-transcript.server'
 import { requestAbhiCallEpisodeAudioGeneration } from '#app/utils/abhi-call-audio-processor.server'
-import { getPublishedAbhiCallEpisodeEmail } from '#app/utils/abhi-call-published-email.ts'
+import { getPublishedAbhiCallEpisodeEmail } from '#app/utils/abhi-call-published-email'
 import {
 	getErrorForAudio,
 	getErrorForTitle,
 	getErrorForNotes,
-} from '#app/utils/abhi-call.ts'
+} from '#app/utils/abhi-call'
 import { sendMessageFromDiscordBot } from '#app/utils/discord.server'
 import { getEnv } from '#app/utils/env.server'
 import { markdownToHtml } from '#app/utils/markdown.server'
@@ -25,7 +25,7 @@ import {
 	getErrorMessage,
 	getOptionalTeam,
 	getStringFormValue,
-} from '#app/utils/misc.ts'
+} from '#app/utils/misc'
 import { prisma } from '#app/utils/prisma.server'
 import { sendEmail } from '#app/utils/send-email.server'
 import { requireAdminUser, requireUser } from '#app/utils/session.server'

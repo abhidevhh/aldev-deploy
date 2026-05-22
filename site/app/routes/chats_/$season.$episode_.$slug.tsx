@@ -10,7 +10,6 @@ import {
 	type HeadersFunction,
 	type LinksFunction,
 } from 'react-router'
-import { serverOnly$ } from 'vite-env-only/macros'
 import { ArrowLink, BackLink } from '#app/components/arrow-button.tsx'
 import { FourOhFour } from '#app/components/errors.tsx'
 import {
@@ -39,15 +38,15 @@ import {
 	type CWKEpisode,
 	type CWKListItem,
 	type KCDHandle,
-} from '#app/types.ts'
+} from '#app/types'
 import {
 	getAbhiEpisodePath,
 	getFeaturedEpisode,
-} from '#app/utils/chats-with-abhi.ts'
+} from '#app/utils/chats-with-abhi'
 import {
 	getEpisodeFavoriteContentId,
 	getEpisodeHomeworkContentId,
-} from '#app/utils/favorites.ts'
+} from '#app/utils/favorites'
 import {
 	formatDate,
 	formatDuration,
@@ -64,32 +63,15 @@ import {
 	getEpisodeHomeworkCompletions,
 	prisma,
 } from '#app/utils/prisma.server'
-import { getSocialMetas } from '#app/utils/seo.ts'
-import { type SerializeFrom } from '#app/utils/serialize-from.ts'
+import { getSocialMetas } from '#app/utils/seo'
+import { type SerializeFrom } from '#app/utils/serialize-from'
 import { getUser } from '#app/utils/session.server'
-import { getSeasons } from '#app/utils/simplecast.server'
 import { Themed } from '#app/utils/theme.tsx'
 import { getServerTimeHeader } from '#app/utils/timing.server'
-import { useRootData } from '#app/utils/use-root-data.ts'
+import { useRootData } from '#app/utils/use-root-data'
 import { type Route } from './+types/$season.$episode_.$slug'
 
-export const handle: KCDHandle = {
-	getSitemapEntries: serverOnly$(async (request: Request) => {
-		const seasons = await getSeasons({ request })
-		return seasons.flatMap((season) => {
-			return season.episodes.map((episode) => {
-				const s = String(season.seasonNumber).padStart(2, '0')
-				const e = String(episode.episodeNumber).padStart(2, '0')
-				return {
-					route: `/chats/${s}/${e}/${episode.slug}`,
-					changefreq: 'weekly',
-					lastmod: new Date(episode.updatedAt).toISOString(),
-					priority: 0.4,
-				}
-			})
-		})
-	}),
-}
+export const handle: KCDHandle = {}
 
 export const meta: Route.MetaFunction = ({ data, matches }) => {
 	const episode = data?.episode
@@ -149,6 +131,9 @@ export async function loader({ request, params }: Route.LoaderArgs) {
 		throw new Response(`Episode param missing`, { status: 404 })
 	}
 	const episodeNumber = Number(episodeParam)
+
+	const { getSeasons } = await import('#app/utils/simplecast.server')
+
 	const [user, seasons] = await Promise.all([
 		getUser(request, { timings }),
 		getSeasons({ request, timings }),

@@ -1,5 +1,5 @@
 import { ensurePrimary } from './litefs-js.server'
-import { getDomainUrl, isResponse } from './misc.ts'
+import { getDomainUrl, isResponse } from './misc'
 import { prisma } from './prisma.server'
 import { sendPasswordResetEmail } from './send-email.server'
 import { createVerification } from './verification.server'

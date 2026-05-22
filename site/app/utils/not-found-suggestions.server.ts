@@ -4,8 +4,8 @@ import path from 'node:path'
 import { matchSorter, rankings as matchSorterRankings } from 'match-sorter'
 import * as YAML from 'yaml'
 import { getImageBuilder } from '#app/images.tsx'
-import { sortNotFoundMatches, type NotFoundMatch } from './not-found-matches.ts'
-import { notFoundQueryFromPathname } from './not-found-query.ts'
+import { sortNotFoundMatches, type NotFoundMatch } from './not-found-matches'
+import { notFoundQueryFromPathname } from './not-found-query'
 
 function normalizePathname(pathname: string) {
 	const cleaned = (pathname.split(/[?#]/)[0] ?? '').trim()

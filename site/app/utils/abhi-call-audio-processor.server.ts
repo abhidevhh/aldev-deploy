@@ -1,5 +1,5 @@
 import { getEnv } from '#app/utils/env.server'
-import { getErrorMessage } from '#app/utils/misc.ts'
+import { getErrorMessage } from '#app/utils/misc'
 
 type EpisodeAudioJob = {
 	draftId: string

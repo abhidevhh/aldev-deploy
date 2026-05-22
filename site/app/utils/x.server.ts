@@ -8,9 +8,9 @@ import mTitle from 'metascraper-title'
 import { cache, lruCache } from './cache.server'
 import { getEnv } from './env.server'
 import { fetchWithTimeout } from './fetch-with-timeout.server'
-import { formatDate, formatNumber, typedBoolean } from './misc.ts'
-import { getTweet } from './twitter/get-tweet.ts'
-import { type Tweet } from './twitter/types/index.ts'
+import { formatDate, formatNumber, typedBoolean } from './misc'
+import { getTweet } from './twitter/get-tweet'
+import { type Tweet } from './twitter/types/index'
 
 const metascraper = makeMetascraper([mTitle(), mDescription(), mImage()])
 

@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { getPublishedAbhiCallEpisodeEmail } from '../abhi-call-published-email.ts'
+import { getPublishedAbhiCallEpisodeEmail } from '../abhi-call-published-email'
 
 test('includes the published episode link and artwork image in the email', () => {
 	const email = getPublishedAbhiCallEpisodeEmail({

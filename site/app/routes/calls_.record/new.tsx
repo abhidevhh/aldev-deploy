@@ -11,9 +11,9 @@ import { Grimmacing } from '#app/components/kifs.tsx'
 import { H4, Paragraph } from '#app/components/typography.tsx'
 import { type RootLoaderType } from '#app/root.tsx'
 import { AbhiCallTextToSpeech } from '#app/routes/resources/calls/text-to-speech.tsx'
-import { type KCDHandle } from '#app/types.ts'
-import { formatAbhiCallTextToSpeechNotes } from '#app/utils/abhi-call-text-to-speech.ts'
-import { type SerializeFrom } from '#app/utils/serialize-from.ts'
+import { type KCDHandle } from '#app/types'
+import { formatAbhiCallTextToSpeechNotes } from '#app/utils/abhi-call-text-to-speech'
+import { type SerializeFrom } from '#app/utils/serialize-from'
 import { type Route } from './+types/new'
 
 export const handle: KCDHandle = {

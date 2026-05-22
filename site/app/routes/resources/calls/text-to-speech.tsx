@@ -17,7 +17,7 @@ import {
 	getAbhiCallVoicePreviewSrc,
 	getErrorForAbhiCallQuestionText,
 	isAbhiCallTextToSpeechVoice,
-} from '#app/utils/abhi-call-text-to-speech.ts'
+} from '#app/utils/abhi-call-text-to-speech'
 import { synthesizeSpeechWithWorkersAi } from '#app/utils/cloudflare-ai-text-to-speech.server'
 import { getEnv } from '#app/utils/env.server'
 import { rateLimit } from '#app/utils/rate-limit.server'

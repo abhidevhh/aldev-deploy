@@ -31,23 +31,23 @@ sourceMapSupport.install()
 
 const localServerModuleExtension = import.meta.url.includes('/server-build/')
 	? '.js'
-	: '.ts'
+	: ''
 
 async function importLocalServerModule<T>(specifier: string): Promise<T> {
 	return (await import(`${specifier}${localServerModuleExtension}`)) as T
 }
 
 const { scheduleExpiredDataCleanup } = await importLocalServerModule<
-	typeof import('./expired-sessions-cleanup.ts')
+	typeof import('./expired-sessions-cleanup')
 >('./expired-sessions-cleanup')
 const { createRateLimitingMiddleware } =
-	await importLocalServerModule<typeof import('./rate-limiting.ts')>(
+	await importLocalServerModule<typeof import('./rate-limiting')>(
 		'./rate-limiting',
 	)
 const { getRedirectsMiddleware, oldImgSocial, rickRollMiddleware } =
-	await importLocalServerModule<typeof import('./redirects.ts')>('./redirects')
+	await importLocalServerModule<typeof import('./redirects')>('./redirects')
 const { registerStartupShortcuts } = await importLocalServerModule<
-	typeof import('./startup-shortcuts.ts')
+	typeof import('./startup-shortcuts')
 >('./startup-shortcuts')
 
 const env = getEnv()
@@ -89,7 +89,7 @@ const SHOULD_INIT_SENTRY =
 	!env.MOCKS
 
 if (SHOULD_INIT_SENTRY) {
-	void importLocalServerModule<typeof import('./utils/monitoring.ts')>(
+	void importLocalServerModule<typeof import('./utils/monitoring')>(
 		'./utils/monitoring',
 	).then(({ init }) => init())
 }
@@ -538,7 +538,7 @@ let wss: WebSocketServer | undefined
 if (MODE === 'development') {
 	try {
 		const { contentWatcher } =
-			await importLocalServerModule<typeof import('./content-watcher.ts')>(
+			await importLocalServerModule<typeof import('./content-watcher')>(
 				'./content-watcher',
 			)
 		wss = contentWatcher(server)

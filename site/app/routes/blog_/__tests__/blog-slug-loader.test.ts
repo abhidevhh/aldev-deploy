@@ -43,7 +43,7 @@ vi.mock('../../action/mark-as-read.tsx', () => ({
 
 // The route module imports this hook, which pulls in `root.tsx` and server auth/db code.
 // We only exercise the loader, so a lightweight mock keeps this test hermetic.
-vi.mock('#app/utils/use-root-data.ts', () => ({
+vi.mock('#app/utils/use-root-data', () => ({
 	useRootData: () => ({ requestInfo: { origin: 'http://localhost' } }),
 }))
 

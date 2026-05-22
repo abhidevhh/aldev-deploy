@@ -9,7 +9,7 @@ import {
 	type TransistorErrorResponse,
 	type TransistorPublishedJson,
 	type TransistorUpdateEpisodeData,
-} from '#app/types.ts'
+} from '#app/types'
 import {
 	isAbortError,
 	throwIfAborted,
@@ -19,8 +19,8 @@ import { cache, cachified, shouldForceFresh } from './cache.server'
 import {
 	getAbhiCallEpisodeArtworkAvatar,
 	getAbhiCallEpisodeArtworkUrl,
-} from './abhi-call-artwork.ts'
-import { getEpisodePath } from './abhi-call.ts'
+} from './abhi-call-artwork'
+import { getEpisodePath } from './abhi-call'
 import { getEnv } from './env.server'
 import { stripHtml } from './markdown.server'
 import { type Timings } from './timing.server'

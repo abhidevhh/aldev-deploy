@@ -9,10 +9,10 @@ import { getGenericSocialImage, getImgProps, images } from '#app/images.tsx'
 import { KitForm } from '#app/kit/form.tsx'
 import { type RootLoaderType } from '#app/root.tsx'
 import { getBlogRecommendations } from '#app/utils/blog.server'
-import { getDisplayUrl, getUrl } from '#app/utils/misc.ts'
-import { getSocialMetas } from '#app/utils/seo.ts'
+import { getDisplayUrl, getUrl } from '#app/utils/misc'
+import { getSocialMetas } from '#app/utils/seo'
 import { getServerTimeHeader } from '#app/utils/timing.server'
-import { useRootData } from '#app/utils/use-root-data.ts'
+import { useRootData } from '#app/utils/use-root-data'
 import { type Route } from './+types/subscribe'
 
 export const meta: MetaFunction<typeof loader, { root: RootLoaderType }> = ({

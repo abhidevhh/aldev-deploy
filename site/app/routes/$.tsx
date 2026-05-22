@@ -10,7 +10,7 @@ import { ArrowLink } from '#app/components/arrow-button.tsx'
 import { GeneralErrorBoundary } from '#app/components/error-boundary.tsx'
 import { ErrorPage, FourOhFour } from '#app/components/errors.tsx'
 import { Facepalm } from '#app/components/kifs.tsx'
-import { type NotFoundMatch } from '#app/utils/not-found-matches.ts'
+import { type NotFoundMatch } from '#app/utils/not-found-matches'
 import { getNotFoundSuggestions } from '#app/utils/not-found-suggestions.server'
 
 export async function loader({ request }: { request: Request }) {

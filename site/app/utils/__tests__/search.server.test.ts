@@ -3,7 +3,7 @@ import {
 	SEARCH_MAX_QUERY_CHARS,
 	SearchQueryTooLongError,
 	type SearchResult,
-import { setEnv } from '#tests/env-disposable.ts'
+import { setEnv } from '#tests/env-disposable'
 
 const {
 	getSearchWorkerHealthMock,

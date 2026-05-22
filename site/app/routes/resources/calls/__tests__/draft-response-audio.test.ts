@@ -26,7 +26,7 @@ import {
 	getAudioStream,
 } from '#app/utils/abhi-call-audio-storage.server'
 import { prisma } from '#app/utils/prisma.server'
-import { loader } from '../draft-response-audio.ts'
+import { loader } from '../draft-response-audio'
 
 test('draft-response-audio streams saved response audio for admins', async () => {
 	vi.clearAllMocks()

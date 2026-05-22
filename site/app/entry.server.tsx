@@ -12,7 +12,7 @@ import {
 	type HandleDocumentRequestFunction,
 } from 'react-router'
 import { serverOnly$ } from 'vite-env-only/macros'
-import { NonceProvider } from './utils/nonce-provider.ts'
+import { NonceProvider } from './utils/nonce-provider'
 
 const getOtherRoutes = serverOnly$(async () => {
 	const path = ['.', '/', 'o', 't', 'h', 'e', 'r', '-', 'r', 'o', 'u', 't', 'e', 's', '.', 's', 'e', 'r', 'v', 'e', 'r', '.', 't', 's'].join('')

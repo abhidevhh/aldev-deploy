@@ -1,7 +1,7 @@
 import { getRandomFlyingAbhiBuddy } from '#app/images.tsx'
 import { getEnv } from '#app/utils/env.server'
 import { markdownToHtmlDocument } from './markdown.server'
-import { getOptionalTeam } from './misc.ts'
+import { getOptionalTeam } from './misc'
 
 const {
 	MAILGUN_DOMAIN: mailgunDomain,

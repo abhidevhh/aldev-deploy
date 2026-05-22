@@ -34,7 +34,7 @@ import {
 } from '#app/images.tsx'
 import { externalLinks } from '#app/external-links.tsx'
 import { type RootLoaderType } from '#app/root.tsx'
-import { type KCDHandle, type Team } from '#app/types.ts'
+import { type KCDHandle, type Team } from '#app/types'
 import {
 	getAllBlogPostReadRankings,
 	getBlogReadRankings,
@@ -44,7 +44,7 @@ import {
 	getSlugReadsByUser,
 	getTotalPostReads,
 } from '#app/utils/blog.server'
-import { filterPosts, getRankingLeader } from '#app/utils/blog.ts'
+import { filterPosts, getRankingLeader } from '#app/utils/blog'
 import { getBlogMdxListItems } from '#app/utils/mdx.server'
 import { getBannerAltProp } from '#app/utils/mdx.tsx'
 import {
@@ -57,11 +57,11 @@ import {
 	useUpdateQueryStringValueWithoutNavigation,
 	useCapturedRouteError,
 } from '#app/utils/misc-react.tsx'
-import { getSocialMetas } from '#app/utils/seo.ts'
-import { type SerializeFrom } from '#app/utils/serialize-from.ts'
+import { getSocialMetas } from '#app/utils/seo'
+import { type SerializeFrom } from '#app/utils/serialize-from'
 import { useTeam } from '#app/utils/team-provider.tsx'
 import { getServerTimeHeader } from '#app/utils/timing.server'
-import { useRootData } from '#app/utils/use-root-data.ts'
+import { useRootData } from '#app/utils/use-root-data'
 import { type Route } from './+types/blog'
 
 const handleId = 'blog'

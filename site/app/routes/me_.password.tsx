@@ -4,7 +4,7 @@ import { Field, InputError } from '#app/components/form-elements.tsx'
 import { Grid } from '#app/components/grid.tsx'
 import { HeaderSection } from '#app/components/sections/header-section.tsx'
 import { Spacer } from '#app/components/spacer.tsx'
-import { type KCDHandle } from '#app/types.ts'
+import { type KCDHandle } from '#app/types'
 import { ensurePrimary } from '#app/utils/litefs-js.server'
 import {
 	getPasswordHash,

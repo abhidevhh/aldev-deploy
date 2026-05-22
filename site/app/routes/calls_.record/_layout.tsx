@@ -10,10 +10,10 @@ import { BackLink } from '#app/components/arrow-button.tsx'
 import { ButtonLink } from '#app/components/button.tsx'
 import { Grid } from '#app/components/grid.tsx'
 import { H2, Paragraph } from '#app/components/typography.tsx'
-import { reuseUsefulLoaderHeaders } from '#app/utils/misc.ts'
+import { reuseUsefulLoaderHeaders } from '#app/utils/misc'
 import { prisma } from '#app/utils/prisma.server'
 import { getUser } from '#app/utils/session.server'
-import { useRootData } from '#app/utils/use-root-data.ts'
+import { useRootData } from '#app/utils/use-root-data'
 import { type Route } from './+types/_layout'
 
 export async function loader({ request }: Route.LoaderArgs) {

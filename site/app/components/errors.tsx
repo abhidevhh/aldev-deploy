@@ -2,13 +2,13 @@ import { clsx } from 'clsx'
 import errorStack from 'error-stack-parser'
 import * as React from 'react'
 import { useMatches } from 'react-router'
-import { type MdxListItem } from '#app/types.ts'
-import { getErrorMessage } from '#app/utils/misc.ts'
+import { type MdxListItem } from '#app/types'
+import { getErrorMessage } from '#app/utils/misc'
 import {
 	type NotFoundMatch,
 	sortNotFoundMatches,
-} from '#app/utils/not-found-matches.ts'
-import { notFoundQueryFromPathname } from '#app/utils/not-found-query.ts'
+} from '#app/utils/not-found-matches'
+import { notFoundQueryFromPathname } from '#app/utils/not-found-query'
 import { ArrowLink } from './arrow-button.tsx'
 import { Grid } from './grid.tsx'
 import { Facepalm, Grimmacing, MissingSomething } from './kifs.tsx'

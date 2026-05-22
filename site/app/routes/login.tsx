@@ -27,7 +27,7 @@ import { HeroSection } from '#app/components/sections/hero-section.tsx'
 import { Paragraph } from '#app/components/typography.tsx'
 import { getGenericSocialImage, images } from '#app/images.tsx'
 import { type RootLoaderType } from '#app/root.tsx'
-import { type KCDHandle } from '#app/types.ts'
+import { type KCDHandle } from '#app/types'
 import { getClientSession } from '#app/utils/client.server'
 import { ensurePrimary } from '#app/utils/litefs-js.server'
 import { getLoginInfoSession } from '#app/utils/login.server'
@@ -36,7 +36,7 @@ import {
 	getOrigin,
 	getUrl,
 	reuseUsefulLoaderHeaders,
-} from '#app/utils/misc.ts'
+} from '#app/utils/misc'
 import {
 	DUMMY_PASSWORD_HASH,
 	verifyPassword,
@@ -45,7 +45,7 @@ import {
 	migrateHomeworkCompletionsToUser,
 	prisma,
 } from '#app/utils/prisma.server'
-import { getSocialMetas } from '#app/utils/seo.ts'
+import { getSocialMetas } from '#app/utils/seo'
 import { getSession, getUser } from '#app/utils/session.server'
 import { type Route } from './+types/login'
 

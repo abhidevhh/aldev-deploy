@@ -5,7 +5,7 @@ import {
 	notifyOfOverallTeamLeaderChange,
 	notifyOfTeamLeaderChangeOnPost,
 } from '#app/utils/blog.server'
-import { getRankingLeader } from '#app/utils/blog.ts'
+import { getRankingLeader } from '#app/utils/blog'
 import { getClientSession } from '#app/utils/client.server'
 import { addPostRead } from '#app/utils/prisma.server'
 import { getSession } from '#app/utils/session.server'

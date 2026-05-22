@@ -5,45 +5,30 @@ import {
 	type MetaFunction,
 	useParams,
 } from 'react-router'
-import { serverOnly$ } from 'vite-env-only/macros'
 import { IconLink } from '#app/components/icon-link.tsx'
 import { XIcon } from '#app/components/icons.tsx'
 import { H6, Paragraph } from '#app/components/typography.tsx'
 import { type RootLoaderType, type loader as rootLoader } from '#app/root.tsx'
 import { FavoriteToggle } from '#app/routes/resources/favorite.tsx'
-import { type KCDHandle } from '#app/types.ts'
+import { type KCDHandle } from '#app/types'
 import {
 	getEpisodeFromParams,
 	getEpisodePath,
 	type Params,
-} from '#app/utils/abhi-call.ts'
-import { getEpisodeFavoriteContentId } from '#app/utils/favorites.ts'
-import { getUrl, reuseUsefulLoaderHeaders } from '#app/utils/misc.ts'
+} from '#app/utils/abhi-call'
+import { getEpisodeFavoriteContentId } from '#app/utils/favorites'
+import { getUrl, reuseUsefulLoaderHeaders } from '#app/utils/misc'
 import { prisma } from '#app/utils/prisma.server'
-import { getSocialMetas } from '#app/utils/seo.ts'
-import { type SerializeFrom } from '#app/utils/serialize-from.ts'
+import { getSocialMetas } from '#app/utils/seo'
+import { type SerializeFrom } from '#app/utils/serialize-from'
 import { getUser } from '#app/utils/session.server'
 import { Themed } from '#app/utils/theme.tsx'
 import { getServerTimeHeader } from '#app/utils/timing.server'
-import { getEpisodes } from '#app/utils/transistor.server'
-import { useRootData } from '#app/utils/use-root-data.ts'
+import { useRootData } from '#app/utils/use-root-data'
 import { useCallsData, type loader as callsLoader } from '../../_layout.tsx'
 import { type Route } from './+types/$slug'
 
-export const handle: KCDHandle = {
-	id: 'call-player',
-	getSitemapEntries: serverOnly$(async (request: Request) => {
-		const episodes = await getEpisodes({ request })
-		return episodes.map((episode) => {
-			return {
-				route: getEpisodePath(episode),
-				changefreq: 'weekly',
-				lastmod: new Date(episode.updatedAt).toISOString(),
-				priority: 0.3,
-			}
-		})
-	}),
-}
+export const handle: KCDHandle = {}
 
 export const meta: MetaFunction<
 	typeof loader,

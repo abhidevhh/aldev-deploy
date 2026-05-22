@@ -3,7 +3,7 @@ import { type PublicKeyCredentialCreationOptionsJSON } from '@simplewebauthn/ser
 import { data as json, Form, useRevalidator } from 'react-router'
 import { z } from 'zod'
 import { Button } from '#app/components/button.tsx'
-import { type KCDHandle } from '#app/types.ts'
+import { type KCDHandle } from '#app/types'
 import { prisma } from '#app/utils/prisma.server'
 import { requireUser } from '#app/utils/session.server'
 import { type Route } from './+types/me_.passkeys'

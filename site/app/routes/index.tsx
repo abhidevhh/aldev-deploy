@@ -16,7 +16,7 @@ import {
 	getReaderCount,
 	getTotalPostReads,
 } from '#app/utils/blog.server'
-import { getRankingLeader } from '#app/utils/blog.ts'
+import { getRankingLeader } from '#app/utils/blog'
 import { getBlogMdxListItems } from '#app/utils/mdx.server'
 import {
 	formatNumber,

@@ -10,8 +10,8 @@ import {
 import {
 	getEpisodeHomeworkContentId,
 	parseEpisodeHomeworkContentId,
-} from '#app/utils/favorites.ts'
-import { reuseUsefulLoaderHeaders } from '#app/utils/misc.ts'
+} from '#app/utils/favorites'
+import { reuseUsefulLoaderHeaders } from '#app/utils/misc'
 import { type Route } from './+types/homework-completion'
 
 const homeworkCompletionResourceRoute = '/resources/homework-completion'

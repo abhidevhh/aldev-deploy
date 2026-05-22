@@ -9,7 +9,7 @@ import {
 	type OptionalTeam,
 	type Role,
 	type Team,
-} from '#app/types.ts'
+} from '#app/types'
 
 // NOTE: Keep this file free of JSX/TSX dependencies.
 // It is safe to import in plain Node (ex: pre-deploy healthcheck startup),
@@ -218,5 +218,5 @@ export function requireValidSlug(slug: unknown): asserts slug is string {
 	}
 }
 
-export { listify } from './listify.ts'
-export type { OptionalTeam } from '#app/types.ts'
+export { listify } from './listify'
+export type { OptionalTeam } from '#app/types'

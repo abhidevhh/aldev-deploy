@@ -3,9 +3,9 @@
 import { type MetaFunction } from 'react-router'
 import { getSocialImageWithPreTitle } from '#app/images.tsx'
 import { type RootLoaderType } from '#app/root.tsx'
-import { getDisplayUrl, getUrl } from '#app/utils/misc.ts'
-import { getSocialMetas } from '#app/utils/seo.ts'
-import { type SerializeFrom } from '#app/utils/serialize-from.ts'
+import { getDisplayUrl, getUrl } from '#app/utils/misc'
+import { getSocialMetas } from '#app/utils/seo'
+import { type SerializeFrom } from '#app/utils/serialize-from'
 import { type loader as talkLoader } from './_layout.tsx'
 
 export const meta: MetaFunction<

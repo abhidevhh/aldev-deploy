@@ -15,7 +15,7 @@ import { XIcon } from '#app/components/icons.tsx'
 import { Paragraph, H3 } from '#app/components/typography.tsx'
 import { FavoriteToggle } from '#app/routes/resources/favorite.tsx'
 import { getEnv } from '#app/utils/env.server'
-import { useRootData } from '#app/utils/use-root-data.ts'
+import { useRootData } from '#app/utils/use-root-data'
 import { type Route } from './+types/youtube'
 
 function parseVideoId(value: string | null) {

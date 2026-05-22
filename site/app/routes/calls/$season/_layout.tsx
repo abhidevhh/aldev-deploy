@@ -16,13 +16,13 @@ import { Grid } from '#app/components/grid.tsx'
 import { TriangleIcon } from '#app/components/icons.tsx'
 import { MissingSomething } from '#app/components/kifs.tsx'
 import { H3, Paragraph } from '#app/components/typography.tsx'
-import { type AbhiCallEpisode, type KCDHandle } from '#app/types.ts'
+import { type AbhiCallEpisode, type KCDHandle } from '#app/types'
 import {
 	getEpisodeFromParams,
 	getEpisodePath,
 	type Params as CallPlayerParams,
-} from '#app/utils/abhi-call.ts'
-import { orderBy } from '#app/utils/cjs/lodash.ts'
+} from '#app/utils/abhi-call'
+import { orderBy } from '#app/utils/cjs/lodash'
 import {
 	formatDate,
 	formatDuration,
@@ -31,26 +31,15 @@ import {
 } from '#app/utils/misc-react.tsx'
 import { useCallsEpisodeUIState } from '#app/utils/providers.tsx'
 import { getServerTimeHeader } from '#app/utils/timing.server'
-import { getEpisodes } from '#app/utils/transistor.server'
 import { getEpisodesBySeason } from '../_layout.tsx'
 import { type Route } from './+types/_layout'
 
-export const handle: KCDHandle = {
-	getSitemapEntries: serverOnly$(async (request: Request) => {
-		const episodes = await getEpisodes({ request })
-		const seasons = getEpisodesBySeason(episodes)
-
-		return seasons.map((season) => {
-			return {
-				route: `/calls/${season.seasonNumber.toString().padStart(2, '0')}`,
-				priority: 0.4,
-			}
-		})
-	}),
-}
+export const handle: KCDHandle = {}
 
 export async function loader({ params, request }: Route.LoaderArgs) {
 	const timings = {}
+	const { getEpisodes } = await import('#app/utils/transistor.server')
+
 	const episodes = await getEpisodes({ request, timings })
 
 	const seasons = getEpisodesBySeason(episodes)
