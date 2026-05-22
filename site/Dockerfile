@@ -111,4 +111,4 @@ RUN mkdir -p /data ${LITEFS_DIR}
 
 WORKDIR /app/services/site
 
-CMD ["litefs", "mount"]
+CMD ["npm", "start"]
