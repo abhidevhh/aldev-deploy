@@ -7,7 +7,8 @@ COPY . .
 WORKDIR /app/site
 
 RUN npm install --include=dev --ignore-scripts --legacy-peer-deps
+RUN npm run build
 
 EXPOSE 10000
 
-CMD ["npm", "run", "dev"]
+CMD ["npm", "start"]
