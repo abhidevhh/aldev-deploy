@@ -26,9 +26,9 @@
   "scripts": {
     "clean": "rimraf ../../node_modules/.cache ./build ./public/build",
     "prebuild": "npm run clean && echo All clean ✨",
-    "build": "npm run build:router "build": "npm run build:router && npm run build:server""build": "npm run build:router && npm run build:server" npm run build:server",
+    "build": "npm run build:router && npm run build:server",
     "build:router": "vite build",
-    "build:server": "mkdir -p build/server && cp -R server build/server/server",,
+    "build:server": "mkdir -p build/server && cp -R server build/server/server",
     "build:info": "node ../../other/generate-build-info.ts",
     "dev": "npx tsx ./server/dev-server.ts",
     "start": "npx tsx ./server/index.ts",
