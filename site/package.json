@@ -3,8 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "engines": {
-    "node": "24",
-    "npm": ">=10"
+    "node": "20.x"
   },
   "imports": {
     "#*": "./*"
