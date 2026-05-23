@@ -1,7 +1,7 @@
 import { invariant } from '@epic-web/invariant'
 import { faker } from '@faker-js/faker'
 import { expect, test } from '@playwright/test'
-import { deleteUserByEmail, extractUrl, readEmail } from './utils.ts'
+import { deleteUserByEmail, extractUrl, readEmail } from './utils'
 
 test('A new user can create an account', async ({ page }) => {
 	const firstName = faker.person.firstName()

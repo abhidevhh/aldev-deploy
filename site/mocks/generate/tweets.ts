@@ -3,8 +3,8 @@ import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
 // NOTE: run this with node ./mocks/generate/tweets.ts
-import { type Tweet } from '#app/utils/twitter/index.ts'
-import { getTweet } from '../../app/utils/twitter/get-tweet.ts'
+import { type Tweet } from '#app/utils/twitter/index'
+import { getTweet } from '../../app/utils/twitter/get-tweet'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 

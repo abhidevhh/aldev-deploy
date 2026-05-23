@@ -14,8 +14,8 @@ import {
 	type TransistorEpisodeData,
 	type TransistorEpisodesJson,
 	type TransistorPublishedJson,
-} from '#app/types.ts'
-import { requiredHeader, requiredParam, requiredProperty } from './utils.ts'
+} from '#app/types'
+import { requiredHeader, requiredParam, requiredProperty } from './utils'
 
 const transistorUploadsDirectory = path.join(
 	process.cwd(),

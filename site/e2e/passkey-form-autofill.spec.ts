@@ -1,4 +1,4 @@
-import { expect, test } from './utils.ts'
+import { expect, test } from './utils'
 
 test.use({
 	// Useful for producing a walkthrough artifact in environments where headed

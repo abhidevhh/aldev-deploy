@@ -6,7 +6,7 @@ import {
 	type Call,
 	type Session,
 	type User,
-} from '#app/utils/prisma-generated.server/client.ts'
+} from '#app/utils/prisma-generated.server/client'
 
 type NonNullProperties<Type> = {
 	[Key in keyof Type]-?: Exclude<Type[Key], null | undefined>
@@ -190,8 +190,8 @@ declare module 'react' {
 	}
 }
 
-export * from './simplecast.ts'
-export * from './transistor.ts'
+export * from './simplecast'
+export * from './transistor'
 export {
 	NonNullProperties,
 	Await,

@@ -19,8 +19,8 @@ import {
 	putEpisodeDraftResponseSegmentAudioFromBuffer,
 } from '#app/utils/abhi-call-audio-storage.server'
 import { handleAbhiCallAudioProcessorEvent } from '#app/utils/abhi-call-audio-processor-callback.server'
-import { mockTransistorEpisodes } from './transistor.ts'
-import { requiredHeader } from './utils.ts'
+import { mockTransistorEpisodes } from './transistor'
+import { requiredHeader } from './utils'
 
 const CLOUDFLARE_API_BASE = 'https://api.cloudflare.com/client/v4'
 

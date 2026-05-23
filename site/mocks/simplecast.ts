@@ -10,7 +10,7 @@ import {
 	type SimplecastCollectionResponse,
 	type SimplecastEpisode,
 	type SimplecastEpisodeListItem,
-} from '#app/types.ts'
+} from '#app/types'
 
 const seasonListItems: Array<SimpelcastSeasonListItem> = Array.from(
 	{ length: 5 },

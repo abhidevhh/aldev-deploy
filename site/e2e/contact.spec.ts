@@ -1,6 +1,6 @@
 import { invariant } from '@epic-web/invariant'
 import { faker } from '@faker-js/faker'
-import { expect, readEmail, test } from './utils.ts'
+import { expect, readEmail, test } from './utils'
 
 test('Users can send an email', async ({ page, login }) => {
 	const user = await login()

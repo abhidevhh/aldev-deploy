@@ -1,7 +1,7 @@
 import { invariant } from '@epic-web/invariant'
 import { faker } from '@faker-js/faker'
 import { type Page } from '@playwright/test'
-import { expect, readEmail, test } from './utils.ts'
+import { expect, readEmail, test } from './utils'
 
 async function recordAudio(page: Page) {
 	await expect(

@@ -1,6 +1,6 @@
 import { afterAll, afterEach, beforeAll } from 'vitest'
 import './setup-env.ts'
-import { mswServer } from './msw-server.ts'
+import { mswServer } from './msw-server'
 
 beforeAll(() => {
 	mswServer.listen({ onUnhandledRequest: 'error' })

@@ -5,7 +5,7 @@ import {
 	type HttpHandler,
 	type DefaultRequestMultipartBody,
 } from 'msw'
-import { requiredHeader, requiredParam } from './utils.ts'
+import { requiredHeader, requiredParam } from './utils'
 
 const discordHandlers: Array<HttpHandler> = [
 	http.post<any, DefaultRequestMultipartBody>(

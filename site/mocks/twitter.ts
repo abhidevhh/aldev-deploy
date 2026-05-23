@@ -8,7 +8,7 @@ import {
 } from 'msw'
 import type SiteMetadata from './data/site-metadata.json'
 import type Tweets from './data/tweets.json'
-import { isConnectedToTheInternet } from './utils.ts'
+import { isConnectedToTheInternet } from './utils'
 
 // use readJson as long as Import assertions is experimental
 // import siteMetadata from './data/site-metadata.json' assert {type: 'json'}

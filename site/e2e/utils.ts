@@ -7,9 +7,9 @@ import fsExtra from 'fs-extra'
 import {
 	PrismaClient,
 	type User,
-} from '#app/utils/prisma-generated.server/client.ts'
+} from '#app/utils/prisma-generated.server/client'
 import { getSession } from '../app/utils/session.server'
-import { createUser } from '../prisma/seed-utils.ts'
+import { createUser } from '../prisma/seed-utils'
 
 type MSWData = {
 	email: Record<string, Email>

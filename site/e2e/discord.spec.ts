@@ -1,5 +1,5 @@
 import { invariant } from '@epic-web/invariant'
-import { expect, test } from './utils.ts'
+import { expect, test } from './utils'
 
 test('A new user can create an account', async ({ page, login }) => {
 	await login()
