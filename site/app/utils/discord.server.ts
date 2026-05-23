@@ -1,5 +1,5 @@
 import { type Team, type User } from '#app/types'
-import { getEnv } from './env.server'
+import { getEnv } from './env'
 import { getTeam } from './misc'
 import { prisma } from './prisma.server'
 

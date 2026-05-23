@@ -1,5 +1,5 @@
 import crypto from 'crypto'
-import { getEnv } from './env.server'
+import { getEnv } from './env'
 
 const algorithm = 'aes-256-gcm'
 

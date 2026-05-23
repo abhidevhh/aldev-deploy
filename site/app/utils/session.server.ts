@@ -2,7 +2,7 @@ import { createCookieSessionStorage, redirect } from 'react-router'
 import { z } from 'zod'
 import { ensurePrimary } from '#app/utils/litefs-js.server'
 import { type User } from '#app/utils/prisma-generated.server/client'
-import { getEnv } from './env.server'
+import { getEnv } from './env'
 import {
 	createSession,
 	getUserFromSessionId,

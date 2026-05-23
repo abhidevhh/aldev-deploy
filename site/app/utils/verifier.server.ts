@@ -1,7 +1,7 @@
 // verifier is an email verification service
 
 import { getKitSubscriber } from '#app/kit/kit.server.js'
-import { getEnv } from './env.server'
+import { getEnv } from './env'
 import { getErrorMessage } from './misc'
 import { prisma } from './prisma.server'
 

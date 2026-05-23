@@ -19,7 +19,7 @@ import {
 	isAbhiCallTextToSpeechVoice,
 } from '#app/utils/abhi-call-text-to-speech'
 import { synthesizeSpeechWithWorkersAi } from '#app/utils/cloudflare-ai-text-to-speech.server'
-import { getEnv } from '#app/utils/env.server'
+import { getEnv } from '#app/utils/env'
 import { rateLimit } from '#app/utils/rate-limit.server'
 import { getUser } from '#app/utils/session.server'
 import { type Route } from './+types/text-to-speech'

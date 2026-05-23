@@ -2,7 +2,7 @@ import path from 'path'
 import { data as json, redirect } from 'react-router'
 import { cache } from '#app/utils/cache.server'
 import { getPeople } from '#app/utils/credits.server'
-import { getEnv } from '#app/utils/env.server'
+import { getEnv } from '#app/utils/env'
 import { ensurePrimary } from '#app/utils/litefs-js.server'
 import {
 	getBlogMdxListItems,

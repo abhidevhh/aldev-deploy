@@ -12,7 +12,7 @@ import {
 import { siteCacheReporter } from '#app/utils/cache-reporter.server'
 import { remember } from '@epic-web/remember'
 import { LRUCache } from 'lru-cache'
-import { getEnv } from '#app/utils/env.server'
+import { getEnv } from '#app/utils/env'
 import { getInstanceInfo, getInstanceInfoSync } from './litefs-js.server.js'
 import { getUser } from './session.server'
 import { time, type Timings } from './timing.server'

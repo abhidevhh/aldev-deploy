@@ -1,4 +1,4 @@
-import { getEnv } from '../app/utils/env.server'
+import { getEnv } from '../app/utils/env'
 import { getInstanceInfo } from '../app/utils/litefs-js.server'
 import {
 	deleteExpiredSessions,

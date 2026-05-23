@@ -2,7 +2,7 @@ import nodePath from 'path'
 import { throttling } from '@octokit/plugin-throttling'
 import { Octokit as createOctokit } from '@octokit/rest'
 import { type GitHubFile } from '#app/types'
-import { getEnv } from '#app/utils/env.server'
+import { getEnv } from '#app/utils/env'
 import { getGitHubContentPath } from '#app/utils/github-content-paths.server'
 
 const ref = getEnv().GITHUB_REF

@@ -1,4 +1,4 @@
-import { getEnv } from './env.server'
+import { getEnv } from './env'
 
 type WorkersAiRunUrlOptions = {
 	model: string

@@ -18,7 +18,7 @@ import {
 	getErrorForNotes,
 } from '#app/utils/abhi-call'
 import { sendMessageFromDiscordBot } from '#app/utils/discord.server'
-import { getEnv } from '#app/utils/env.server'
+import { getEnv } from '#app/utils/env'
 import { markdownToHtml } from '#app/utils/markdown.server'
 import {
 	getDomainUrl,

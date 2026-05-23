@@ -1,4 +1,4 @@
-import { getEnv } from '#app/utils/env.server'
+import { getEnv } from '#app/utils/env'
 import { getErrorMessage } from '#app/utils/misc'
 
 type EpisodeAudioJob = {

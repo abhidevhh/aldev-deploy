@@ -21,7 +21,7 @@ import {
 	getAbhiCallEpisodeArtworkUrl,
 } from './abhi-call-artwork'
 import { getEpisodePath } from './abhi-call'
-import { getEnv } from './env.server'
+import { getEnv } from './env'
 import { stripHtml } from './markdown.server'
 import { type Timings } from './timing.server'
 import { getDirectAvatarForUser } from './user-info.server'

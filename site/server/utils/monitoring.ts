@@ -1,6 +1,6 @@
 import { nodeProfilingIntegration } from '@sentry/profiling-node'
 import * as Sentry from '@sentry/react-router'
-import { getEnv } from '../../app/utils/env.server'
+import { getEnv } from '../../app/utils/env'
 
 const localServerUtilsExtension = import.meta.url.includes('/server-build/')
 	? '.js'

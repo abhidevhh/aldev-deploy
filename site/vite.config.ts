@@ -13,13 +13,20 @@ export default defineConfig({
 		allowedHosts: ['aldev-deploy.onrender.com'],
 	},
 
+
 	resolve: {
 		extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json'],
 	},
-
 	ssr: {
-		noExternal: ['re2'],
+		noExternal: [
+			'@react-router',
+			'vite-env-only',
+		],
+		external: ['re2'],
+		target: 'node',
 	},
+
+
 
 	plugins: [
 		cjsInterop({
@@ -42,12 +49,16 @@ export default defineConfig({
 		tsconfigPaths(),
 	],
 
+
 	build: {
 		sourcemap: false,
 		cssMinify: MODE === 'production',
 
 		rollupOptions: {
 			external: ['re2'],
+			output: {
+				manualChunks: undefined,
+			},
 		},
 	},
 })
