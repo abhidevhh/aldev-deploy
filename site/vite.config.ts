@@ -51,7 +51,7 @@ export default defineConfig(async () => {
 					'@remark-embedder/transformer-oembed',
 				],
 			}),
-			// envOnlyMacros(),
+			envOnlyMacros(),
 			tailwindcss(),
 			reactRouter({
 				appDirectory: 'app',

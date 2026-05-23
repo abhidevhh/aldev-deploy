@@ -140,7 +140,6 @@ app.get('/img/social', oldImgSocial)
 app.post('/__metronome', (req: any, res: any) => {
 	res.status(503)
 	return res.send('Metronome is deprecated and no longer in use.')
-})
 
 app.use((req, res, next) => {
 	const metricName = 'middleware-get-instance-info'
@@ -167,10 +166,10 @@ app.use((req, res, next) => {
 				`max-age=${60 * 60 * 24 * 365 * 100}`,
 			)
 		})
-		.then(() => next())
+		.then(() => next()
+}))
 		.catch(next)
 		.finally(() => endServerMetric(res, metricName))
-})
 
 app.use((req, res, next) => {
 	const proto = req.get('X-Forwarded-Proto')
@@ -214,8 +213,8 @@ app.use((req, res, next) => {
 		res.redirect(301, safepath + query)
 	} else {
 		next()
-	}
 })
+	}
 
 app.use(compression())
 
@@ -415,7 +414,6 @@ app.options('/.well-known/{*splat}', (req, res) => {
 		req.header('Access-Control-Request-Headers') || '*',
 	)
 	res.sendStatus(204)
-})
 
 app.use('/.well-known/{*splat}', (req, res, next) => {
 	res.header('Access-Control-Allow-Origin', '*')
@@ -444,10 +442,13 @@ app.use((req, res, next) => {
 	next()
 })
 
+
+
 getRequestHandler().then((handler) => {
 	app.all('{*splat}', handler)
 })
 
+let wss
 
 const PORT = Number(process.env.PORT || 10000)
 
@@ -455,6 +456,5 @@ console.log("STARTING SERVER...")
 console.log("PORT =", PORT)
 
 const server = app.listen(PORT, "0.0.0.0", () => {
-  console.log(`✅ Server running on port ${PORT}`)
+	console.log(`✅ Server running on port ${PORT}`)
 })
-
