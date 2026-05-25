@@ -5,7 +5,7 @@ import {
 	getAbhiCallEpisodeArtworkAvatar,
 	getAbhiCallEpisodeArtworkUrl,
 } from '#app/utils/abhi-call-artwork'
-import { getAvatar } from '#app/utils/misc-react.tsx'
+import { getAvatar } from '#app/utils/misc-react'
 import { imgSrc } from '#app/utils/suspense-image'
 
 const AVATAR_SIZE = 1400

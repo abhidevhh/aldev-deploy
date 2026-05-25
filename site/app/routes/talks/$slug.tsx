@@ -1,12 +1,12 @@
 // this is a placeholder to make /routes/talks/_layout catch nested paths
 
 import { type MetaFunction } from 'react-router'
-import { getSocialImageWithPreTitle } from '#app/images.tsx'
-import { type RootLoaderType } from '#app/root.tsx'
+import { getSocialImageWithPreTitle } from '#app/images'
+import { type RootLoaderType } from '#app/root'
 import { getDisplayUrl, getUrl } from '#app/utils/misc'
 import { getSocialMetas } from '#app/utils/seo'
 import { type SerializeFrom } from '#app/utils/serialize-from'
-import { type loader as talkLoader } from './_layout.tsx'
+import { type loader as talkLoader } from './_layout'
 
 export const meta: MetaFunction<
 	{},

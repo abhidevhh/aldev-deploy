@@ -5,11 +5,11 @@ import {
 	Link,
 	useSearchParams,
 } from 'react-router'
-import { ButtonLink } from '#app/components/button.tsx'
-import { Grid } from '#app/components/grid.tsx'
-import { H4, Paragraph } from '#app/components/typography.tsx'
+import { ButtonLink } from '#app/components/button'
+import { Grid } from '#app/components/grid'
+import { H4, Paragraph } from '#app/components/typography'
 import resumeStyles from '#app/styles/resume.css?url'
-import { externalLinks } from '#app/external-links.tsx'
+import { externalLinks } from '#app/external-links'
 import { getResumeData, type ResumeData } from '#app/utils/resume.server'
 import { type Route } from './+types/resume'
 

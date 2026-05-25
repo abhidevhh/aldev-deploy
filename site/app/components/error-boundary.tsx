@@ -6,7 +6,7 @@ import {
 import {
 	getErrorMessage,
 	useCapturedRouteError,
-} from '#app/utils/misc-react.tsx'
+} from '#app/utils/misc-react'
 
 type StatusHandler = (info: {
 	error: ErrorResponse

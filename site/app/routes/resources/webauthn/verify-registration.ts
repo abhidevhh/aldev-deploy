@@ -7,7 +7,7 @@ import {
 	PasskeyCookieSchema,
 	RegistrationResponseSchema,
 	passkeyCookie,
-} from '#app/utils/webauthn.server.js'
+} from '#app/utils/webauthn.server'
 import { type Route } from './+types/verify-registration'
 
 export async function action({ request }: Route.ActionArgs) {

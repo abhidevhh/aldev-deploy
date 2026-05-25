@@ -5,13 +5,13 @@ import { useCombobox } from 'downshift'
 import { motion, useAnimation, useReducedMotion } from 'framer-motion'
 import * as React from 'react'
 import { Link, useFetcher, useLocation, useNavigate } from 'react-router'
-import { abhiBuddyProfiles } from '#app/images.tsx'
+import { abhiBuddyProfiles } from '#app/images'
 import { HOTKEY_OPEN_SEARCH } from '#app/utils/hotkeys'
-import { type OptionalTeam, useDebounce } from '#app/utils/misc-react.tsx'
-import { useTeam } from '#app/utils/team-provider.tsx'
-import { THEME_FETCHER_KEY, useOptimisticThemeMode, useTheme } from '#app/utils/theme.tsx'
+import { type OptionalTeam, useDebounce } from '#app/utils/misc-react'
+import { useTeam } from '#app/utils/team-provider'
+import { THEME_FETCHER_KEY, useOptimisticThemeMode, useTheme } from '#app/utils/theme'
 import { useOptionalUser, useRootData } from '#app/utils/use-root-data'
-import { useElementState } from './hooks/use-element-state.tsx'
+import { useElementState } from './hooks/use-element-state'
 import {
 	CloseIcon,
 	LaptopIcon,
@@ -20,8 +20,8 @@ import {
 	SearchIcon,
 	SpinnerIcon,
 	SunIcon,
-} from './icons.tsx'
-import { TeamCircle } from './team-circle.tsx'
+} from './icons'
+import { TeamCircle } from './team-circle'
 
 type NavbarLinkItem = {
 	id: string

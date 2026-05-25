@@ -3,15 +3,15 @@ import { addDays, format, startOfDay, subDays } from 'date-fns'
 import * as React from 'react'
 import { Form, useSearchParams, data as json, redirect } from 'react-router'
 import { useTable, type Column } from 'react-table'
-import { Button } from '#app/components/button.tsx'
-import { Field } from '#app/components/form-elements.tsx'
-import { Grid } from '#app/components/grid.tsx'
+import { Button } from '#app/components/button'
+import { Field } from '#app/components/form-elements'
+import { Grid } from '#app/components/grid'
 import {
 	ChevronDownIcon,
 	ChevronUpIcon,
 	SearchIcon,
-} from '#app/components/icons.tsx'
-import { H1, H2, H3 } from '#app/components/typography.tsx'
+} from '#app/components/icons'
+import { H1, H2, H3 } from '#app/components/typography'
 import { type KCDHandle } from '#app/types'
 import {
 	formatDate,
@@ -23,7 +23,7 @@ import {
 	useDebounce,
 	useDoubleCheck,
 	useCapturedRouteError,
-} from '#app/utils/misc-react.tsx'
+} from '#app/utils/misc-react'
 import { prisma } from '#app/utils/prisma.server'
 import { type SerializeFrom } from '#app/utils/serialize-from'
 import { requireAdminUser } from '#app/utils/session.server'

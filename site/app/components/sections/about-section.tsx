@@ -1,7 +1,7 @@
-import { getImgProps, images } from '#app/images.tsx'
-import { ArrowLink } from '../arrow-button.tsx'
-import { Grid } from '../grid.tsx'
-import { H2, Paragraph } from '../typography.tsx'
+import { getImgProps, images } from '#app/images'
+import { ArrowLink } from '../arrow-button'
+import { Grid } from '../grid'
+import { H2, Paragraph } from '../typography'
 
 function AboutSection() {
 	return (

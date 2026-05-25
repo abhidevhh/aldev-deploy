@@ -9,22 +9,22 @@ import {
 	type HeadersFunction,
 	type MetaFunction,
 } from 'react-router'
-import { ButtonLink } from '#app/components/button.tsx'
-import { Grid } from '#app/components/grid.tsx'
-import { ChevronDownIcon, ChevronUpIcon } from '#app/components/icons.tsx'
-import { PodcastSubs } from '#app/components/podcast-subs.tsx'
-import { BlogSection } from '#app/components/sections/blog-section.tsx'
-import { HeroSection } from '#app/components/sections/hero-section.tsx'
-import { Spacer } from '#app/components/spacer.tsx'
-import { H4, H6, Paragraph } from '#app/components/typography.tsx'
-import { externalLinks } from '#app/external-links.tsx'
+import { ButtonLink } from '#app/components/button'
+import { Grid } from '#app/components/grid'
+import { ChevronDownIcon, ChevronUpIcon } from '#app/components/icons'
+import { PodcastSubs } from '#app/components/podcast-subs'
+import { BlogSection } from '#app/components/sections/blog-section'
+import { HeroSection } from '#app/components/sections/hero-section'
+import { Spacer } from '#app/components/spacer'
+import { H4, H6, Paragraph } from '#app/components/typography'
+import { externalLinks } from '#app/external-links'
 import {
 	getGenericSocialImage,
 	getImageBuilder,
 	getImgProps,
 	images,
-} from '#app/images.tsx'
-import { type RootLoaderType } from '#app/root.tsx'
+} from '#app/images'
+import { type RootLoaderType } from '#app/root'
 import { type AbhiCallSeason, type KCDHandle } from '#app/types'
 import { getBlogRecommendations } from '#app/utils/blog.server'
 import { groupBy } from '#app/utils/cjs/lodash'
@@ -37,7 +37,7 @@ import {
 import {
 	CallsEpisodeUIStateProvider,
 	useMatchLoaderData,
-} from '#app/utils/providers.tsx'
+} from '#app/utils/providers'
 import { getSocialMetas } from '#app/utils/seo'
 import { type SerializeFrom } from '#app/utils/serialize-from'
 import { getServerTimeHeader } from '#app/utils/timing.server'

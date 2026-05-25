@@ -1,4 +1,4 @@
-import { getRandomSportyAbhiBuddy, images } from '#app/images.tsx'
+import { getRandomSportyAbhiBuddy, images } from '#app/images'
 import { type Team } from '#app/types'
 
 export const TEAM_MAP: Record<

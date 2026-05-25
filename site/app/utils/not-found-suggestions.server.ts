@@ -3,7 +3,7 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 import { matchSorter, rankings as matchSorterRankings } from 'match-sorter'
 import * as YAML from 'yaml'
-import { getImageBuilder } from '#app/images.tsx'
+import { getImageBuilder } from '#app/images'
 import { sortNotFoundMatches, type NotFoundMatch } from './not-found-matches'
 import { notFoundQueryFromPathname } from './not-found-query'
 

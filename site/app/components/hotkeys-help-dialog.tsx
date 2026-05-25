@@ -5,8 +5,8 @@ import {
 	type HotkeysHelpCombo,
 	type HotkeysHelpGroup,
 } from '#app/utils/hotkeys'
-import { CloseIcon } from './icons.tsx'
-import { H3, Paragraph } from './typography.tsx'
+import { CloseIcon } from './icons'
+import { H3, Paragraph } from './typography'
 
 const HOTKEYS_HELP_DIALOG_ANIMATION_DURATION_MS = 200
 

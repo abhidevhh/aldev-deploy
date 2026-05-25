@@ -2,7 +2,7 @@ import { getSequenceManager, useHotkey } from '@tanstack/react-hotkeys'
 import * as React from 'react'
 import { useLocation, useNavigate } from 'react-router'
 import * as hk from '#app/utils/hotkeys'
-import { HotkeysHelpDialog } from './hotkeys-help-dialog.tsx'
+import { HotkeysHelpDialog } from './hotkeys-help-dialog'
 
 function isInputLikeElement(element: EventTarget | null): boolean {
 	if (!element) return false

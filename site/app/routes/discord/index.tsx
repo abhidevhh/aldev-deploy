@@ -1,5 +1,5 @@
-import { ButtonLink } from '#app/components/button.tsx'
-import { externalLinks } from '#app/external-links.tsx'
+import { ButtonLink } from '#app/components/button'
+import { externalLinks } from '#app/external-links'
 import { getDiscordAuthorizeURL } from '#app/utils/misc'
 import { useRootData } from '#app/utils/use-root-data'
 

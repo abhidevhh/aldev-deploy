@@ -12,9 +12,9 @@ import {
 	type MetaFunction,
 	Outlet,
 } from 'react-router'
-import { ButtonLink } from '#app/components/button.tsx'
-import { FeatureCard } from '#app/components/feature-card.tsx'
-import { Grid } from '#app/components/grid.tsx'
+import { ButtonLink } from '#app/components/button'
+import { FeatureCard } from '#app/components/feature-card'
+import { Grid } from '#app/components/grid'
 import {
 	BriefcaseIcon,
 	CodeIcon,
@@ -26,23 +26,23 @@ import {
 	RocketIcon,
 	TrophyIcon,
 	UsersIcon,
-} from '#app/components/icons.tsx'
-import { CourseSection } from '#app/components/sections/course-section.tsx'
-import { HeaderSection } from '#app/components/sections/header-section.tsx'
-import { HeroSection } from '#app/components/sections/hero-section.tsx'
-import { TestimonialSection } from '#app/components/sections/testimonial-section.tsx'
-import { Spacer } from '#app/components/spacer.tsx'
-import { H2, H5, H6, Paragraph } from '#app/components/typography.tsx'
-import { externalLinks } from '#app/external-links.tsx'
-import { getGenericSocialImage, getImgProps, images } from '#app/images.tsx'
-import { type RootLoaderType } from '#app/root.tsx'
+} from '#app/components/icons'
+import { CourseSection } from '#app/components/sections/course-section'
+import { HeaderSection } from '#app/components/sections/header-section'
+import { HeroSection } from '#app/components/sections/hero-section'
+import { TestimonialSection } from '#app/components/sections/testimonial-section'
+import { Spacer } from '#app/components/spacer'
+import { H2, H5, H6, Paragraph } from '#app/components/typography'
+import { externalLinks } from '#app/external-links'
+import { getGenericSocialImage, getImgProps, images } from '#app/images'
+import { type RootLoaderType } from '#app/root'
 import {
 	getDiscordAuthorizeURL,
 	getDisplayUrl,
 	getUrl,
 	reuseUsefulLoaderHeaders,
 	useCapturedRouteError,
-} from '#app/utils/misc-react.tsx'
+} from '#app/utils/misc-react'
 import { getSocialMetas } from '#app/utils/seo'
 import { getTestimonials } from '#app/utils/testimonials.server'
 import { getServerTimeHeader } from '#app/utils/timing.server'

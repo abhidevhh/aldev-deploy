@@ -9,20 +9,20 @@ import {
 	Form,
 	Link,
 } from 'react-router'
-import { Button, ButtonLink } from '#app/components/button.tsx'
-import { Field, InputError, Label } from '#app/components/form-elements.tsx'
-import { Grid } from '#app/components/grid.tsx'
+import { Button, ButtonLink } from '#app/components/button'
+import { Field, InputError, Label } from '#app/components/form-elements'
+import { Grid } from '#app/components/grid'
 import {
 	CheckCircledIcon,
 	LogoutIcon,
 	PlusIcon,
 	RefreshIcon,
-} from '#app/components/icons.tsx'
-import { Spacer } from '#app/components/spacer.tsx'
-import { H2, H3, H6, Paragraph } from '#app/components/typography.tsx'
-import { getGenericSocialImage, images } from '#app/images.tsx'
-import { type RootLoaderType } from '#app/root.tsx'
-import { FavoriteToggle } from '#app/routes/resources/favorite.tsx'
+} from '#app/components/icons'
+import { Spacer } from '#app/components/spacer'
+import { H2, H3, H6, Paragraph } from '#app/components/typography'
+import { getGenericSocialImage, images } from '#app/images'
+import { type RootLoaderType } from '#app/root'
+import { FavoriteToggle } from '#app/routes/resources/favorite'
 import { type KCDHandle } from '#app/types'
 import { handleFormSubmission } from '#app/utils/actions.server'
 import { getEpisodePath } from '#app/utils/abhi-call'

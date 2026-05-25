@@ -6,7 +6,7 @@ import {
 	CheckIcon,
 	CheckCircledIcon,
 	SpinnerIcon,
-} from '#app/components/icons.tsx'
+} from '#app/components/icons'
 import {
 	getEpisodeHomeworkContentId,
 	parseEpisodeHomeworkContentId,

@@ -1,7 +1,7 @@
-import { images } from '#app/images.tsx'
-import { CourseCard } from '../course-card.tsx'
-import { Grid } from '../grid.tsx'
-import { HeaderSection } from './header-section.tsx'
+import { images } from '#app/images'
+import { CourseCard } from '../course-card'
+import { Grid } from '../grid'
+import { HeaderSection } from './header-section'
 
 function CourseSection() {
 	return (

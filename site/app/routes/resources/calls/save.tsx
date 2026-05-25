@@ -1,7 +1,7 @@
 import { randomUUID } from 'node:crypto'
 import { format } from 'date-fns'
 import { data as json, redirect } from 'react-router'
-import { type RecordingFormData } from '#app/components/calls/recording-form.tsx'
+import { type RecordingFormData } from '#app/components/calls/recording-form'
 import {
 	deleteAudioObject,
 	getAudioBuffer,
@@ -29,7 +29,7 @@ import {
 import { prisma } from '#app/utils/prisma.server'
 import { sendEmail } from '#app/utils/send-email.server'
 import { requireAdminUser, requireUser } from '#app/utils/session.server'
-import { teamEmoji } from '#app/utils/team-provider.tsx'
+import { teamEmoji } from '#app/utils/team-provider'
 import { createEpisode } from '#app/utils/transistor.server'
 import { type Route } from './+types/save'
 

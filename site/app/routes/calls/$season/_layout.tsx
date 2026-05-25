@@ -11,11 +11,11 @@ import {
 	type HeadersFunction,
 } from 'react-router'
 import { serverOnly$ } from 'vite-env-only/macros'
-import { ServerError } from '#app/components/errors.tsx'
-import { Grid } from '#app/components/grid.tsx'
-import { TriangleIcon } from '#app/components/icons.tsx'
-import { MissingSomething } from '#app/components/kifs.tsx'
-import { H3, Paragraph } from '#app/components/typography.tsx'
+import { ServerError } from '#app/components/errors'
+import { Grid } from '#app/components/grid'
+import { TriangleIcon } from '#app/components/icons'
+import { MissingSomething } from '#app/components/kifs'
+import { H3, Paragraph } from '#app/components/typography'
 import { type AbhiCallEpisode, type KCDHandle } from '#app/types'
 import {
 	getEpisodeFromParams,
@@ -28,10 +28,10 @@ import {
 	formatDuration,
 	reuseUsefulLoaderHeaders,
 	useCapturedRouteError,
-} from '#app/utils/misc-react.tsx'
-import { useCallsEpisodeUIState } from '#app/utils/providers.tsx'
+} from '#app/utils/misc-react'
+import { useCallsEpisodeUIState } from '#app/utils/providers'
 import { getServerTimeHeader } from '#app/utils/timing.server'
-import { getEpisodesBySeason } from '../_layout.tsx'
+import { getEpisodesBySeason } from '../_layout'
 import { type Route } from './+types/_layout'
 
 export const handle: KCDHandle = {}

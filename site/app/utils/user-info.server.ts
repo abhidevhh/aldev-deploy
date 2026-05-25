@@ -1,10 +1,10 @@
 import { type User } from '#app/types'
-import { getImageBuilder, images } from '../images.tsx'
+import { getImageBuilder, images } from '../images'
 import * as k from '../kit/kit.server'
 import { cache, cachified } from './cache.server'
 import * as discord from './discord.server'
 import { fetchWithTimeout } from './fetch-with-timeout.server'
-import { getAvatar, getOptionalTeam } from './misc-react.tsx'
+import { getAvatar, getOptionalTeam } from './misc-react'
 import { type Timings } from './timing.server'
 
 type UserInfo = {

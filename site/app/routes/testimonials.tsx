@@ -3,25 +3,25 @@ import {
 	type HeadersFunction,
 	type MetaFunction,
 } from 'react-router'
-import { ArrowLink } from '#app/components/arrow-button.tsx'
-import { ButtonLink } from '#app/components/button.tsx'
-import { H4, Paragraph } from '#app/components/typography.tsx'
-import { Grid } from '#app/components/grid.tsx'
+import { ArrowLink } from '#app/components/arrow-button'
+import { ButtonLink } from '#app/components/button'
+import { H4, Paragraph } from '#app/components/typography'
+import { Grid } from '#app/components/grid'
 import {
 	HeroSection,
 	getHeroImageProps,
-} from '#app/components/sections/hero-section.tsx'
-import { TestimonialCard } from '#app/components/sections/testimonial-card.tsx'
-import { Spacer } from '#app/components/spacer.tsx'
-import { H2 } from '#app/components/typography.tsx'
-import { getGenericSocialImage, getImgProps, images } from '#app/images.tsx'
-import { type RootLoaderType } from '#app/root.tsx'
+} from '#app/components/sections/hero-section'
+import { TestimonialCard } from '#app/components/sections/testimonial-card'
+import { Spacer } from '#app/components/spacer'
+import { H2 } from '#app/components/typography'
+import { getGenericSocialImage, getImgProps, images } from '#app/images'
+import { type RootLoaderType } from '#app/root'
 import {
 	getDisplayUrl,
 	getUrl,
 	reuseUsefulLoaderHeaders,
 } from '#app/utils/misc'
-import { externalLinks } from '#app/external-links.tsx'
+import { externalLinks } from '#app/external-links'
 import { getSocialMetas } from '#app/utils/seo'
 import { getTestimonials } from '#app/utils/testimonials.server'
 import { getServerTimeHeader } from '#app/utils/timing.server'

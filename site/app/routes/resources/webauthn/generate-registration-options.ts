@@ -1,12 +1,12 @@
 import { generateRegistrationOptions } from '@simplewebauthn/server'
 import { data as json } from 'react-router'
-import { prisma } from '#app/utils/prisma.server.js'
-import { requireUser } from '#app/utils/session.server.js'
+import { prisma } from '#app/utils/prisma.server'
+import { requireUser } from '#app/utils/session.server'
 import {
 	PasskeyCookieSchema,
 	passkeyCookie,
 	getWebAuthnConfig,
-} from '#app/utils/webauthn.server.js'
+} from '#app/utils/webauthn.server'
 import { type Route } from './+types/generate-registration-options'
 
 export async function loader({ request }: Route.LoaderArgs) {

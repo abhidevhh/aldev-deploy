@@ -1,4 +1,4 @@
-import { getRandomFlyingAbhiBuddy } from '#app/images.tsx'
+import { getRandomFlyingAbhiBuddy } from '#app/images'
 import { getEnv } from '#app/utils/env'
 import { markdownToHtmlDocument } from './markdown.server'
 import { getOptionalTeam } from './misc'

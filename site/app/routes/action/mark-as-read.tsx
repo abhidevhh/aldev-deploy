@@ -1,5 +1,5 @@
 import { invariantResponse } from '@epic-web/invariant'
-import { data as json } from 'react-router'
+import { json } from 'react-router'
 import {
 	getBlogReadRankings,
 	notifyOfOverallTeamLeaderChange,

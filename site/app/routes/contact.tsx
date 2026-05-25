@@ -7,20 +7,20 @@ import {
 	Link,
 	useFetcher,
 } from 'react-router'
-import { Button } from '#app/components/button.tsx'
+import { Button } from '#app/components/button'
 import {
 	ButtonGroup,
 	ErrorPanel,
 	Field,
-} from '#app/components/form-elements.tsx'
-import { Grid } from '#app/components/grid.tsx'
+} from '#app/components/form-elements'
+import { Grid } from '#app/components/grid'
 import {
 	HeroSection,
 	getHeroImageProps,
-} from '#app/components/sections/hero-section.tsx'
-import { H2, Paragraph } from '#app/components/typography.tsx'
-import { getGenericSocialImage, images } from '#app/images.tsx'
-import { type RootLoaderType } from '#app/root.tsx'
+} from '#app/components/sections/hero-section'
+import { H2, Paragraph } from '#app/components/typography'
+import { getGenericSocialImage, images } from '#app/images'
+import { type RootLoaderType } from '#app/root'
 import { handleFormSubmission } from '#app/utils/actions.server'
 import { getDisplayUrl, getUrl } from '#app/utils/misc'
 import { sendEmail } from '#app/utils/send-email.server'

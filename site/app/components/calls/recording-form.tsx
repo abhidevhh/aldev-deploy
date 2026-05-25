@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { useNavigate, useRevalidator } from 'react-router'
-import { Button } from '#app/components/button.tsx'
-import { EpisodeArtworkPreview } from '#app/components/calls/episode-artwork-preview.tsx'
-import { CharacterCountdown } from '#app/components/character-countdown.tsx'
-import { Field } from '#app/components/form-elements.tsx'
+import { Button } from '#app/components/button'
+import { EpisodeArtworkPreview } from '#app/components/calls/episode-artwork-preview'
+import { CharacterCountdown } from '#app/components/character-countdown'
+import { Field } from '#app/components/form-elements'
 import {
 	abhiCallFieldConstraints,
 	getErrorForNotes,

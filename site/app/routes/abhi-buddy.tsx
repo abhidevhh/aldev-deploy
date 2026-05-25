@@ -4,11 +4,11 @@ import { type MetaFunction } from 'react-router'
 import {
 	HeroSection,
 	getHeroImageProps,
-} from '#app/components/sections/hero-section.tsx'
-import { H2 } from '#app/components/typography.js'
-import { images, abhiBuddyImages } from '#app/images.tsx'
+} from '#app/components/sections/hero-section'
+import { H2 } from '#app/components/typography'
+import { images, abhiBuddyImages } from '#app/images'
 import { optionalTeams, type OptionalTeam } from '#app/utils/misc'
-import { useTeam } from '#app/utils/team-provider.tsx'
+import { useTeam } from '#app/utils/team-provider'
 
 export const meta: MetaFunction = () => [
 	{ title: 'AbhiBuddy the Koala' },

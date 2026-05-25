@@ -1,25 +1,25 @@
 import { LRUCache } from 'lru-cache'
-import * as mdxBundler from 'mdx-bundler/client/index.js'
+import * as mdxBundler from 'mdx-bundler/client'
 import * as React from 'react'
 import { type MetaFunction } from 'react-router'
-import { CloudinaryVideo } from '#app/components/cloudinary-video.tsx'
-import { MermaidDiagram } from '#app/components/mermaid.tsx'
+import { CloudinaryVideo } from '#app/components/cloudinary-video'
+import { MermaidDiagram } from '#app/components/mermaid'
 import {
 	getImageBuilder,
 	getImgProps,
 	getSocialImageWithPreTitle,
-} from '#app/images.tsx'
-import { KitForm } from '#app/kit/form.tsx'
-import { type RootLoaderType } from '#app/root.tsx'
+} from '#app/images'
+import { KitForm } from '#app/kit/form'
+import { type RootLoaderType } from '#app/root'
 import { type MdxPage } from '#app/types'
 import {
 	AnchorOrLink,
 	getDisplayUrl,
 	getUrl,
 	typedBoolean,
-} from '#app/utils/misc-react.tsx'
+} from '#app/utils/misc-react'
 import { getSocialMetas } from './seo'
-import { Themed } from './theme.tsx'
+import { Themed } from './theme'
 import { useOptionalUser } from './use-root-data'
 
 function getBannerAltProp(frontmatter: MdxPage['frontmatter']) {

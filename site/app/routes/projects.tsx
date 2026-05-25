@@ -1,57 +1,66 @@
-const projects = [
-  {
-    title: 'AI Traffic Light Control System',
-    description:
-      'YOLOv8-powered adaptive traffic signal optimization with ANPR, speed detection, and automated violation reporting.',
-  },
-  {
-    title: 'Indian Sign Language Translation',
-    description:
-      'Clip-level spatiotemporal Transformer framework for continuous ISL translation with strong BLEU and ROUGE scores.',
-  },
-  {
-    title: 'GoQuant C++ Strategy Pipeline',
-    description:
-      'Low-latency C++ live-to-test quantitative trading strategy pipeline built for performance-critical backtesting.',
-  },
-  {
-    title: 'AI Recipe Generator',
-    description:
-      'React + OpenAI powered intelligent recipe generation app using ingredient prompts and optional image understanding.',
-  },
-  {
-    title: 'GAN-Based AI Art',
-    description:
-      'Creative generative art platform using CNNs, GANs, and TensorFlow for multi-style artwork generation.',
-  },
-  {
-    title: 'Smart Gmail Cleanup Tool',
-    description:
-      'InboxKit intelligently categorizes, summarizes, and automates Gmail cleanup workflows using AI.',
-  },
-]
+import { useParams } from 'react-router'
 
-export default function ProjectsPage() {
+const projectPages: Record<
+  string,
+  {
+    title: string
+    sections: string[]
+  }
+> = {
+  'traffic-light-ai': {
+    title: 'AI Traffic Light Control System',
+    sections: [
+      'Built a YOLOv8-powered adaptive traffic system with ANPR and violation reporting.',
+      'Used DeepSORT for vehicle tracking and OCR for license plate extraction.',
+      'Implemented speed estimation, traffic optimization, and automated email alerts.',
+    ],
+  },
+  'isl-translation': {
+    title: 'Indian Sign Language Translation',
+    sections: [
+      'Developed a clip-level Transformer framework for continuous ISL translation.',
+      'Focused on spatiotemporal feature learning with 3D CNN embeddings.',
+      'Improved BLEU-4 and ROUGE-L scores significantly over baseline methods.',
+    ],
+  },
+  'goquant-cpp': {
+    title: 'GoQuant C++ Strategy Pipeline',
+    sections: [
+      'Designed a high-performance low-latency trading strategy engine.',
+      'Built live-to-test workflow architecture with optimized backtesting.',
+      'Focused on memory-efficient C++ execution and deterministic replay.',
+    ],
+  },
+}
+
+export default function ProjectDetailPage() {
+  const { slug } = useParams()
+  const project = slug ? projectPages[slug] : null
+
+  if (!project) {
+    return (
+      <main className="min-h-screen bg-slate-950 px-6 py-20 text-white">
+        <h1 className="text-4xl font-bold">Project not found</h1>
+      </main>
+    )
+  }
+
   return (
-    <main className="min-h-screen bg-slate-950 text-white px-6 py-20">
-      <section className="max-w-6xl mx-auto">
-        <h1 className="text-5xl font-bold">Projects</h1>
-        <p className="mt-4 max-w-3xl text-slate-400 text-lg">
-          A curated portfolio of AI systems, machine learning research, and
-          full-stack applications I’ve built across computer vision, NLP,
-          quantitative finance, and developer tooling.
+    <main className="min-h-screen bg-slate-950 px-6 py-20 text-white">
+      <section className="mx-auto max-w-4xl">
+        <p className="text-sm uppercase tracking-[0.3em] text-slate-400">
+          Engineering Case Study
         </p>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
-          {projects.map((project) => (
+        <h1 className="mt-4 text-5xl font-bold">{project.title}</h1>
+
+        <div className="mt-10 space-y-6">
+          {project.sections.map((section, index) => (
             <div
-              key={project.title}
-              className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6"
+              key={index}
+              className="rounded-2xl border border-slate-800 p-6"
             >
-              <h2 className="text-2xl font-semibold">{project.title}</h2>
-              <p className="mt-3 leading-7 text-slate-400">
-                {project.description}
-              </p>
+              <p className="leading-8 text-slate-400">{section}</p>
             </div>
           ))}
         </div>

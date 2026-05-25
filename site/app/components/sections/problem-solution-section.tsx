@@ -10,13 +10,13 @@ import { differenceInYears } from 'date-fns'
 import { AnimatePresence, motion } from 'framer-motion'
 import * as React from 'react'
 import { Link } from 'react-router'
-import { getImgProps, images, type ImageBuilder } from '#app/images.tsx'
+import { getImgProps, images, type ImageBuilder } from '#app/images'
 import { type Team } from '#app/types'
 import { teamTextColorClasses } from '#app/utils/misc'
-import { ArrowLink } from '../arrow-button.tsx'
-import { Grid } from '../grid.tsx'
-import { ArrowIcon } from '../icons.tsx'
-import { H2, H3, Paragraph } from '../typography.tsx'
+import { ArrowLink } from '../arrow-button'
+import { Grid } from '../grid'
+import { ArrowIcon } from '../icons'
+import { H2, H3, Paragraph } from '../typography'
 
 function Tab({ children }: TabProps & { isSelected?: boolean }) {
 	return (

@@ -1,4 +1,4 @@
-import { getGenericSocialImage, images } from '#app/images.tsx'
+import { getGenericSocialImage, images } from '#app/images'
 
 export function getSocialMetas({
 	url,

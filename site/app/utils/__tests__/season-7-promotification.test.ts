@@ -8,7 +8,7 @@ import {
 import {
 	PROMO_HIDDEN_COOKIE_VALUE,
 	createPromoHiddenSetCookieHeader,
-} from '#app/routes/resources/promotification.tsx'
+} from '#app/routes/resources/promotification'
 
 test('matches season 7 chats landing and child routes', () => {
 	expect(isSeason7ChatsPath('/chats/07')).toBe(true)

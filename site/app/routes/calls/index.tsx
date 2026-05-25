@@ -1,7 +1,7 @@
 import { redirect } from 'react-router'
 import { getEpisodes } from '#app/utils/transistor.server'
 import { type Route } from './+types/index'
-import { getEpisodesBySeason } from './_layout.tsx'
+import { getEpisodesBySeason } from './_layout'
 
 export async function loader({ request }: Route.LoaderArgs) {
 	const episodes = await getEpisodes({ request })

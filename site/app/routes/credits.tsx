@@ -4,7 +4,7 @@ import {
 	type HeadersFunction,
 	type MetaFunction,
 } from 'react-router'
-import { Grid } from '#app/components/grid.tsx'
+import { Grid } from '#app/components/grid'
 import {
 	BehanceIcon,
 	CodepenIcon,
@@ -15,25 +15,25 @@ import {
 	LinkedInIcon,
 	TwitchIcon,
 	XIcon,
-} from '#app/components/icons.tsx'
-import { ButtonLink } from '#app/components/button.tsx'
-import { HeaderSection } from '#app/components/sections/header-section.tsx'
+} from '#app/components/icons'
+import { ButtonLink } from '#app/components/button'
+import { HeaderSection } from '#app/components/sections/header-section'
 import {
 	HeroSection,
 	getHeroImageProps,
-} from '#app/components/sections/hero-section.tsx'
-import { Spacer } from '#app/components/spacer.tsx'
-import { H2, H3, H4, H6, Paragraph } from '#app/components/typography.tsx'
+} from '#app/components/sections/hero-section'
+import { Spacer } from '#app/components/spacer'
+import { H2, H3, H4, H6, Paragraph } from '#app/components/typography'
 import {
 	getImageBuilder,
 	getImgProps,
 	getSocialImageWithPreTitle,
 	images,
-} from '#app/images.tsx'
-import { type RootLoaderType } from '#app/root.tsx'
+} from '#app/images'
+import { type RootLoaderType } from '#app/root'
 import { shuffle } from '#app/utils/cjs/lodash'
 import { getPeople } from '#app/utils/credits.server'
-import { externalLinks } from '#app/external-links.tsx'
+import { externalLinks } from '#app/external-links'
 import {
 	getDisplayUrl,
 	getOrigin,

@@ -8,12 +8,12 @@ import {
 import {
 	LiteYouTubeEmbed,
 	links as youTubeEmbedLinks,
-} from '#app/components/fullscreen-yt-embed.tsx'
-import { Grid } from '#app/components/grid.tsx'
-import { IconLink } from '#app/components/icon-link.tsx'
-import { XIcon } from '#app/components/icons.tsx'
-import { Paragraph, H3 } from '#app/components/typography.tsx'
-import { FavoriteToggle } from '#app/routes/resources/favorite.tsx'
+} from '#app/components/fullscreen-yt-embed'
+import { Grid } from '#app/components/grid'
+import { IconLink } from '#app/components/icon-link'
+import { XIcon } from '#app/components/icons'
+import { Paragraph, H3 } from '#app/components/typography'
+import { FavoriteToggle } from '#app/routes/resources/favorite'
 import { getEnv } from '#app/utils/env'
 import { useRootData } from '#app/utils/use-root-data'
 import { type Route } from './+types/youtube'

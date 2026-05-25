@@ -6,10 +6,10 @@ import {
 	Outlet,
 	useLocation,
 } from 'react-router'
-import { BackLink } from '#app/components/arrow-button.tsx'
-import { ButtonLink } from '#app/components/button.tsx'
-import { Grid } from '#app/components/grid.tsx'
-import { H2, Paragraph } from '#app/components/typography.tsx'
+import { BackLink } from '#app/components/arrow-button'
+import { ButtonLink } from '#app/components/button'
+import { Grid } from '#app/components/grid'
+import { H2, Paragraph } from '#app/components/typography'
 import { reuseUsefulLoaderHeaders } from '#app/utils/misc'
 import { prisma } from '#app/utils/prisma.server'
 import { getUser } from '#app/utils/session.server'

@@ -1,8 +1,8 @@
 // this is needed by things the root needs, so to avoid circular deps we have to
 // put it in its own file which is silly I know...
 
-import { handle, type RootLoaderType } from '../root.tsx'
-import { useMatchLoaderData } from './providers.tsx'
+import { handle, type RootLoaderType } from '../root'
+import { useMatchLoaderData } from './providers'
 import { type SerializeFrom } from './serialize-from'
 
 export const useRootData = () =>

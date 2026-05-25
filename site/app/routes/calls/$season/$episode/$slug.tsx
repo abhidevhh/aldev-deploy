@@ -5,11 +5,11 @@ import {
 	type MetaFunction,
 	useParams,
 } from 'react-router'
-import { IconLink } from '#app/components/icon-link.tsx'
-import { XIcon } from '#app/components/icons.tsx'
-import { H6, Paragraph } from '#app/components/typography.tsx'
-import { type RootLoaderType, type loader as rootLoader } from '#app/root.tsx'
-import { FavoriteToggle } from '#app/routes/resources/favorite.tsx'
+import { IconLink } from '#app/components/icon-link'
+import { XIcon } from '#app/components/icons'
+import { H6, Paragraph } from '#app/components/typography'
+import { type RootLoaderType, type loader as rootLoader } from '#app/root'
+import { FavoriteToggle } from '#app/routes/resources/favorite'
 import { type KCDHandle } from '#app/types'
 import {
 	getEpisodeFromParams,
@@ -22,10 +22,10 @@ import { prisma } from '#app/utils/prisma.server'
 import { getSocialMetas } from '#app/utils/seo'
 import { type SerializeFrom } from '#app/utils/serialize-from'
 import { getUser } from '#app/utils/session.server'
-import { Themed } from '#app/utils/theme.tsx'
+import { Themed } from '#app/utils/theme'
 import { getServerTimeHeader } from '#app/utils/timing.server'
 import { useRootData } from '#app/utils/use-root-data'
-import { useCallsData, type loader as callsLoader } from '../../_layout.tsx'
+import { useCallsData, type loader as callsLoader } from '../../_layout'
 import { type Route } from './+types/$slug'
 
 export const handle: KCDHandle = {}

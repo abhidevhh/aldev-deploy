@@ -1,8 +1,8 @@
 import { clsx } from 'clsx'
 import { motion, useReducedMotion, type Variants } from 'framer-motion'
-import { getImgProps, type ImageBuilder } from '#app/images.tsx'
-import { Themed } from '#app/utils/theme.tsx'
-import { ArrowIcon } from './icons.tsx'
+import { getImgProps, type ImageBuilder } from '#app/images'
+import { Themed } from '#app/utils/theme'
+import { ArrowIcon } from './icons'
 
 const arrowVariants: Variants = {
 	initial: { x: 0, y: 0, opacity: 1, scale: 1 },

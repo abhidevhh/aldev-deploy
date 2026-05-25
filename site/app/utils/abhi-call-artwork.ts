@@ -1,4 +1,4 @@
-import { images } from '#app/images.tsx'
+import { images } from '#app/images'
 import { getOptionalTeam, toBase64 } from './misc'
 
 export type AbhiCallEpisodeArtworkAvatar =

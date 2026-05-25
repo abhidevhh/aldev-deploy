@@ -2,7 +2,7 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 import { slugifyWithCounter } from '@sindresorhus/slugify'
 import * as YAML from 'yaml'
-import { getImageBuilder, images } from '#app/images.tsx'
+import { getImageBuilder, images } from '#app/images'
 
 type SupportedRepoDocType =
 	| 'blog'

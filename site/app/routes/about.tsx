@@ -4,13 +4,13 @@ import {
 	type LinksFunction,
 	type MetaFunction,
 } from 'react-router'
-import { ArrowLink } from '#app/components/arrow-button.tsx'
-import { FeatureCard } from '#app/components/feature-card.tsx'
+import { ArrowLink } from '#app/components/arrow-button'
+import { FeatureCard } from '#app/components/feature-card'
 import {
 	BackgroundYouTubeEmbed,
 	links as backgroundYouTubeLinks,
-} from '#app/components/background-youtube-embed.tsx'
-import { Grid } from '#app/components/grid.tsx'
+} from '#app/components/background-youtube-embed'
+import { Grid } from '#app/components/grid'
 import {
 	AwardIcon,
 	BadgeIcon,
@@ -21,17 +21,17 @@ import {
 	StarIcon,
 	TrophyIcon,
 	UsersIcon,
-} from '#app/components/icons.tsx'
-import { BlogSection } from '#app/components/sections/blog-section.tsx'
-import { HeaderSection } from '#app/components/sections/header-section.tsx'
-import { HeroSection } from '#app/components/sections/hero-section.tsx'
-import { H2, H3, H6, Paragraph } from '#app/components/typography.tsx'
+} from '#app/components/icons'
+import { BlogSection } from '#app/components/sections/blog-section'
+import { HeaderSection } from '#app/components/sections/header-section'
+import { HeroSection } from '#app/components/sections/hero-section'
+import { H2, H3, H6, Paragraph } from '#app/components/typography'
 import {
 	getImgProps,
 	getSocialImageWithPreTitle,
 	images,
-} from '#app/images.tsx'
-import { type RootLoaderType } from '#app/root.tsx'
+} from '#app/images'
+import { type RootLoaderType } from '#app/root'
 import { getBlogRecommendations } from '#app/utils/blog.server'
 import { shuffle } from '#app/utils/cjs/lodash'
 import {

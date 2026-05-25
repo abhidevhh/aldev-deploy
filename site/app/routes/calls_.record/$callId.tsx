@@ -5,13 +5,13 @@ import {
 	type HeadersFunction,
 	Form,
 } from 'react-router'
-import { Button } from '#app/components/button.tsx'
-import { Paragraph } from '#app/components/typography.tsx'
+import { Button } from '#app/components/button'
+import { Paragraph } from '#app/components/typography'
 import { type KCDHandle } from '#app/types'
 import {
 	reuseUsefulLoaderHeaders,
 	useDoubleCheck,
-} from '#app/utils/misc-react.tsx'
+} from '#app/utils/misc-react'
 import { prisma } from '#app/utils/prisma.server'
 import { requireUser } from '#app/utils/session.server'
 import { type Route } from './+types/$callId'

@@ -9,14 +9,14 @@ import {
 	sortNotFoundMatches,
 } from '#app/utils/not-found-matches'
 import { notFoundQueryFromPathname } from '#app/utils/not-found-query'
-import { ArrowLink } from './arrow-button.tsx'
-import { Grid } from './grid.tsx'
-import { Facepalm, Grimmacing, MissingSomething } from './kifs.tsx'
-import { BlogSection } from './sections/blog-section.tsx'
-import { HeaderSection } from './sections/header-section.tsx'
-import { HeroSection, type HeroSectionProps } from './sections/hero-section.tsx'
-import { Spacer } from './spacer.tsx'
-import { H2, H4, H6 } from './typography.tsx'
+import { ArrowLink } from './arrow-button'
+import { Grid } from './grid'
+import { Facepalm, Grimmacing, MissingSomething } from './kifs'
+import { BlogSection } from './sections/blog-section'
+import { HeaderSection } from './sections/header-section'
+import { HeroSection, type HeroSectionProps } from './sections/hero-section'
+import { Spacer } from './spacer'
+import { H2, H4, H6 } from './typography'
 
 function RedBox({ error }: { error: Error }) {
 	const [isVisible, setIsVisible] = React.useState(true)

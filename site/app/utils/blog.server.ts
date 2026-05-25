@@ -11,7 +11,7 @@ import { getBlogMdxListItems } from './mdx.server'
 import { getDomainUrl, getOptionalTeam, teams, typedBoolean } from './misc'
 import { prisma } from './prisma.server'
 import { getUser } from './session.server'
-import { teamEmoji } from './team-provider.tsx'
+import { teamEmoji } from './team-provider'
 import { time, type Timings } from './timing.server'
 
 async function getBlogRecommendations({

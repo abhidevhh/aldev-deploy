@@ -1,4 +1,4 @@
-import { Themed } from '#app/utils/theme.tsx'
+import { Themed } from '#app/utils/theme'
 
 export function MermaidDiagram({
 	code,

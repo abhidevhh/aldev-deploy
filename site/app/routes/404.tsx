@@ -1,6 +1,6 @@
 import { type MetaFunction } from 'react-router'
-import { HeroSection } from '#app/components/sections/hero-section.tsx'
-import { images } from '#app/images.tsx'
+import { HeroSection } from '#app/components/sections/hero-section'
+import { images } from '#app/images'
 import { type KCDHandle } from '#app/types'
 
 export const handle: KCDHandle = {

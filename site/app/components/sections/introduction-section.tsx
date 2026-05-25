@@ -1,12 +1,12 @@
 import { Link, useSearchParams } from 'react-router'
-import { getImgProps, images } from '#app/images.tsx'
-import { ArrowLink } from '../arrow-button.tsx'
+import { getImgProps, images } from '#app/images'
+import { ArrowLink } from '../arrow-button'
 import {
 	FullScreenYouTubeEmbed,
 	LiteYouTubeEmbed,
-} from '../fullscreen-yt-embed.tsx'
-import { Grid } from '../grid.tsx'
-import { H2, H3 } from '../typography.tsx'
+} from '../fullscreen-yt-embed'
+import { Grid } from '../grid'
+import { H2, H3 } from '../typography'
 
 function IntroductionSection() {
 	const [searchParams] = useSearchParams()

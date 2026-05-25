@@ -23,7 +23,7 @@ vi.mock('#app/utils/client.server', () => clientServerMocks)
 vi.mock('#app/utils/litefs-js.server', () => litefsServerMocks)
 vi.mock('#app/utils/prisma.server', () => prismaServerMocks)
 
-import { action, loader } from '../homework-completion.tsx'
+import { action, loader } from '../homework-completion'
 
 test('loader returns completion status for authenticated user', async () => {
 	vi.clearAllMocks()

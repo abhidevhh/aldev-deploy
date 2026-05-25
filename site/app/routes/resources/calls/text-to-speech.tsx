@@ -1,14 +1,14 @@
 import { clsx } from 'clsx'
 import * as React from 'react'
-import { data as json } from 'react-router'
-import { Button } from '#app/components/button.tsx'
-import { CharacterCountdown } from '#app/components/character-countdown.tsx'
+import { json } from 'react-router'
+import { Button } from '#app/components/button'
+import { CharacterCountdown } from '#app/components/character-countdown'
 import {
 	Field,
 	FieldContainer,
 	inputClassName,
-} from '#app/components/form-elements.tsx'
-import { Paragraph } from '#app/components/typography.tsx'
+} from '#app/components/form-elements'
+import { Paragraph } from '#app/components/typography'
 import {
 	AI_VOICE_DISCLOSURE_PREFIX,
 	abhiCallTextToSpeechConstraints,

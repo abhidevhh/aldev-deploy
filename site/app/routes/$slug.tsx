@@ -1,13 +1,13 @@
 import * as React from 'react'
 import { data as json, type HeadersFunction } from 'react-router'
 import { serverOnly$ } from 'vite-env-only/macros'
-import { BackLink } from '#app/components/arrow-button.tsx'
-import { BlurrableImage } from '#app/components/blurrable-image.tsx'
+import { BackLink } from '#app/components/arrow-button'
+import { BlurrableImage } from '#app/components/blurrable-image'
 import { GeneralErrorBoundary } from '#app/components/error-boundary'
-import { FourHundred, FourOhFour } from '#app/components/errors.tsx'
-import { Grid } from '#app/components/grid.tsx'
-import { H2, H6 } from '#app/components/typography.tsx'
-import { getImageBuilder, getImgProps } from '#app/images.tsx'
+import { FourHundred, FourOhFour } from '#app/components/errors'
+import { Grid } from '#app/components/grid'
+import { H2, H6 } from '#app/components/typography'
+import { getImageBuilder, getImgProps } from '#app/images'
 import { type KCDHandle } from '#app/types'
 import { getBlogRecommendations } from '#app/utils/blog.server'
 import {
@@ -15,7 +15,7 @@ import {
 	getBannerTitleProp,
 	mdxPageMeta,
 	useMdxComponent,
-} from '#app/utils/mdx.tsx'
+} from '#app/utils/mdx'
 import { requireValidSlug, reuseUsefulLoaderHeaders } from '#app/utils/misc'
 import { type NotFoundMatch } from '#app/utils/not-found-matches'
 import { getNotFoundSuggestions } from '#app/utils/not-found-suggestions.server'

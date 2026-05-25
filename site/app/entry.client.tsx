@@ -5,7 +5,7 @@ import { HydratedRouter } from 'react-router/dom'
 if (ENV.MODE === 'production' && ENV.SENTRY_DSN) {
 	void import('./utils/feature-gate').then(({ hasModernFeatureSet }) => {
 		if (hasModernFeatureSet()) {
-			void import('./utils/monitoring.client.tsx').then(({ init }) => init())
+			void import('./utils/monitoring.client').then(({ init }) => init())
 		}
 	})
 }

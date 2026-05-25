@@ -1,7 +1,7 @@
 // @vitest-environment node
 import { expect, test } from 'vitest'
 
-import { action } from '../promotification.tsx'
+import { action } from '../promotification'
 
 function makeRequest(formData: FormData) {
 	return new Request('http://localhost/resources/promotification', {

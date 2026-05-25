@@ -1,6 +1,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
-import { DatabaseSync } from 'node:sqlite'
+import Database from 'better-sqlite3'
 import {
 	type Cache,
 	cachified as baseCachified,
@@ -13,7 +13,7 @@ import { siteCacheReporter } from '#app/utils/cache-reporter.server'
 import { remember } from '@epic-web/remember'
 import { LRUCache } from 'lru-cache'
 import { getEnv } from '#app/utils/env'
-import { getInstanceInfo, getInstanceInfoSync } from './litefs-js.server.js'
+import { getInstanceInfo, getInstanceInfoSync } from './litefs-js.server'
 import { getUser } from './session.server'
 import { time, type Timings } from './timing.server'
 
@@ -23,11 +23,11 @@ export function getCacheDb() {
 	return cacheDb
 }
 
-function createDatabase(tryAgain = true): DatabaseSync {
+function createDatabase(tryAgain = true): Database.Database {
 	const cacheDatabasePath = getEnv().CACHE_DATABASE_PATH
 	const parentDir = path.dirname(cacheDatabasePath)
 	fs.mkdirSync(parentDir, { recursive: true })
-	const db = new DatabaseSync(cacheDatabasePath)
+	const db = new Database(cacheDatabasePath)
 	const { currentIsPrimary } = getInstanceInfoSync()
 	if (!currentIsPrimary) return db
 

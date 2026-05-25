@@ -26,31 +26,31 @@ import {
 	getDomainUrl,
 	getUrl,
 	removeTrailingSlash,
-} from '#app/utils/misc-react.tsx'
+} from '#app/utils/misc-react'
 import { type Route } from './+types/root'
-import { AppHotkeys } from './components/app-hotkeys.tsx'
-import { ArrowLink } from './components/arrow-button.tsx'
-import { ButtonLink } from './components/button.tsx'
-import { ErrorPage, FourHundred, FourOhFour } from './components/errors.tsx'
-import { Footer } from './components/Footer.tsx'
-import { Grimmacing } from './components/kifs.tsx'
-import { Navbar } from './components/Navbar.tsx'
-import { NotificationMessage } from './components/notification-message.tsx'
+import { AppHotkeys } from './components/app-hotkeys'
+import { ArrowLink } from './components/arrow-button'
+import { ButtonLink } from './components/button'
+import { ErrorPage, FourHundred, FourOhFour } from './components/errors'
+import { Footer } from './components/Footer'
+import { Grimmacing } from './components/kifs'
+import { Navbar } from './components/Navbar'
+import { NotificationMessage } from './components/notification-message'
 import {
 	Promotification,
 	PROMO_HIDDEN_COOKIE_VALUE,
 	createPromoHiddenSetCookieHeader,
 	getPromoCookieValue,
-} from './routes/resources/promotification.tsx'
-import { Spacer } from './components/spacer.tsx'
-import { TeamCircle } from './components/team-circle.tsx'
-import { getGenericSocialImage, illustrationImages, images } from './images.tsx'
+} from './routes/resources/promotification'
+import { Spacer } from './components/spacer'
+import { TeamCircle } from './components/team-circle'
+import { getGenericSocialImage, illustrationImages, images } from './images'
 import appStyles from './styles/app.css?url'
 import noScriptStyles from './styles/no-script.css?url'
 import proseStyles from './styles/prose.css?url'
 import tailwindStyles from './styles/tailwind.css?url'
 import vendorStyles from './styles/vendors.css?url'
-import { ClientHintCheck, getHints } from './utils/client-hints.tsx'
+import { ClientHintCheck, getHints } from './utils/client-hints'
 import { getClientSession } from './utils/client.server'
 import { getPublicEnv } from './utils/env.public'
 import { getLoginInfoSession } from './utils/login.server'
@@ -62,9 +62,9 @@ import {
 } from './utils/season-7-promotification'
 import { getSocialMetas } from './utils/seo'
 import { getSession } from './utils/session.server'
-import { TeamProvider, useTeam } from './utils/team-provider.tsx'
+import { TeamProvider, useTeam } from './utils/team-provider'
 import { getTheme } from './utils/theme.server'
-import { useTheme } from './utils/theme.tsx'
+import { useTheme } from './utils/theme'
 import {
 	getServerTimeHeader,
 	time,

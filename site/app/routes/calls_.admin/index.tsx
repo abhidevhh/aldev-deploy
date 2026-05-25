@@ -1,5 +1,5 @@
-import { MicrophoneIcon } from '#app/components/icons.tsx'
-import { H4, Paragraph } from '#app/components/typography.tsx'
+import { MicrophoneIcon } from '#app/components/icons'
+import { H4, Paragraph } from '#app/components/typography'
 import { type KCDHandle } from '#app/types'
 
 export const handle: KCDHandle = {

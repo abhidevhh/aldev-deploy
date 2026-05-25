@@ -14,7 +14,7 @@ import {
 	type LinkProps,
 } from 'react-router'
 import { type OptionalTeam, type User } from '#app/types'
-import { images } from '../images.tsx'
+import { images } from '../images'
 import { getOptionalTeam } from './misc'
 
 export * from './misc'

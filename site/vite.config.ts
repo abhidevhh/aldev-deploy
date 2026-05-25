@@ -13,20 +13,13 @@ export default defineConfig({
 		allowedHosts: ['aldev-deploy.onrender.com'],
 	},
 
-
 	resolve: {
 		extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json'],
 	},
+
 	ssr: {
-		noExternal: [
-			'@react-router',
-			'vite-env-only',
-		],
-		external: ['re2'],
-		target: 'node',
+		external: ['re2', 'better-sqlite3'],
 	},
-
-
 
 	plugins: [
 		cjsInterop({
@@ -49,16 +42,12 @@ export default defineConfig({
 		tsconfigPaths(),
 	],
 
-
 	build: {
+		target: 'node20',
 		sourcemap: false,
-		cssMinify: MODE === 'production',
 
 		rollupOptions: {
-			external: ['re2'],
-			output: {
-				manualChunks: undefined,
-			},
+			external: ['re2', 'better-sqlite3'],
 		},
 	},
 })

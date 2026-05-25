@@ -1,13 +1,13 @@
 import { clsx } from 'clsx'
 import { Link } from 'react-router'
-import { getImageBuilder, getImgProps } from '#app/images.tsx'
+import { getImageBuilder, getImgProps } from '#app/images'
 import { type MdxListItem, type Team } from '#app/types'
-import { getBannerAltProp, getBannerTitleProp } from '#app/utils/mdx.tsx'
+import { getBannerAltProp, getBannerTitleProp } from '#app/utils/mdx'
 import { useRootData } from '#app/utils/use-root-data'
-import { BlurrableImage } from './blurrable-image.tsx'
-import { ClipboardCopyButton } from './clipboard-copy-button.tsx'
-import { MissingSomething } from './kifs.tsx'
-import { H3 } from './typography.tsx'
+import { BlurrableImage } from './blurrable-image'
+import { ClipboardCopyButton } from './clipboard-copy-button'
+import { MissingSomething } from './kifs'
+import { H3 } from './typography'
 
 function ArticleCard({
 	leadingTeam,

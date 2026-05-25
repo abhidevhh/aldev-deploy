@@ -10,14 +10,14 @@ import {
 	type HeadersFunction,
 	type LinksFunction,
 } from 'react-router'
-import { ArrowLink, BackLink } from '#app/components/arrow-button.tsx'
-import { FourOhFour } from '#app/components/errors.tsx'
+import { ArrowLink, BackLink } from '#app/components/arrow-button'
+import { FourOhFour } from '#app/components/errors'
 import {
 	LiteYouTubeEmbed,
 	links as youTubeEmbedLinks,
-} from '#app/components/fullscreen-yt-embed.tsx'
-import { Grid } from '#app/components/grid.tsx'
-import { IconLink } from '#app/components/icon-link.tsx'
+} from '#app/components/fullscreen-yt-embed'
+import { Grid } from '#app/components/grid'
+import { IconLink } from '#app/components/icon-link'
 import {
 	ArrowIcon,
 	ChevronLeftIcon,
@@ -26,14 +26,14 @@ import {
 	GithubIcon,
 	PlusIcon,
 	XIcon,
-} from '#app/components/icons.tsx'
-import { FeaturedSection } from '#app/components/sections/featured-section.tsx'
-import { Spacer } from '#app/components/spacer.tsx'
-import { H2, H3, H6, Paragraph } from '#app/components/typography.tsx'
-import { getSocialImageWithPreTitle } from '#app/images.tsx'
-import { type RootLoaderType } from '#app/root.tsx'
-import { FavoriteToggle } from '#app/routes/resources/favorite.tsx'
-import { HomeworkCompletionToggle } from '#app/routes/resources/homework-completion.tsx'
+} from '#app/components/icons'
+import { FeaturedSection } from '#app/components/sections/featured-section'
+import { Spacer } from '#app/components/spacer'
+import { H2, H3, H6, Paragraph } from '#app/components/typography'
+import { getSocialImageWithPreTitle } from '#app/images'
+import { type RootLoaderType } from '#app/root'
+import { FavoriteToggle } from '#app/routes/resources/favorite'
+import { HomeworkCompletionToggle } from '#app/routes/resources/homework-completion'
 import {
 	type CWKEpisode,
 	type CWKListItem,
@@ -57,7 +57,7 @@ import {
 	reuseUsefulLoaderHeaders,
 	typedBoolean,
 	useCapturedRouteError,
-} from '#app/utils/misc-react.tsx'
+} from '#app/utils/misc-react'
 import { getClientSession } from '#app/utils/client.server'
 import {
 	getEpisodeHomeworkCompletions,
@@ -66,7 +66,7 @@ import {
 import { getSocialMetas } from '#app/utils/seo'
 import { type SerializeFrom } from '#app/utils/serialize-from'
 import { getUser } from '#app/utils/session.server'
-import { Themed } from '#app/utils/theme.tsx'
+import { Themed } from '#app/utils/theme'
 import { getServerTimeHeader } from '#app/utils/timing.server'
 import { useRootData } from '#app/utils/use-root-data'
 import { type Route } from './+types/$season.$episode_.$slug'

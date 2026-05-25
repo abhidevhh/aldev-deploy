@@ -6,11 +6,11 @@ import {
 	useParams,
 } from 'react-router'
 import { serverOnly$ } from 'vite-env-only/macros'
-import { ServerError } from '#app/components/errors.tsx'
-import { Grid } from '#app/components/grid.tsx'
-import { TriangleIcon } from '#app/components/icons.tsx'
-import { MissingSomething } from '#app/components/kifs.tsx'
-import { H3, Paragraph } from '#app/components/typography.tsx'
+import { ServerError } from '#app/components/errors'
+import { Grid } from '#app/components/grid'
+import { TriangleIcon } from '#app/components/icons'
+import { MissingSomething } from '#app/components/kifs'
+import { H3, Paragraph } from '#app/components/typography'
 import { type KCDHandle } from '#app/types'
 import { getAbhiEpisodePath } from '#app/utils/chats-with-abhi'
 import { orderBy } from '#app/utils/cjs/lodash'
@@ -19,8 +19,8 @@ import {
 	formatDuration,
 	reuseUsefulLoaderHeaders,
 	useCapturedRouteError,
-} from '#app/utils/misc-react.tsx'
-import { useChatsEpisodeUIState } from '#app/utils/providers.tsx'
+} from '#app/utils/misc-react'
+import { useChatsEpisodeUIState } from '#app/utils/providers'
 import { getServerTimeHeader } from '#app/utils/timing.server'
 import { type Route } from './+types/$season'
 

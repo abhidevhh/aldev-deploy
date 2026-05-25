@@ -1,5 +1,5 @@
 import { data as json, redirect, Form } from 'react-router'
-import { Button } from '#app/components/button.tsx'
+import { Button } from '#app/components/button'
 import { getEnv } from '#app/utils/env'
 import { requireUser } from '#app/utils/session.server'
 import { type Route } from './+types/oauth.authorize'

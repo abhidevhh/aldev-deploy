@@ -1,10 +1,10 @@
-import { data as json } from 'react-router'
+import { json } from 'react-router'
 import { cache } from '#app/utils/cache.server'
 import {
 	isRefreshShaInfo,
 	commitShaKey as refreshCacheCommitShaKey,
 	type RefreshShaInfo,
-} from './action/refresh-cache.tsx'
+} from './action/refresh-cache'
 
 export async function loader() {
 	const result = await cache.get(refreshCacheCommitShaKey)

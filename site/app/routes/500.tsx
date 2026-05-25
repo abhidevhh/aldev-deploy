@@ -1,8 +1,8 @@
 // this is just here to test the error page
 
-import { ServerError } from '#app/components/errors.tsx'
+import { ServerError } from '#app/components/errors'
 import { type KCDHandle } from '#app/types'
-import { useCapturedRouteError } from '#app/utils/misc-react.tsx'
+import { useCapturedRouteError } from '#app/utils/misc-react'
 
 export const handle: KCDHandle = {
 	getSitemapEntries: () => null,

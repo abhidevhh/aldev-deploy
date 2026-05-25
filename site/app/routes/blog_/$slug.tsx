@@ -7,19 +7,19 @@ import {
 	redirect,
 	useParams,
 } from 'react-router'
-import { ArrowLink, BackLink } from '#app/components/arrow-button.tsx'
-import { BlurrableImage } from '#app/components/blurrable-image.tsx'
-import { CourseCard } from '#app/components/course-card.tsx'
-import { GeneralErrorBoundary } from '#app/components/error-boundary.tsx'
-import { FourHundred, FourOhFour } from '#app/components/errors.tsx'
-import { Grid } from '#app/components/grid.tsx'
-import { BlogSection } from '#app/components/sections/blog-section.tsx'
-import { Spacer } from '#app/components/spacer.tsx'
-import { TeamStats } from '#app/components/team-stats.tsx'
-import { H2, H4, H6, Paragraph } from '#app/components/typography.tsx'
-import { externalLinks } from '#app/external-links.tsx'
-import { getImageBuilder, getImgProps, images } from '#app/images.tsx'
-import { FavoriteToggle } from '#app/routes/resources/favorite.tsx'
+import { ArrowLink, BackLink } from '#app/components/arrow-button'
+import { BlurrableImage } from '#app/components/blurrable-image'
+import { CourseCard } from '#app/components/course-card'
+import { GeneralErrorBoundary } from '#app/components/error-boundary'
+import { FourHundred, FourOhFour } from '#app/components/errors'
+import { Grid } from '#app/components/grid'
+import { BlogSection } from '#app/components/sections/blog-section'
+import { Spacer } from '#app/components/spacer'
+import { TeamStats } from '#app/components/team-stats'
+import { H2, H4, H6, Paragraph } from '#app/components/typography'
+import { externalLinks } from '#app/external-links'
+import { getImageBuilder, getImgProps, images } from '#app/images'
+import { FavoriteToggle } from '#app/routes/resources/favorite'
 import { type KCDHandle, type MdxListItem } from '#app/types'
 import {
 	getBlogReadRankings,
@@ -32,7 +32,7 @@ import {
 	getBannerTitleProp,
 	mdxPageMeta,
 	useMdxComponent,
-} from '#app/utils/mdx.tsx'
+} from '#app/utils/mdx'
 import {
 	formatNumber,
 	requireValidSlug,
@@ -42,10 +42,10 @@ import { type NotFoundMatch } from '#app/utils/not-found-matches'
 import { getNotFoundSuggestions } from '#app/utils/not-found-suggestions.server'
 import { prisma } from '#app/utils/prisma.server'
 import { getUser } from '#app/utils/session.server'
-import { teamEmoji, useTeam } from '#app/utils/team-provider.tsx'
+import { teamEmoji, useTeam } from '#app/utils/team-provider'
 import { getServerTimeHeader } from '#app/utils/timing.server'
 import { useRootData } from '#app/utils/use-root-data'
-import { markAsRead } from '../action/mark-as-read.tsx'
+import { markAsRead } from '../action/mark-as-read'
 import { type Route } from './+types/$slug'
 
 const handleId = 'blog-post'

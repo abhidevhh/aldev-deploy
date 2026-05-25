@@ -4,16 +4,16 @@ import * as React from 'react'
 import { assign, fromCallback, fromPromise, sendTo, setup } from 'xstate'
 import { type OptionalTeam } from '#app/types'
 import { assertNonNull, getOptionalTeam } from '#app/utils/misc'
-import { Button, LinkButton } from '../button.tsx'
-import { useInterval } from '../hooks/use-interval.tsx'
+import { Button, LinkButton } from '../button'
+import { useInterval } from '../hooks/use-interval'
 import {
 	MicrophoneIcon,
 	PauseIcon,
 	SquareIcon,
 	TriangleIcon,
-} from '../icons.tsx'
-import { Tag } from '../tag.tsx'
-import { Paragraph } from '../typography.tsx'
+} from '../icons'
+import { Tag } from '../tag'
+import { Paragraph } from '../typography'
 
 // Play around with these values to affect the audio visualisation.
 // Should be able to stream the visualisation back no problem.

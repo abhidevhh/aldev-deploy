@@ -25,7 +25,7 @@ vi.mock('react-router', async () => {
 	}
 })
 
-import { useCapturedRouteError } from '../misc-react.tsx'
+import { useCapturedRouteError } from '../misc-react'
 
 function TestComponent() {
 	useCapturedRouteError()

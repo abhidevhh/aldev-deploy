@@ -59,7 +59,7 @@ test('does not cache audio bytes; repeated requests invoke workers ai', async ()
 	synthesizeSpeechWithWorkersAi.mockClear()
 	rateLimit.mockClear()
 
-	const { action } = await import('../text-to-speech.tsx')
+	const { action } = await import('../text-to-speech')
 
 	const req1 = makeRequest({
 		text: 'Hello from the cache test message.',
@@ -88,7 +88,7 @@ test('validates normalized question text before synthesis', async () => {
 	synthesizeSpeechWithWorkersAi.mockClear()
 	rateLimit.mockClear()
 
-	const { action } = await import('../text-to-speech.tsx')
+	const { action } = await import('../text-to-speech')
 
 	const req = makeRequest({
 		text: 'hello               you',
@@ -131,7 +131,7 @@ test('falls back to audio/mpeg when workers ai omits content type', async () => 
 		},
 	)
 
-	const { action } = await import('../text-to-speech.tsx')
+	const { action } = await import('../text-to-speech')
 
 	const req = makeRequest({
 		text: 'This request should still produce an audio response.',

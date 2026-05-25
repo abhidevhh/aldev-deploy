@@ -6,10 +6,10 @@ import {
 	Link,
 	useAsyncError,
 } from 'react-router'
-import { ArrowLink } from '#app/components/arrow-button.tsx'
-import { ErrorPanel } from '#app/components/form-elements.tsx'
-import { PartyIcon, RefreshIcon } from '#app/components/icons.tsx'
-import { externalLinks } from '#app/external-links.tsx'
+import { ArrowLink } from '#app/components/arrow-button'
+import { ErrorPanel } from '#app/components/form-elements'
+import { PartyIcon, RefreshIcon } from '#app/components/icons'
+import { externalLinks } from '#app/external-links'
 import { tagKCDSiteSubscriber } from '#app/kit/kit.server'
 import { type KCDHandle } from '#app/types'
 import { connectDiscord } from '#app/utils/discord.server'

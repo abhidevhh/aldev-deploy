@@ -1,4 +1,4 @@
-import { AppleIcon, PocketCastsIcon, RssIcon, SpotifyIcon } from './icons.tsx'
+import { AppleIcon, PocketCastsIcon, RssIcon, SpotifyIcon } from './icons'
 
 function PodcastAppLink({
 	icon,

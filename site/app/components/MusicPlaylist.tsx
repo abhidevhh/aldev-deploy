@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { PlayIcon, PauseIcon, ChevronLeftIcon, ChevronRightIcon } from './icons.tsx'
+import { PlayIcon, PauseIcon, ChevronLeftIcon, ChevronRightIcon } from './icons'
 
 const tracks = [
   { name: 'Pulse Runner', src: '/music/Pulse Runner .mp3' },

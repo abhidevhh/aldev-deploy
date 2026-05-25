@@ -4,7 +4,7 @@ import * as React from 'react'
 import { useFetcher } from 'react-router'
 
 import { z } from 'zod'
-import { useHints } from './client-hints.tsx'
+import { useHints } from './client-hints'
 import { useRequestInfo } from './request-info'
 
 enum Theme {

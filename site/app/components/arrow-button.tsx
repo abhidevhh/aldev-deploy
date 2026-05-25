@@ -4,9 +4,9 @@ import { Link, type LinkProps } from 'react-router'
 import {
 	useElementState,
 	type ElementState,
-} from './hooks/use-element-state.tsx'
-import { ArrowIcon } from './icons.tsx'
-import { H6 } from './typography.tsx'
+} from './hooks/use-element-state'
+import { ArrowIcon } from './icons'
+import { H6 } from './typography'
 
 type ArrowIconProps = React.ComponentProps<typeof ArrowIcon>
 

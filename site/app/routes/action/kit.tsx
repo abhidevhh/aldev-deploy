@@ -1,9 +1,9 @@
 import { Link } from 'react-router'
 import { CloudinaryVideo } from '#app/components/cloudinary-video'
-import { Grid } from '#app/components/grid.tsx'
-import { HeroSection } from '#app/components/sections/hero-section.tsx'
-import { Spacer } from '#app/components/spacer.tsx'
-import { Paragraph } from '#app/components/typography.tsx'
+import { Grid } from '#app/components/grid'
+import { HeroSection } from '#app/components/sections/hero-section'
+import { Spacer } from '#app/components/spacer'
+import { Paragraph } from '#app/components/typography'
 import { handleKitFormSubmission } from '#app/kit/remix.server'
 import { type Route } from './+types/kit'
 

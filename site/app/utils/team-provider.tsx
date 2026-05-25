@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { isTeam, type OptionalTeam } from './misc'
-import { createSimpleContext } from './providers.tsx'
+import { createSimpleContext } from './providers'
 import { useRootData } from './use-root-data'
 
 const { Provider: TeamProviderBase, useValue: useTeam } =

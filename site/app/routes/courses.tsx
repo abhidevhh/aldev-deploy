@@ -4,15 +4,15 @@ import {
 	type MetaFunction,
 	Link,
 } from 'react-router'
-import { ArrowLink } from '#app/components/arrow-button.tsx'
-import { CourseCard, SmallCourseCard } from '#app/components/course-card.tsx'
-import { Grid } from '#app/components/grid.tsx'
-import { HeroSection } from '#app/components/sections/hero-section.tsx'
-import { TestimonialSection } from '#app/components/sections/testimonial-section.tsx'
-import { Spacer } from '#app/components/spacer.tsx'
-import { H2, H6, Paragraph } from '#app/components/typography.tsx'
-import { getGenericSocialImage, getImgProps, images } from '#app/images.tsx'
-import { type RootLoaderType } from '#app/root.tsx'
+import { ArrowLink } from '#app/components/arrow-button'
+import { CourseCard, SmallCourseCard } from '#app/components/course-card'
+import { Grid } from '#app/components/grid'
+import { HeroSection } from '#app/components/sections/hero-section'
+import { TestimonialSection } from '#app/components/sections/testimonial-section'
+import { Spacer } from '#app/components/spacer'
+import { H2, H6, Paragraph } from '#app/components/typography'
+import { getGenericSocialImage, getImgProps, images } from '#app/images'
+import { type RootLoaderType } from '#app/root'
 import {
 	getDisplayUrl,
 	getUrl,

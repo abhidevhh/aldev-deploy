@@ -8,18 +8,18 @@ import {
 	useRevalidator,
 	useSubmit,
 } from 'react-router'
-import { Button } from '#app/components/button.tsx'
-import { CallRecorder } from '#app/components/calls/recorder.tsx'
+import { Button } from '#app/components/button'
+import { CallRecorder } from '#app/components/calls/recorder'
 import {
 	getNavigationPathFromResponse,
 	recordingFormActionPath,
-} from '#app/components/calls/recording-form.tsx'
-import { useInterval } from '#app/components/hooks/use-interval.tsx'
-import { MailIcon } from '#app/components/icons.tsx'
-import { Spinner } from '#app/components/spinner.tsx'
-import { H4, H6, Paragraph } from '#app/components/typography.tsx'
+} from '#app/components/calls/recording-form'
+import { useInterval } from '#app/components/hooks/use-interval'
+import { MailIcon } from '#app/components/icons'
+import { Spinner } from '#app/components/spinner'
+import { H4, H6, Paragraph } from '#app/components/typography'
 import { type KCDHandle } from '#app/types'
-import { formatDate, useDoubleCheck } from '#app/utils/misc-react.tsx'
+import { formatDate, useDoubleCheck } from '#app/utils/misc-react'
 import { prisma } from '#app/utils/prisma.server'
 import { type SerializeFrom } from '#app/utils/serialize-from'
 import { requireAdminUser } from '#app/utils/session.server'

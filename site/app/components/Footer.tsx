@@ -1,13 +1,13 @@
 import { Link } from 'react-router'
-import { getImgProps, type ImageBuilder } from '#app/images.tsx'
-import { AnchorOrLink } from '#app/utils/misc-react.tsx'
+import { getImgProps, type ImageBuilder } from '#app/images'
+import { AnchorOrLink } from '#app/utils/misc-react'
 import { useRootData } from '#app/utils/use-root-data'
-import { externalLinks } from '../external-links.tsx'
-import { KitForm } from '../kit/form.tsx'
-import { IconLink } from './icon-link.tsx'
-import { ArrowIcon, GithubIcon, RssIcon, XIcon, YoutubeIcon } from './icons.tsx'
-import { Signature } from './signature.tsx'
-import { H4, H6, Paragraph } from './typography.tsx'
+import { externalLinks } from '../external-links'
+import { KitForm } from '../kit/form'
+import { IconLink } from './icon-link'
+import { ArrowIcon, GithubIcon, RssIcon, XIcon, YoutubeIcon } from './icons'
+import { Signature } from './signature'
+import { H4, H6, Paragraph } from './typography'
 
 function NewsletterSection() {
 	return (

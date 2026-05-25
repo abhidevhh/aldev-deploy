@@ -7,13 +7,13 @@ import {
 	type HeadersFunction,
 } from 'react-router'
 import { z } from 'zod'
-import { SpinnerIcon, StarIcon } from '#app/components/icons.tsx'
+import { SpinnerIcon, StarIcon } from '#app/components/icons'
 import {
 	Tooltip,
 	TooltipContent,
 	TooltipProvider,
 	TooltipTrigger,
-} from '#app/components/ui/tooltip.tsx'
+} from '#app/components/ui/tooltip'
 import {
 	favoriteContentTypes,
 	favoriteIntents,

@@ -1,11 +1,11 @@
 import { clsx } from 'clsx'
-import { getImgProps, type ImageBuilder } from '#app/images.tsx'
+import { getImgProps, type ImageBuilder } from '#app/images'
 import { type Team } from '#app/types'
-import { ArrowLink } from '../arrow-button.tsx'
-import { BlurrableImage } from '../blurrable-image.tsx'
-import { ClipboardCopyButton } from '../clipboard-copy-button.tsx'
-import { Grid } from '../grid.tsx'
-import { H2, H6 } from '../typography.tsx'
+import { ArrowLink } from '../arrow-button'
+import { BlurrableImage } from '../blurrable-image'
+import { ClipboardCopyButton } from '../clipboard-copy-button'
+import { Grid } from '../grid'
+import { H2, H6 } from '../typography'
 
 type FeaturedSectionProps = {
 	caption?: string

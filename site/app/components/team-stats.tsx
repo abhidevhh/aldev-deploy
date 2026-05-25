@@ -2,10 +2,10 @@ import { clsx } from 'clsx'
 import { motion, useReducedMotion } from 'framer-motion'
 import * as React from 'react'
 import { Link } from 'react-router'
-import { abhiBuddyProfiles } from '#app/images.tsx'
+import { abhiBuddyProfiles } from '#app/images'
 import { type Team } from '#app/types'
 import { formatNumber, getOptionalTeam } from '#app/utils/misc'
-import { useTeam } from '#app/utils/team-provider.tsx'
+import { useTeam } from '#app/utils/team-provider'
 import { useOptionalUser, useRootData } from '#app/utils/use-root-data'
 
 const barColors: Record<Team, string> = {

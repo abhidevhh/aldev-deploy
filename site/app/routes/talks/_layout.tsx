@@ -9,19 +9,19 @@ import {
 	type HeadersFunction,
 	type MetaFunction,
 } from 'react-router'
-import { ButtonLink } from '#app/components/button.tsx'
-import { Grid } from '#app/components/grid.tsx'
-import { YoutubeIcon } from '#app/components/icons.tsx'
-import { CourseSection } from '#app/components/sections/course-section.tsx'
-import { HeroSection } from '#app/components/sections/hero-section.tsx'
-import { Tag } from '#app/components/tag.tsx'
-import { H3, H4, H6, Paragraph } from '#app/components/typography.tsx'
-import { getGenericSocialImage, images } from '#app/images.tsx'
-import { type RootLoaderType } from '#app/root.tsx'
+import { ButtonLink } from '#app/components/button'
+import { Grid } from '#app/components/grid'
+import { YoutubeIcon } from '#app/components/icons'
+import { CourseSection } from '#app/components/sections/course-section'
+import { HeroSection } from '#app/components/sections/hero-section'
+import { Tag } from '#app/components/tag'
+import { H3, H4, H6, Paragraph } from '#app/components/typography'
+import { getGenericSocialImage, images } from '#app/images'
+import { type RootLoaderType } from '#app/root'
 import {
 	FavoriteToggle,
 	favoriteResourceRoute,
-} from '#app/routes/resources/favorite.tsx'
+} from '#app/routes/resources/favorite'
 import {
 	formatDate,
 	getDisplayUrl,
@@ -30,8 +30,8 @@ import {
 	parseDate,
 	reuseUsefulLoaderHeaders,
 	useUpdateQueryStringValueWithoutNavigation,
-} from '#app/utils/misc-react.tsx'
-import { externalLinks } from '#app/external-links.tsx'
+} from '#app/utils/misc-react'
+import { externalLinks } from '#app/external-links'
 import { getSocialMetas } from '#app/utils/seo'
 import { type SerializeFrom } from '#app/utils/serialize-from'
 import { getTalksAndTags } from '#app/utils/talks.server'

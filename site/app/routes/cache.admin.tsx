@@ -7,15 +7,15 @@ import {
 	useSearchParams,
 	useSubmit,
 } from 'react-router'
-import { Button } from '#app/components/button.tsx'
+import { Button } from '#app/components/button'
 import {
 	Field,
 	FieldContainer,
 	inputClassName,
-} from '#app/components/form-elements.tsx'
-import { SearchIcon } from '#app/components/icons.tsx'
-import { Spacer } from '#app/components/spacer.tsx'
-import { H2, H3 } from '#app/components/typography.tsx'
+} from '#app/components/form-elements'
+import { SearchIcon } from '#app/components/icons'
+import { Spacer } from '#app/components/spacer'
+import { H2, H3 } from '#app/components/typography'
 import {
 	cache,
 	getAllCacheKeys,
@@ -31,7 +31,7 @@ import {
 	useDebounce,
 	useDoubleCheck,
 	useCapturedRouteError,
-} from '#app/utils/misc-react.tsx'
+} from '#app/utils/misc-react'
 import { requireAdminUser } from '#app/utils/session.server'
 import { type Route } from './+types/cache.admin'
 

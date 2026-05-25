@@ -9,31 +9,31 @@ import {
 	type LinksFunction,
 	type MetaFunction,
 } from 'react-router'
-import { ArrowLink } from '#app/components/arrow-button.tsx'
-import { ArticleCard } from '#app/components/article-card.tsx'
-import { Button, ButtonLink } from '#app/components/button.tsx'
-import { ServerError } from '#app/components/errors.tsx'
-import { Grid } from '#app/components/grid.tsx'
+import { ArrowLink } from '#app/components/arrow-button'
+import { ArticleCard } from '#app/components/article-card'
+import { Button, ButtonLink } from '#app/components/button'
+import { ServerError } from '#app/components/errors'
+import { Grid } from '#app/components/grid'
 import {
 	ChevronDownIcon,
 	PlusIcon,
 	RssIcon,
 	SearchIcon,
-} from '#app/components/icons.tsx'
-import { FeaturedSection } from '#app/components/sections/featured-section.tsx'
-import { HeroSection } from '#app/components/sections/hero-section.tsx'
-import { Spacer } from '#app/components/spacer.tsx'
-import { Tag } from '#app/components/tag.tsx'
-import { TeamStats } from '#app/components/team-stats.tsx'
-import { H2, H3, H4, H6, Paragraph } from '#app/components/typography.tsx'
+} from '#app/components/icons'
+import { FeaturedSection } from '#app/components/sections/featured-section'
+import { HeroSection } from '#app/components/sections/hero-section'
+import { Spacer } from '#app/components/spacer'
+import { Tag } from '#app/components/tag'
+import { TeamStats } from '#app/components/team-stats'
+import { H2, H3, H4, H6, Paragraph } from '#app/components/typography'
 import {
 	getImageBuilder,
 	getImgProps,
 	getSocialImageWithPreTitle,
 	images,
-} from '#app/images.tsx'
-import { externalLinks } from '#app/external-links.tsx'
-import { type RootLoaderType } from '#app/root.tsx'
+} from '#app/images'
+import { externalLinks } from '#app/external-links'
+import { type RootLoaderType } from '#app/root'
 import { type KCDHandle, type Team } from '#app/types'
 import {
 	getAllBlogPostReadRankings,
@@ -46,7 +46,7 @@ import {
 } from '#app/utils/blog.server'
 import { filterPosts, getRankingLeader } from '#app/utils/blog'
 import { getBlogMdxListItems } from '#app/utils/mdx.server'
-import { getBannerAltProp } from '#app/utils/mdx.tsx'
+import { getBannerAltProp } from '#app/utils/mdx'
 import {
 	formatAbbreviatedNumber,
 	formatNumber,
@@ -56,10 +56,10 @@ import {
 	reuseUsefulLoaderHeaders,
 	useUpdateQueryStringValueWithoutNavigation,
 	useCapturedRouteError,
-} from '#app/utils/misc-react.tsx'
+} from '#app/utils/misc-react'
 import { getSocialMetas } from '#app/utils/seo'
 import { type SerializeFrom } from '#app/utils/serialize-from'
-import { useTeam } from '#app/utils/team-provider.tsx'
+import { useTeam } from '#app/utils/team-provider'
 import { getServerTimeHeader } from '#app/utils/timing.server'
 import { useRootData } from '#app/utils/use-root-data'
 import { type Route } from './+types/blog'
